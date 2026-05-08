@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala de Neg&oacute;cios | Fillipe Holding</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="prefetch" href="Proposta_Executiva_Veneza/index.html">
+    <link rel="prefetch" href="Proposta_Executiva_Oschin/index.html">
+    <link rel="prefetch" href="Proposta_Executiva_Villa_Leta/index.html">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --cf-bg: #0c0f16;
+            --cf-panel: rgba(20, 24, 34, 0.9);
+            --cf-panel-strong: rgba(26, 31, 42, 0.96);
+            --cf-line: rgba(255, 255, 255, 0.1);
+            --cf-muted: #9099aa;
+            --cf-cyan: #38e8f2;
+            --cf-accent-soft: #8ea4b8;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #f8fbff;
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at 18% 20%, rgba(56, 232, 242, 0.08), transparent 26%),
+                linear-gradient(180deg, #101520 0%, #0c0f16 48%, #0e141f 100%);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -3;
+            background:
+                linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px),
+                linear-gradient(180deg, rgba(255,255,255,0.014) 1px, transparent 1px);
+            background-size: 96px 96px;
+            opacity: 0.48;
+        }
+
+        .bg-grid {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+            background-image:
+                linear-gradient(to right, rgba(43, 243, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+            background-size: 168px 168px;
+            mask-image: linear-gradient(to bottom, transparent 0%, black 22%, black 74%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 22%, black 74%, transparent 100%);
+        }
+
+        .page-transition {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            opacity: 0;
+            background: #0c0f16;
+            transition: opacity 0.16s ease;
+        }
+
+        .page-transition.is-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .page-transition::after {
+            content: '';
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(56, 232, 242, 0.18);
+            border-top-color: rgba(56, 232, 242, 0.9);
+            border-radius: 999px;
+            animation: transition-spin 0.78s linear infinite;
+        }
+
+        @keyframes transition-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .document-meta {
+            color: #7f8a9b;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .icon-loading {
+            animation: spin-fluid 1.2s cubic-bezier(0.68, -0.05, 0.27, 1.05) infinite;
+        }
+
+        @keyframes spin-fluid {
+            0% { transform: rotate(0deg) scale(0.95); }
+            50% { transform: rotate(180deg) scale(1.05); }
+            100% { transform: rotate(360deg) scale(0.95); }
+        }
+
+        .pulse-dot {
+            animation: pulse-opacity 0.6s ease-in-out infinite alternate;
+        }
+
+        .pulse-dot:nth-child(2) { animation-delay: 0.2s; }
+        .pulse-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes pulse-opacity {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .text-container {
+            opacity: 0;
+            filter: blur(12px);
+            transform: translateX(-42px) scale(0.96);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .text-revealed {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0) scale(1);
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0;
+            border-radius: 0;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            color: #98a4b6;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .hero-kicker::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--cf-cyan);
+            box-shadow: 0 0 12px rgba(56,232,242,0.45);
+        }
+
+        .accent-text {
+            background: linear-gradient(100deg, #dce8f4 0%, var(--cf-cyan) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .divider-accent {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.13), rgba(56,232,242,0.14), transparent);
+        }
+
+        .hub-card {
+            position: relative;
+            display: flex;
+            min-height: 318px;
+            flex-direction: column;
+            gap: 16px;
+            overflow: hidden;
+            padding: 32px;
+            border: 1px solid rgba(255,255,255,0.105);
+            border-radius: 8px;
+            background: linear-gradient(180deg, rgba(24, 29, 40, 0.96), rgba(17, 21, 31, 0.96));
+            box-shadow: 0 24px 70px -42px rgba(0,0,0,0.95);
+            text-decoration: none;
+            backdrop-filter: blur(20px);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .hub-card::before {
+            content: '';
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 2px;
+            opacity: 0;
+            background: linear-gradient(90deg, transparent, rgba(56,232,242,0.42), transparent);
+            transition: opacity 0.3s ease;
+        }
+
+        .hub-card::after {
+            content: '';
+            position: absolute;
+            right: -90px;
+            bottom: -120px;
+            width: 220px;
+            height: 220px;
+            border-radius: 999px;
+            opacity: 0.04;
+            background: currentColor;
+            filter: blur(48px);
+        }
+
+        .hub-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56,232,242,0.28);
+            box-shadow: 0 24px 80px -44px rgba(56,232,242,0.22);
+        }
+
+        .hub-card:hover::before { opacity: 1; }
+
+        .card-veneza,
+        .card-oschin,
+        .card-villaleta { color: var(--cf-cyan); }
+
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.045);
+            color: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .hub-card:hover .icon-box { transform: scale(1.08); }
+
+        .pill-glass {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 6px 12px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.06);
+            color: #cfd7e6;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            backdrop-filter: blur(8px);
+        }
+
+        .feature-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 9px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            background: rgba(255,255,255,0.055);
+            color: #aeb8ca;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 640px) {
+            .hub-card { min-height: 0; padding: 24px; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+    <div class="bg-grid"></div>
+    <div id="page-transition" class="page-transition" aria-hidden="true"></div>
+
+    <svg class="hidden" aria-hidden="true">
+        <defs>
+            <filter id="goo" width="300%" height="300%" x="-100%" y="-100%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
+
+    <header class="w-full">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-8 md:py-10">
+            <div class="relative z-10 flex items-center">
+                <div id="icon-wrapper" class="z-20 transition-all duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)]">
+                    <div id="icon-anim" class="icon-loading -mt-1 mr-3 h-10 w-10 origin-center md:h-12 md:w-12">
+                        <svg viewBox="0 0 120 120" class="h-full w-full overflow-visible drop-shadow-[0_0_18px_rgba(43,243,255,0.38)]">
+                            <g fill="#2BF3FF">
+                                <g filter="url(#goo)">
+                                    <circle cx="45" cy="30" r="13" />
+                                    <circle cx="45" cy="70" r="13" />
+                                    <line x1="45" y1="30" x2="45" y2="70" stroke="#2BF3FF" stroke-width="8" stroke-linecap="round" />
+                                </g>
+                                <circle class="pulse-dot origin-[18px_50px]" cx="18" cy="50" r="8.5" />
+                                <circle class="pulse-dot origin-[45px_96px]" cx="45" cy="96" r="8.5" />
+                                <circle class="pulse-dot origin-[45px_113px]" cx="45" cy="113" r="3.5" />
+                            </g>
+                            <g fill="#2BF3FF">
+                                <g filter="url(#goo)">
+                                    <circle cx="75" cy="50" r="13" />
+                                    <circle cx="75" cy="90" r="13" />
+                                    <line x1="75" y1="50" x2="75" y2="90" stroke="#2BF3FF" stroke-width="8" stroke-linecap="round" />
+                                </g>
+                                <circle class="pulse-dot origin-[102px_70px]" cx="102" cy="70" r="8.5" />
+                                <circle class="pulse-dot origin-[75px_24px]" cx="75" cy="24" r="8.5" />
+                                <circle class="pulse-dot origin-[75px_7px]" cx="75" cy="7" r="3.5" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div id="text-anim" class="text-container mt-0.5 flex flex-col">
+                    <span class="text-2xl font-black uppercase leading-none tracking-[-0.06em] text-white md:text-3xl">Creative<span class="text-[#2bf3ff]">Flow</span></span>
+                    <span class="mt-1 text-[8px] font-bold uppercase tracking-[0.35em] text-[#6d7789] md:text-[9px]">Intelligence Agency</span>
+                </div>
+            </div>
+            <div class="document-meta hidden text-right sm:block">
+                Documento confidencial<br>
+                Fillipe Holding &middot; Maio 2026
+            </div>
+        </div>
+    </header>
+
+    <main class="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-12 pt-8 md:pb-16 md:pt-14">
+        <section class="mx-auto mb-12 max-w-3xl text-center md:mb-14">
+            <div class="hero-kicker mb-8">Hub de or&ccedil;amentos &middot; Fillipe Holding</div>
+            <h1 class="mb-6 text-4xl font-black leading-[1.02] tracking-[-0.052em] text-white md:text-6xl">
+                Or&ccedil;amentos<br>
+                <span class="accent-text">CreativeFlow</span>
+            </h1>
+            <p class="mx-auto max-w-2xl text-base leading-relaxed text-[#c4ccd8] md:text-lg">
+                Selecione abaixo o or&ccedil;amento que deseja analisar. Cada documento foi separado por unidade de neg&oacute;cio para manter escopo, investimento e decis&atilde;o comercial sem conflito.
+            </p>
+        </section>
+
+        <div class="divider-accent mb-10 w-full"></div>
+
+        <section id="propostas" class="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <a href="Proposta_Executiva_Veneza/index.html" class="hub-card card-veneza group">
+                <div class="flex items-start justify-between">
+                    <div class="icon-box">
+                        <i data-lucide="building-2" class="h-5 w-5"></i>
+                    </div>
+                    <span class="pill-glass">Abrir</span>
+                </div>
+
+                <div class="mt-3">
+                    <p class="mb-3 text-[10px] font-black uppercase tracking-[0.24em] text-current">Or&ccedil;amento 01 &middot; CF-VNZ-2026</p>
+                    <h2 class="mb-3 text-2xl font-black tracking-[-0.04em] text-white">Veneza Contabilidade</h2>
+                    <p class="mb-5 text-sm leading-relaxed text-[#a7b0c2]">
+                        Site institucional, cofre digital e painel admin master com prote&ccedil;&atilde;o n&iacute;vel banc&aacute;rio.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="feature-tag"><i data-lucide="monitor" class="h-3 w-3"></i> Site B2B</span>
+                        <span class="feature-tag"><i data-lucide="lock" class="h-3 w-3"></i> Cofre Digital</span>
+                        <span class="feature-tag"><i data-lucide="app-window" class="h-3 w-3"></i> Admin</span>
+                    </div>
+                </div>
+
+                <div class="mt-auto flex items-center justify-between border-t border-white/10 pt-6">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6d7789]">Proposta individual</span>
+                    <span class="flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-current opacity-0 transition-all duration-300 group-hover:opacity-100">
+                        Acessar <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="Proposta_Executiva_Oschin/index.html" class="hub-card card-oschin group">
+                <div class="flex items-start justify-between">
+                    <div class="icon-box">
+                        <i data-lucide="trees" class="h-5 w-5"></i>
+                    </div>
+                    <span class="pill-glass">Abrir</span>
+                </div>
+
+                <div class="mt-3">
+                    <p class="mb-3 text-[10px] font-black uppercase tracking-[0.24em] text-current">Or&ccedil;amento 02 &middot; CF-OSC-2026</p>
+                    <h2 class="mb-3 text-2xl font-black tracking-[-0.04em] text-white">Parque Oschin</h2>
+                    <p class="mb-5 text-sm leading-relaxed text-[#a7b0c2]">
+                        Plataforma tur&iacute;stica de alta convers&atilde;o com site, conte&uacute;do, SEO local e base para vendas.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="feature-tag"><i data-lucide="globe" class="h-3 w-3"></i> Site Turismo</span>
+                        <span class="feature-tag"><i data-lucide="bar-chart-2" class="h-3 w-3"></i> Admin</span>
+                        <span class="feature-tag"><i data-lucide="ticket" class="h-3 w-3"></i> Ingressos</span>
+                    </div>
+                </div>
+
+                <div class="mt-auto flex items-center justify-between border-t border-white/10 pt-6">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6d7789]">Proposta individual</span>
+                    <span class="flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-current opacity-0 transition-all duration-300 group-hover:opacity-100">
+                        Acessar <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="Proposta_Executiva_Villa_Leta/index.html" class="hub-card card-villaleta group">
+                <div class="flex items-start justify-between">
+                    <div class="icon-box">
+                        <i data-lucide="crown" class="h-5 w-5"></i>
+                    </div>
+                    <span class="pill-glass">Abrir</span>
+                </div>
+
+                <div class="mt-3">
+                    <p class="mb-3 text-[10px] font-black uppercase tracking-[0.24em] text-current">Or&ccedil;amento 03 &middot; CF-VLT-2026</p>
+                    <h2 class="mb-3 text-2xl font-black tracking-[-0.04em] text-white">Villa Leta</h2>
+                    <p class="mb-5 text-sm leading-relaxed text-[#a7b0c2]">
+                        Plataforma digital imersiva com experi&ecirc;ncia tem&aacute;tica, conte&uacute;do e motor de atra&ccedil;&atilde;o.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="feature-tag"><i data-lucide="globe" class="h-3 w-3"></i> Site Imersivo</span>
+                        <span class="feature-tag"><i data-lucide="bar-chart-2" class="h-3 w-3"></i> Admin</span>
+                        <span class="feature-tag"><i data-lucide="sparkles" class="h-3 w-3"></i> Tem&aacute;tico</span>
+                    </div>
+                </div>
+
+                <div class="mt-auto flex items-center justify-between border-t border-white/10 pt-6">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6d7789]">Proposta individual</span>
+                    <span class="flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-current opacity-0 transition-all duration-300 group-hover:opacity-100">
+                        Acessar <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                    </span>
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <footer class="mx-auto w-full max-w-6xl px-6 pb-8">
+        <div class="divider-accent mb-6 w-full"></div>
+        <div class="flex flex-col gap-4 text-[10px] font-bold uppercase tracking-[0.14em] text-[#6d7789] md:flex-row md:items-center md:justify-between">
+            <span>&copy; 2026 &middot; CNPJ 65.986.666/0001-06 &middot; CREATIVE FLOW TECNOLOGIA LTDA</span>
+            <span class="inline-flex items-center gap-2"><i data-lucide="shield-check" class="h-4 w-4 text-[#2bf3ff]"></i> Documento protegido &middot; FH-HUB-2026</span>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        setTimeout(() => {
+            const iconAnim = document.getElementById('icon-anim');
+            if (iconAnim) iconAnim.classList.remove('icon-loading');
+        }, 2400);
+
+        setTimeout(() => {
+            const textAnim = document.getElementById('text-anim');
+            if (textAnim) textAnim.classList.add('text-revealed');
+        }, 600);
+
+        document.querySelectorAll('a.hub-card[href]').forEach((card) => {
+            card.addEventListener('click', (event) => {
+                const href = card.getAttribute('href');
+                if (!href || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || card.target === '_blank') return;
+
+                event.preventDefault();
+                const overlay = document.getElementById('page-transition');
+                if (overlay) overlay.classList.add('is-active');
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 110);
+            });
+        });
+    </script>
+</body>
+</html>
