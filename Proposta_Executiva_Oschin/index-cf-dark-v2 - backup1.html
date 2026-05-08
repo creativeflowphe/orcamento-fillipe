@@ -1,0 +1,2146 @@
+<!-- 
+  ══════════════════════════════════════════════════════════════
+  ⚠️  ATENÇÃO ANA — REGRA PERMANENTE
+  Este arquivo é HTML puro (zero dependências de Node/npm/servidor).
+  NÃO suba servidor (Live Server, http-server, etc.) para visualizar.
+  Abrir diretamente no browser via: file:/// ou clicar 2x no arquivo.
+  ══════════════════════════════════════════════════════════════
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Comercial | Creative Flow - Parque Oschin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] } } } }
+    </script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        body {
+            background: #EDE8DC;
+            color: #A1A1AA;
+            overflow: hidden;
+            height: 100vh;
+            max-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased
+        }
+
+        .bg-pattern {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 50% at 15% 0%, rgba(200, 170, 110, .18) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 85% 100%, rgba(180, 150, 90, .12) 0%, transparent 55%);
+            z-index: -1
+        }
+
+        .slide-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+            transform-origin: center
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            background: #111;
+            border-radius: 16px;
+            box-shadow: 0 4px 40px -8px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .06);
+            width: 90%;
+            max-width: 1120px;
+            height: 84vh;
+            max-height: 820px;
+            padding: 2.5rem 3rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .5s cubic-bezier(.4, 0, .2, 1);
+            transform: translateY(24px);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0)
+        }
+
+        .slide.prev {
+            transform: translateY(-24px)
+        }
+
+        /* Document-style cards with colored left border */
+        .doc-card {
+            background: #161616;
+            border: 1px solid #1F1F1F;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+            transition: all .25s ease
+        }
+
+        .doc-card:hover {
+            box-shadow: 0 8px 24px -8px rgba(99, 102, 241, .12);
+            border-color: #2A2A2A
+        }
+
+        .doc-card-indigo {
+            border-left: 3px solid #4F46E5
+        }
+
+        .doc-card-violet {
+            border-left: 3px solid #6D28D9
+        }
+
+        .doc-card-dark {
+            border-left: 3px solid #52525B
+        }
+
+        .doc-card-emerald {
+            border-left: 3px solid #059669
+        }
+
+        /* Accent */
+        .accent-gradient {
+            background: linear-gradient(135deg, #4F46E5, #6366F1, #818CF8)
+        }
+
+        .accent-text {
+            background: linear-gradient(135deg, #818CF8, #6366F1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #818CF8;
+            margin-bottom: .75rem;
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: #4F46E5;
+            display: block
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: rgba(99, 102, 241, .12);
+            color: #818CF8;
+            letter-spacing: .02em
+        }
+
+        .flow-border {
+            border-left: 2px solid transparent;
+            border-image: linear-gradient(to bottom, #4F46E5, #6D28D9) 1
+        }
+
+        .detail-section {
+            padding-left: 1.5rem;
+            border-left: 2px solid rgba(99, 102, 241, .15);
+            margin-left: 1rem;
+            margin-top: .75rem
+        }
+
+        .detail-section h6 {
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 3px
+        }
+
+        .detail-section p {
+            font-size: 12px;
+            color: #71717A;
+            line-height: 1.65
+        }
+
+        .detail-section>div {
+            margin-bottom: .6rem
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 12px;
+            color: #A1A1AA
+        }
+
+        .check-item i {
+            flex-shrink: 0;
+            margin-top: 2px
+        }
+
+        .check-item strong {
+            color: #E4E4E7
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+            height: 0
+        }
+
+        /* Floating line anim */
+        @keyframes floatLine {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-2deg)
+            }
+
+            50% {
+                transform: translateY(-8px) rotate(2deg)
+            }
+        }
+
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                opacity: .4
+            }
+
+            50% {
+                opacity: .8
+            }
+        }
+
+        .float-anim {
+            animation: floatLine 6s ease-in-out infinite
+        }
+
+        .pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite
+        }
+
+        /* Stat card glow */
+        .stat-card {
+            position: relative;
+            overflow: hidden
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #4F46E5, transparent);
+            opacity: 0;
+            transition: opacity .3s
+        }
+
+        .stat-card:hover::after {
+            opacity: 1
+        }
+
+        /* Common Loading Spin CF */
+        .icon-loading {
+            animation: spin-fluid 1.2s cubic-bezier(0.68, -0.05, 0.27, 1.05) infinite;
+        }
+
+        @keyframes spin-fluid {
+            0% {
+                transform: rotate(0deg) scale(0.95);
+            }
+
+            50% {
+                transform: rotate(180deg) scale(1.05);
+            }
+
+            100% {
+                transform: rotate(360deg) scale(0.95);
+            }
+        }
+
+        /* Pulsing Dots CF */
+        .pulse-dot {
+            animation: pulse-opacity 0.6s ease-in-out infinite alternate;
+        }
+
+        .pulse-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .pulse-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes pulse-opacity {
+            0% {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Text Transitions CF */
+        .text-container {
+            opacity: 0;
+            filter: blur(12px);
+            transform: translateX(-60px) scale(0.95);
+            transition: all 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+            z-index: 0;
+        }
+
+        .text-revealed {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0) scale(1);
+        }
+
+        /* Marquee Logo Strip */
+        .marquee-wrap {
+            overflow: hidden;
+            position: relative;
+            width: 100%
+        }
+
+        .marquee-wrap::before,
+        .marquee-wrap::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 60px;
+            z-index: 2;
+            pointer-events: none
+        }
+
+        .marquee-wrap::before {
+            left: 0;
+            background: linear-gradient(90deg, #0A0A0A, transparent)
+        }
+
+        .marquee-wrap::after {
+            right: 0;
+            background: linear-gradient(270deg, #0A0A0A, transparent)
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 2.5rem;
+            animation: marquee-scroll 35s linear infinite;
+            width: max-content
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused
+        }
+
+        @keyframes marquee-scroll {
+            0% {
+                transform: translateX(0)
+            }
+
+            100% {
+                transform: translateX(-50%)
+            }
+        }
+
+        .logo-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px;
+            border-radius: 8px;
+            background: #111;
+            border: 1px solid #1A1A1A;
+            white-space: nowrap;
+            transition: border-color .3s
+        }
+
+        .logo-chip:hover {
+            border-color: #333
+        }
+
+        .logo-chip img {
+            height: 20px;
+            width: auto;
+            opacity: .7;
+            filter: grayscale(100%) brightness(2);
+            transition: all .3s
+        }
+
+        .logo-chip:hover img {
+            opacity: 1;
+            filter: grayscale(0%) brightness(1)
+        }
+
+        .logo-chip span {
+            font-size: 12px;
+            font-weight: 600;
+            color: #71717A
+        }
+    </style>
+</head>
+
+<body class="h-screen w-screen relative">
+    <div class="bg-pattern"></div>
+
+    <!-- Filtro Goo para Logo CF -->
+    <svg class="hidden" aria-hidden="true">
+        <defs>
+            <filter id="goo" width="300%" height="300%" x="-100%" y="-100%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                    result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-[3px] bg-[#1C1C1C] z-50">
+        <div id="progress" class="h-full w-0 transition-all duration-300 accent-gradient"></div>
+    </div>
+
+    <!-- Voltar para o Hub -->
+    <a href="../hub_orcamentos.html" class="fixed top-6 left-6 flex items-center gap-2 bg-[#1C1C1C]/90 backdrop-blur-md px-4 py-2 rounded-full z-[60] hover:bg-[#2A2A2A] text-white transition group cursor-pointer" style="box-shadow:0 4px 24px -6px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)">
+        <i data-lucide="layout-grid" class="w-4 h-4 text-green-500 group-hover:scale-110 transition-transform"></i>
+        <span class="text-[10px] font-bold tracking-[0.15em] text-gray-300 group-hover:text-white uppercase transition-colors">Voltar ao Hub</span>
+    </a>
+
+    <!-- Floating Controls -->
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-5 bg-[#1C1C1C]/90 backdrop-blur-md px-5 py-2.5 rounded-full z-50"
+        style="box-shadow:0 4px 24px -6px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)">
+        <button onclick="prevSlide()" class="p-2 rounded-full hover:bg-[#2A2A2A] text-white transition"><i
+                data-lucide="arrow-left" class="w-4 h-4"></i></button>
+        <span class="text-xs font-semibold text-[#818CF8] tracking-widest tabular-nums"><span id="currentSlide">1</span>
+            / <span id="totalSlides">10</span></span>
+        <button onclick="nextSlide()" class="p-2 rounded-full hover:bg-[#2A2A2A] text-white transition"><i
+                data-lucide="arrow-right" class="w-4 h-4"></i></button>
+        <div class="w-px h-4 bg-[#333]"></div>
+        <button onclick="toggleFullscreen()" class="p-2 rounded-full hover:bg-[#2A2A2A] text-white transition"><i
+                data-lucide="maximize" class="w-4 h-4" id="fsIcon"></i></button>
+        <div class="w-px h-4 bg-[#333]"></div>
+        <div class="flex items-center gap-1">
+            <button onclick="changeZoom(-0.1)" class="p-2 rounded-full hover:bg-[#2A2A2A] text-white transition"><i
+                    data-lucide="zoom-out" class="w-4 h-4"></i></button>
+            <button onclick="resetZoom()"
+                class="px-2 py-1 rounded-md hover:bg-[#2A2A2A] text-[10px] font-bold text-[#818CF8] transition"><span
+                    id="zoomLevel">100%</span></button>
+            <button onclick="changeZoom(0.1)" class="p-2 rounded-full hover:bg-[#2A2A2A] text-white transition"><i
+                    data-lucide="zoom-in" class="w-4 h-4"></i></button>
+        </div>
+    </div>
+
+    <div class="slide-container">
+
+        <!-- S1: Capa -->
+        <div class="slide active flex-col justify-center">
+            <!-- Decorative Watermark (Parque Oschin Logo SVG) -->
+            <!-- Decorative Watermark (Parque Oschin Logo) -->
+            <div
+                class="absolute right-4 top-1/2 -translate-y-1/2 opacity-[0.01] pointer-events-none flex justify-end transition-all duration-700">
+                <img src="logo_oschin.png" class="w-[450px] md:w-[600px] object-contain brightness-0 invert" alt="" />
+            </div>
+
+            <!-- Content Wrapper -->
+            <div class="relative z-10 w-full flex flex-col justify-center text-left">
+                <!-- Brand Header: Creative Flow (Left) + Parque Oschin Logo (Right) -->
+                <div class="flex items-center justify-between mb-10 w-full">
+                    <!-- Creative Flow Intelligence Agency (Left) -->
+                    <div class="flex items-center relative z-10">
+                        <div id="icon-wrapper"
+                            class="z-20 transition-all duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] translate-x-0">
+                            <div id="icon-anim" class="icon-loading origin-center h-12 w-12 md:h-14 md:w-14 mr-3 -mt-2">
+                                <svg viewBox="0 0 120 120"
+                                    class="w-full h-full overflow-visible drop-shadow-[0_0_15px_rgba(129,140,248,0.3)]">
+                                    <g fill="#818CF8">
+                                        <g filter="url(#goo)">
+                                            <circle cx="45" cy="30" r="13" />
+                                            <circle cx="45" cy="70" r="13" />
+                                            <line x1="45" y1="30" x2="45" y2="70" stroke="#818CF8" stroke-width="8"
+                                                stroke-linecap="round" />
+                                        </g>
+                                        <circle class="pulse-dot origin-[18px_50px]" cx="18" cy="50" r="8.5" />
+                                        <circle class="pulse-dot origin-[45px_96px]" cx="45" cy="96" r="8.5" />
+                                        <circle class="pulse-dot origin-[45px_113px]" cx="45" cy="113" r="3.5" />
+                                    </g>
+                                    <g fill="#818CF8">
+                                        <g filter="url(#goo)">
+                                            <circle cx="75" cy="50" r="13" />
+                                            <circle cx="75" cy="90" r="13" />
+                                            <line x1="75" y1="50" x2="75" y2="90" stroke="#818CF8" stroke-width="8"
+                                                stroke-linecap="round" />
+                                        </g>
+                                        <circle class="pulse-dot origin-[102px_70px]" cx="102" cy="70" r="8.5" />
+                                        <circle class="pulse-dot origin-[75px_24px]" cx="75" cy="24" r="8.5" />
+                                        <circle class="pulse-dot origin-[75px_7px]" cx="75" cy="7" r="3.5" />
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="text-anim" class="text-container flex flex-col mt-1">
+                            <span
+                                class="text-3xl md:text-4xl font-bold tracking-tighter uppercase text-white leading-none">Creative<span
+                                    class="text-[#818CF8]">Flow</span></span>
+                            <span
+                                class="text-[9px] md:text-[10px] text-[#52525B] font-bold tracking-[0.35em] uppercase mt-1.5">Intelligence
+                                Agency</span>
+                        </div>
+                    </div>
+
+                    <!-- Right side kept clean for watermark focus -->
+                    <div class="flex items-center">
+                    </div>
+                </div>
+
+                <div class="w-full text-left">
+                    <div class="pill mb-6">
+                        <div class="w-2 h-2 rounded-full bg-[#818CF8] animate-pulse"></div>Proposta Executiva
+                        Confidencial
+                    </div>
+                    <h1 class="text-[44px] font-extrabold mb-4 text-white leading-[1.1] tracking-[-0.03em]">Aceleração
+                        Digital e<br><span class="accent-text">Escala de Autoridade & Marketing</span></h1>
+                    <p class="text-base text-[#71717A] max-w-xl leading-relaxed mb-10">Ecossistema digital imersivo e
+                        premium para o Parque Oschin, arquitetado como um motor de conversão, posicionamento de marca e engajamento do visitante.</p>
+                    <div class="flow-border pl-6 py-3 mb-8">
+                        <p class="mb-2"><span
+                                class="text-[10px] font-bold tracking-[.12em] uppercase text-[#52525B] block mb-0.5">Empresa
+                                Alvo</span><span class="text-white font-medium">Parque Oschin</span></p>
+                        <p><span class="text-[10px] font-bold tracking-[.12em] uppercase text-[#52525B] block mb-0.5">Aos
+                                Cuidados de</span><span class="text-white font-medium">Fillipe</span></p>
+                    </div>
+                    <div class="flex gap-6 text-sm">
+                        <span class="text-[#52525B]"><b class="text-[#71717A]">Ref:</b> CF-VNZ-2026</span>
+                        <span class="text-[#52525B]"><b class="text-[#71717A]">Data:</b> 05 de Maio, 2026</span>
+                        <span class="text-[#52525B]"><b class="text-[#71717A]">Validade:</b> 15 dias</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- S2: Intro (ALIVE) -->
+        <div class="slide flex-col justify-center">
+            <!-- Decorative glows for S2 -->
+            <div
+                class="absolute top-0 right-0 w-[400px] h-[400px] bg-[#4F46E5]/10 rounded-full blur-[100px] pointer-events-none">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#818CF8]/10 rounded-full blur-[80px] pointer-events-none">
+            </div>
+
+            <div class="relative z-10 w-full flex flex-col justify-center text-left">
+                <p class="section-label">Visão Executiva</p>
+                <h2 class="font-serif text-3xl font-semibold text-white mb-5 leading-snug">Proposta Executiva:
+                    Aceleração Digital e Escala de Autoridade & Marketing</h2>
+                <div
+                    class="bg-[#161616]/60 backdrop-blur-sm border border-white/5 rounded-xl p-6 mb-6 shadow-xl relative overflow-hidden w-full">
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#818CF8] to-[#4F46E5]"></div>
+                    <p class="text-[15px] text-[#A1A1AA] leading-relaxed">Este documento técnico-comercial apresenta a
+                        proposta oficial para a transformação da infraestrutura digital do Parque Oschin.
+                        O nosso foco absoluto é entregar uma plataforma tecnológica e de marketing que
+                        atue como um verdadeiro motor de crescimento, garantindo <strong class="text-white">captação de excelência,
+                            conversão máxima em vendas e domínio de autoridade online</strong>, unindo design premium, SEO de ponta e engajamento fluído.</p>
+                </div>
+
+                <!-- Animated stat cards -->
+                <div class="grid grid-cols-3 gap-4 mb-6 w-full">
+                    <div
+                        class="stat-card bg-[#161616] border border-[#1F1F1F] rounded-lg text-center py-5 px-4 hover:border-[#4F46E5]/30 transition-all duration-300 group">
+                        <div class="flex items-center justify-center gap-2 mb-2">
+                            <i data-lucide="trending-up"
+                                class="w-5 h-5 text-[#818CF8] group-hover:scale-110 transition-transform"></i>
+                            <p class="text-2xl font-bold text-white">SEO</p>
+                        </div>
+                        <p class="text-[10px] uppercase tracking-[.12em] text-[#52525B] font-bold">Autoridade Digital
+                        </p>
+                        <p class="text-xs text-[#52525B] mt-1">Busca · Tráfego · Presença</p>
+                    </div>
+                    <div
+                        class="stat-card bg-[#161616] border border-[#1F1F1F] rounded-lg text-center py-5 px-4 hover:border-[#4F46E5]/30 transition-all duration-300 group">
+                        <div class="flex items-center justify-center gap-2 mb-2">
+                            <i data-lucide="target"
+                                class="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                            <p class="text-2xl font-bold accent-text">100%</p>
+                        </div>
+                        <p class="text-[10px] uppercase tracking-[.12em] text-[#52525B] font-bold">Foco em Conversão</p>
+                        <p class="text-xs text-[#52525B] mt-1">Geração de Leads Qualificados</p>
+                    </div>
+                    <div
+                        class="stat-card bg-[#161616] border border-[#1F1F1F] rounded-lg text-center py-5 px-4 hover:border-[#4F46E5]/30 transition-all duration-300 group">
+                        <div class="flex items-center justify-center gap-2 mb-2">
+                            <i data-lucide="zap"
+                                class="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform"></i>
+                            <p class="text-2xl font-bold text-white">&lt;2s</p>
+                        </div>
+                        <p class="text-[10px] uppercase tracking-[.12em] text-[#52525B] font-bold">Performance Extrema
+                        </p>
+                        <p class="text-xs text-[#52525B] mt-1">Velocidade e Mobile-First</p>
+                    </div>
+                </div>
+
+
+                <!-- Architecture pillars: horizontal strip -->
+                <div class="w-full border border-[#1A1A1A] rounded-xl bg-[#0D0D0D] overflow-hidden">
+                    <div class="grid grid-cols-4 divide-x divide-[#1A1A1A]">
+                        <div class="flex items-center gap-3 px-5 py-4 hover:bg-[#111] transition-colors group">
+                            <div class="w-8 h-8 rounded-lg bg-[#818CF8]/10 border border-[#818CF8]/20 flex items-center justify-center shrink-0">
+                                <i data-lucide="globe" class="w-4 h-4 text-[#818CF8] group-hover:scale-110 transition-transform"></i>
+                            </div>
+                            <div>
+                                <p class="text-[12px] font-bold text-white leading-tight">Plataforma Web</p>
+                                <p class="text-[10px] text-[#52525B] leading-tight mt-0.5">Atração e Autoridade</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 px-5 py-4 hover:bg-[#111] transition-colors group">
+                            <div class="w-8 h-8 rounded-lg bg-[#A78BFA]/10 border border-[#A78BFA]/20 flex items-center justify-center shrink-0">
+                                <i data-lucide="bar-chart-2" class="w-4 h-4 text-[#A78BFA] group-hover:scale-110 transition-transform"></i>
+                            </div>
+                            <div>
+                                <p class="text-[12px] font-bold text-white leading-tight">Estratégia de Marketing</p>
+                                <p class="text-[10px] text-[#52525B] leading-tight mt-0.5">Motor de Conversão</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 px-5 py-4 hover:bg-[#111] transition-colors group">
+                            <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center shrink-0">
+                                <i data-lucide="layout-dashboard" class="w-4 h-4 text-[#A1A1AA] group-hover:scale-110 transition-transform"></i>
+                            </div>
+                            <div>
+                                <p class="text-[12px] font-bold text-white leading-tight">Painel Analytics</p>
+                                <p class="text-[10px] text-[#52525B] leading-tight mt-0.5">Central de Decisões</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 px-5 py-4 hover:bg-[#111] transition-colors group">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+                                <i data-lucide="shield-alert" class="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                            </div>
+                            <div>
+                                <p class="text-[12px] font-bold text-white leading-tight">Proteção e UX</p>
+                                <p class="text-[10px] text-[#52525B] leading-tight mt-0.5">Confiabilidade Extrema</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- S3: Autoridade & Marketing Engine -->
+        <div class="slide flex-col justify-start">
+            <p class="section-label">1. Motor de Autoridade e Engenharia de Marketing</p>
+            <p class="font-serif text-[15px] text-[#A1A1AA] leading-relaxed mb-4 max-w-3xl">Nosso plano de ação estruturado para consolidar a <strong class="text-white">Autoridade Digital do Parque Oschin</strong>, capturar tráfego qualificado e transformar visitantes em receita, unindo SEO avançado e conversão ativa.
+            </p>
+            <div class="space-y-3 flex-1 overflow-hidden">
+                <!-- Local SEO & Descoberta -->
+                <div class="doc-card doc-card-indigo p-5">
+                    <div class="flex items-start gap-3">
+                        <div class="mt-0.5 p-2 bg-[#4F46E5]/10 rounded"><i data-lucide="map-pin"
+                                class="w-5 h-5 text-[#818CF8]"></i></div>
+                        <div class="flex-1">
+                            <h4 class="font-serif text-[15px] font-bold text-white mb-2">Domínio Regional e Busca Orgânica (Local SEO)</h4>
+                            <ul class="space-y-1.5">
+                                <li class="check-item"><i data-lucide="check-circle-2"
+                                        class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>Captura de Intenção:</strong> Otimização agressiva para termos como "o que fazer em Gramado/Canela", atraindo turistas no momento exato de decisão.</span></li>
+                                <li class="check-item"><i data-lucide="check-circle-2"
+                                        class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>Google Business & Rich Snippets:</strong> Exibição destacada de rotas, horários e avaliações diretamente no Google, aumentando o tráfego orgânico qualificado.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- UX & Conversão de Ingressos -->
+                <div class="doc-card doc-card-violet p-5">
+                    <div class="flex items-start gap-3">
+                        <div class="mt-0.5 p-2 bg-[#6D28D9]/10 rounded"><i data-lucide="ticket"
+                                class="w-5 h-5 text-[#A78BFA]"></i></div>
+                        <div class="flex-1">
+                            <h4 class="font-serif text-[15px] font-bold text-white mb-2">Engenharia de Conversão (Venda de Ingressos)</h4>
+                            <ul class="space-y-1.5">
+                                <li class="check-item"><i data-lucide="check-circle-2"
+                                        class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>Funil de Compra sem Atrito:</strong> Arquitetura de conversão desenhada para levar o usuário da descoberta à reserva no menor número de cliques possível.</span></li>
+                                <li class="check-item"><i data-lucide="check-circle-2"
+                                        class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>Server-Side Tracking Blindado:</strong> Rastreamento avançado de pixels (Meta/Google) para retroalimentar campanhas de tráfego pago com dados precisos.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Posicionamento Premium -->
+                <div class="doc-card doc-card-dark p-5">
+                    <div class="flex items-start gap-3">
+                        <div class="mt-0.5 p-2 bg-[#52525B]/10 rounded"><i data-lucide="camera"
+                                class="w-5 h-5 text-[#A1A1AA]"></i></div>
+                        <div class="flex-1">
+                            <h4 class="font-serif text-[15px] font-bold text-white mb-2">Percepção de Valor & Autoridade de Marca</h4>
+                            <ul class="space-y-1.5">
+                                <li class="check-item"><i data-lucide="check-circle-2"
+                                        class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>Imersão Visual Imediata:</strong> Utilização de mídia em alta resolução e web-stories curtos para tangibilizar a experiência do parque antes da visita.</span></li>
+                                <li class="check-item"><i data-lucide="check-circle-2"
+                                        class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>Prova Social Dinâmica:</strong> Injeção estratégica de depoimentos reais (TripAdvisor/Google) ao longo do site para amplificar a credibilidade e segurança.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- GEO: Busca por IA -->
+                <div class="doc-card p-5" style="background:linear-gradient(135deg,#0D0A1E,#0A0A0A);border-color:#6D28D9;border-width:1px;">
+                    <div class="flex items-start gap-3">
+                        <div class="mt-0.5 p-2 rounded" style="background:rgba(109,40,217,0.12)">
+                            <i data-lucide="brain-circuit" class="w-5 h-5" style="color:#A78BFA"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-2">
+                                <h4 class="font-serif text-[15px] font-bold text-white">GEO — Visibilidade em Buscas de IA</h4>
+                                <span class="text-[8px] font-bold uppercase tracking-wider px-2 py-0.5 rounded" style="color:#A78BFA;background:rgba(109,40,217,0.15);border:1px solid rgba(109,40,217,0.3)">Future-Ready</span>
+                            </div>
+                            <ul class="space-y-1.5">
+                                <li class="check-item"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>Otimização para ChatGPT, Perplexity & Google AI:</strong> Estruturamos o conteúdo e os dados do site para que o Parque Oschin seja citado e recomendado diretamente pelas ferramentas de busca por inteligência artificial.</span></li>
+                                <li class="check-item"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>llms.txt & Schema Avançado:</strong> Implementação do protocolo de acessibilidade para crawlers de IA e dados estruturados que amplificam a autoridade da marca nas respostas geradas por LLMs.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Marketing Status Bar -->
+            <div class="mt-auto pt-4 border-t border-[#1F1F1F]">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                        <span class="text-[11px] font-semibold text-[#52525B] uppercase tracking-wider">Status da Máquina de Marketing</span>
+                    </div>
+                    <span class="pill text-[10px]"><i data-lucide="trending-up" class="w-3 h-3"></i>Ecossistema Prontificado</span>
+                </div>
+                <div class="grid grid-cols-5 gap-3 mt-3">
+                    <div
+                        class="bg-[#0D0D0D] border border-[#1A1A1A] rounded-lg p-3 text-center hover:border-emerald-500/20 transition-all">
+                        <div class="flex items-center justify-center gap-1.5 mb-1.5">
+                            <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Ativo</span>
+                        </div>
+                        <p class="text-[11px] font-semibold text-white">Local SEO</p>
+                        <p class="text-[9px] text-[#52525B]">Turismo Regional</p>
+                    </div>
+                    <div
+                        class="bg-[#0D0D0D] border border-[#1A1A1A] rounded-lg p-3 text-center hover:border-emerald-500/20 transition-all">
+                        <div class="flex items-center justify-center gap-1.5 mb-1.5">
+                            <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Ativo</span>
+                        </div>
+                        <p class="text-[11px] font-semibold text-white">Tracking & Pixels</p>
+                        <p class="text-[9px] text-[#52525B]">Dados em Tempo Real</p>
+                    </div>
+                    <div
+                        class="bg-[#0D0D0D] border border-[#1A1A1A] rounded-lg p-3 text-center hover:border-emerald-500/20 transition-all">
+                        <div class="flex items-center justify-center gap-1.5 mb-1.5">
+                            <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Ativo</span>
+                        </div>
+                        <p class="text-[11px] font-semibold text-white">CRO de Vendas</p>
+                        <p class="text-[9px] text-[#52525B]">Conversão B2C</p>
+                    </div>
+                    <div
+                        class="bg-[#0D0D0D] border border-[#1A1A1A] rounded-lg p-3 text-center hover:border-emerald-500/20 transition-all">
+                        <div class="flex items-center justify-center gap-1.5 mb-1.5">
+                            <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Ativo</span>
+                        </div>
+                        <p class="text-[11px] font-semibold text-white">Performance UX</p>
+                        <p class="text-[9px] text-[#52525B]">Navegação Fluida</p>
+                    </div>
+                    <div
+                        class="rounded-lg p-3 text-center transition-all" style="background:#0D0A1E;border:1px solid rgba(109,40,217,0.35)">
+                        <div class="flex items-center justify-center gap-1.5 mb-1.5">
+                            <div class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:#A78BFA"></div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider" style="color:#A78BFA">Incluso</span>
+                        </div>
+                        <p class="text-[11px] font-semibold text-white">GEO / IA Search</p>
+                        <p class="text-[9px] text-[#52525B]">Pronto para o Futuro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- S4: Site Oficial — Conversão e Imersão -->
+        <div class="slide flex-col justify-start" style="padding:2rem 2.5rem">
+            <div class="flex items-center gap-3 mb-2">
+                <span
+                    class="px-2 py-1 bg-[#1A1A1A] border border-[#252525] text-[#818CF8] text-[10px] font-bold rounded uppercase tracking-widest">Site &mdash; Plataforma Web</span>
+                <div class="w-px h-4 bg-[#333]"></div>
+                <span class="text-[9px] text-[#52525B] uppercase tracking-wider">Cenário Essencial</span>
+            </div>
+            <h2 class="font-serif text-[22px] font-semibold text-white mb-1 leading-tight">E-commerce e Institucional &mdash;
+                <span class="accent-text">Presença Imersiva</span></h2>
+            <p class="text-[12px] text-[#71717A] mb-4 max-w-3xl">O portal público do Parque Oschin construído com arquitetura
+                de <strong class="text-white">alta conversão para turismo</strong> &mdash; unificando vendas de ingressos, agendamento e uma experiência imersiva da natureza antes mesmo da visita presencial.</p>
+            <div class="flex gap-4 flex-1 min-h-0">
+                <!-- COLUNA ESQUERDA: Wireframe Técnico -->
+                <div class="w-[45%] rounded-xl overflow-hidden flex flex-col relative" style="background:#0C0C10;border:1px solid #1E1E2A;box-shadow:0 8px 32px -8px rgba(0,0,0,0.9)">
+                    <!-- Label de projeto -->
+                    <div class="absolute top-2 left-2 z-10 flex items-center gap-1.5">
+                        <div class="px-1.5 py-0.5 rounded font-mono text-[5.5px] font-bold uppercase tracking-widest" style="background:rgba(99,102,241,0.12);border:1px solid rgba(99,102,241,0.25);color:#818CF8">
+                            WF-001 · WIREFRAME
+                        </div>
+                        <div class="w-1 h-1 rounded-full bg-[#818CF8] animate-pulse"></div>
+                    </div>
+
+                    <!-- SVG Blueprint completo -->
+                    <svg viewBox="0 0 320 620" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" style="font-family:monospace">
+                        <!-- Grid de fundo pontilhado -->
+                        <defs>
+                            <pattern id="wfgrid" width="16" height="16" patternUnits="userSpaceOnUse">
+                                <circle cx="0" cy="0" r="0.4" fill="#1E1E2A"/>
+                                <circle cx="16" cy="0" r="0.4" fill="#1E1E2A"/>
+                                <circle cx="0" cy="16" r="0.4" fill="#1E1E2A"/>
+                                <circle cx="16" cy="16" r="0.4" fill="#1E1E2A"/>
+                            </pattern>
+                        </defs>
+                        <rect width="320" height="620" fill="url(#wfgrid)"/>
+
+                        <!-- Régua lateral esquerda -->
+                        <line x1="14" y1="10" x2="14" y2="610" stroke="#252535" stroke-width="0.5"/>
+                        <text x="3" y="40" fill="#2A2A3A" font-size="4" transform="rotate(-90,3,40)">parqueoschin.com.br · v1.0</text>
+
+                        <!-- === BROWSER CHROME === -->
+                        <rect x="20" y="10" width="290" height="14" rx="2" fill="none" stroke="#2E2E42" stroke-width="0.8"/>
+                        <!-- traffic lights placeholder -->
+                        <circle cx="30" cy="17" r="2" fill="none" stroke="#2E2E42" stroke-width="0.6"/>
+                        <circle cx="37" cy="17" r="2" fill="none" stroke="#2E2E42" stroke-width="0.6"/>
+                        <circle cx="44" cy="17" r="2" fill="none" stroke="#2E2E42" stroke-width="0.6"/>
+                        <!-- URL bar -->
+                        <rect x="55" y="13" width="210" height="8" rx="4" fill="none" stroke="#252535" stroke-width="0.6"/>
+                        <text x="100" y="19" fill="#3A3A52" font-size="4.5" font-family="monospace">parqueoschin.com.br</text>
+                        <!-- Annotation: Browser Chrome -->
+                        <line x1="310" y1="17" x2="318" y2="17" stroke="#2E2E42" stroke-width="0.5" stroke-dasharray="1,1"/>
+                        <text x="320" y="18" fill="#3A3A52" font-size="3.5" text-anchor="start">Chrome</text>
+
+                        <!-- === NAVBAR === -->
+                        <rect x="20" y="24" width="290" height="18" rx="0" fill="none" stroke="#252535" stroke-width="0.7" stroke-dasharray="2,1"/>
+                        <!-- Logo placeholder -->
+                        <rect x="26" y="28" width="8" height="8" rx="1" fill="none" stroke="#3A3A52" stroke-width="0.7"/>
+                        <line x1="26" y1="28" x2="34" y2="36" stroke="#3A3A52" stroke-width="0.5"/>
+                        <line x1="34" y1="28" x2="26" y2="36" stroke="#3A3A52" stroke-width="0.5"/>
+                        <!-- nav items -->
+                        <rect x="40" y="30" width="22" height="4" rx="1" fill="#1A1A28"/>
+                        <rect x="66" y="30" width="22" height="4" rx="1" fill="#1A1A28"/>
+                        <rect x="92" y="30" width="22" height="4" rx="1" fill="#1A1A28"/>
+                        <rect x="118" y="30" width="22" height="4" rx="1" fill="#1A1A28"/>
+                        <!-- CTA button -->
+                        <rect x="256" y="28" width="48" height="10" rx="2" fill="none" stroke="#3A3A52" stroke-width="0.8"/>
+                        <text x="280" y="35" fill="#3A3A52" font-size="4" text-anchor="middle">[ CTA ]</text>
+                        <!-- Annotation -->
+                        <line x1="160" y1="24" x2="160" y2="20" stroke="#2A2A3A" stroke-width="0.5"/>
+                        <text x="160" y="19" fill="#3A3A52" font-size="3.5" text-anchor="middle">NAV — sticky · z-50</text>
+
+                        <!-- === HERO SECTION === -->
+                        <rect x="20" y="42" width="290" height="95" rx="0" fill="none" stroke="#2E2E42" stroke-width="0.8"/>
+                        <!-- Hero label + area indicador -->
+                        <text x="165" y="54" fill="#252535" font-size="28" text-anchor="middle" font-weight="bold" opacity="0.08">HERO</text>
+                        <!-- Headline placeholder bars -->
+                        <rect x="60" y="60" width="200" height="7" rx="1" fill="none" stroke="#3A3A52" stroke-width="0.7"/>
+                        <rect x="85" y="71" width="150" height="5" rx="1" fill="none" stroke="#2E2E42" stroke-width="0.6"/>
+                        <rect x="100" y="80" width="120" height="4" rx="1" fill="none" stroke="#252535" stroke-width="0.5"/>
+                        <!-- CTA buttons -->
+                        <rect x="85" y="90" width="55" height="12" rx="2" fill="none" stroke="#3A3A52" stroke-width="0.8"/>
+                        <text x="112" y="99" fill="#3A3A52" font-size="4.5" text-anchor="middle">CTA Principal</text>
+                        <rect x="148" y="90" width="50" height="12" rx="2" fill="none" stroke="#2A2A3A" stroke-width="0.6" stroke-dasharray="1.5,1"/>
+                        <text x="173" y="99" fill="#2A2A3A" font-size="4.5" text-anchor="middle">Secundário</text>
+                        <!-- Diagonal lines para indicar imagem de fundo -->
+                        <line x1="20" y1="42" x2="50" y2="65" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="40" y1="42" x2="80" y2="72" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="270" y1="42" x2="310" y2="72" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="290" y1="42" x2="310" y2="58" stroke="#1A1A28" stroke-width="0.5"/>
+                        <!-- Annotation: Hero -->
+                        <line x1="310" y1="90" x2="318" y2="90" stroke="#2E2E42" stroke-width="0.5" stroke-dasharray="1,1"/>
+                        <text x="320" y="88" fill="#3A3A52" font-size="3.2">VIDEO</text>
+                        <text x="320" y="93" fill="#3A3A52" font-size="3.2">BG</text>
+
+                        <!-- === TRUST BAR === -->
+                        <rect x="20" y="137" width="290" height="14" fill="none" stroke="#252535" stroke-width="0.6" stroke-dasharray="2,1"/>
+                        <!-- 3 trust badges -->
+                        <rect x="50" y="140" width="40" height="8" rx="1" fill="none" stroke="#2E2E42" stroke-width="0.5"/>
+                        <rect x="140" y="140" width="40" height="8" rx="1" fill="none" stroke="#2E2E42" stroke-width="0.5"/>
+                        <rect x="230" y="140" width="40" height="8" rx="1" fill="none" stroke="#2E2E42" stroke-width="0.5"/>
+                        <text x="70" y="146" fill="#2E2E42" font-size="3.5" text-anchor="middle">★ Reviews</text>
+                        <text x="160" y="146" fill="#2E2E42" font-size="3.5" text-anchor="middle">🔒 SSL</text>
+                        <text x="250" y="146" fill="#2E2E42" font-size="3.5" text-anchor="middle">+12k visits</text>
+                        <text x="165" y="134" fill="#3A3A52" font-size="3.5" text-anchor="middle">TRUST BAR — auto-updated via API</text>
+
+                        <!-- === SECTION: ATRAÇÕES === -->
+                        <rect x="20" y="151" width="290" height="70" fill="none" stroke="#252535" stroke-width="0.6"/>
+                        <text x="165" y="162" fill="#2E2E42" font-size="4" text-anchor="middle">ATRAÇÕES · grid 3-col</text>
+                        <!-- 3 cards -->
+                        <rect x="26" y="166" width="88" height="48" rx="2" fill="none" stroke="#2E2E42" stroke-width="0.7"/>
+                        <rect x="26" y="166" width="88" height="22" rx="2" fill="#141420"/>
+                        <line x1="26" y1="166" x2="114" y2="188" stroke="#1A1A28" stroke-width="0.4"/>
+                        <line x1="114" y1="166" x2="26" y2="188" stroke="#1A1A28" stroke-width="0.4"/>
+                        <rect x="36" y="191" width="60" height="4" rx="1" fill="#1A1A28"/>
+                        <rect x="42" y="198" width="48" height="3" rx="1" fill="#141420"/>
+                        <rect x="42" y="203" width="40" height="3" rx="1" fill="#141420"/>
+                        <text x="70" y="218" fill="#252535" font-size="3.5" text-anchor="middle">Fauna Nativa</text>
+
+                        <rect x="120" y="166" width="88" height="48" rx="2" fill="none" stroke="#2E2E42" stroke-width="0.7"/>
+                        <rect x="120" y="166" width="88" height="22" rx="2" fill="#141420"/>
+                        <line x1="120" y1="166" x2="208" y2="188" stroke="#1A1A28" stroke-width="0.4"/>
+                        <line x1="208" y1="166" x2="120" y2="188" stroke="#1A1A28" stroke-width="0.4"/>
+                        <rect x="130" y="191" width="60" height="4" rx="1" fill="#1A1A28"/>
+                        <rect x="136" y="198" width="48" height="3" rx="1" fill="#141420"/>
+                        <rect x="136" y="203" width="40" height="3" rx="1" fill="#141420"/>
+                        <text x="164" y="218" fill="#252535" font-size="3.5" text-anchor="middle">Trilhas Guiadas</text>
+
+                        <rect x="214" y="166" width="88" height="48" rx="2" fill="none" stroke="#2E2E42" stroke-width="0.7"/>
+                        <rect x="214" y="166" width="88" height="22" rx="2" fill="#141420"/>
+                        <line x1="214" y1="166" x2="302" y2="188" stroke="#1A1A28" stroke-width="0.4"/>
+                        <line x1="302" y1="166" x2="214" y2="188" stroke="#1A1A28" stroke-width="0.4"/>
+                        <rect x="224" y="191" width="60" height="4" rx="1" fill="#1A1A28"/>
+                        <rect x="230" y="198" width="48" height="3" rx="1" fill="#141420"/>
+                        <rect x="230" y="203" width="40" height="3" rx="1" fill="#141420"/>
+                        <text x="258" y="218" fill="#252535" font-size="3.5" text-anchor="middle">Foto Experience</text>
+
+                        <!-- === SECTION: REVIEWS === -->
+                        <rect x="20" y="221" width="290" height="65" fill="none" stroke="#252535" stroke-width="0.6"/>
+                        <text x="165" y="231" fill="#2E2E42" font-size="4" text-anchor="middle">DEPOIMENTOS · Google Reviews API</text>
+                        <!-- 2 review cards -->
+                        <rect x="26" y="235" width="136" height="44" rx="2" fill="none" stroke="#2E2E42" stroke-width="0.6"/>
+                        <circle cx="36" cy="243" r="5" fill="none" stroke="#2E2E42" stroke-width="0.5"/>
+                        <rect x="46" y="240" width="50" height="4" rx="1" fill="#1A1A28"/>
+                        <rect x="46" y="246" width="30" height="3" rx="1" fill="#141420"/>
+                        <rect x="32" y="254" width="120" height="3" rx="1" fill="#141420"/>
+                        <rect x="32" y="259" width="100" height="3" rx="1" fill="#141420"/>
+                        <rect x="32" y="264" width="80" height="3" rx="1" fill="#141420"/>
+                        <text x="78" y="282" fill="#252535" font-size="3.5" text-anchor="middle">★★★★★ · Google</text>
+
+                        <rect x="168" y="235" width="136" height="44" rx="2" fill="none" stroke="#2E2E42" stroke-width="0.6"/>
+                        <circle cx="178" cy="243" r="5" fill="none" stroke="#2E2E42" stroke-width="0.5"/>
+                        <rect x="188" y="240" width="50" height="4" rx="1" fill="#1A1A28"/>
+                        <rect x="188" y="246" width="30" height="3" rx="1" fill="#141420"/>
+                        <rect x="174" y="254" width="120" height="3" rx="1" fill="#141420"/>
+                        <rect x="174" y="259" width="100" height="3" rx="1" fill="#141420"/>
+                        <rect x="174" y="264" width="80" height="3" rx="1" fill="#141420"/>
+                        <text x="236" y="282" fill="#252535" font-size="3.5" text-anchor="middle">★★★★★ · TripAdvisor</text>
+
+                        <!-- === SECTION: MAPA + INFRA === -->
+                        <rect x="20" y="286" width="140" height="55" fill="none" stroke="#252535" stroke-width="0.6"/>
+                        <text x="90" y="296" fill="#2E2E42" font-size="4" text-anchor="middle">MAPA INTERATIVO</text>
+                        <!-- map placeholder -->
+                        <rect x="26" y="299" width="128" height="36" fill="#0E0E18"/>
+                        <line x1="26" y1="299" x2="154" y2="335" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="154" y1="299" x2="26" y2="335" stroke="#1A1A28" stroke-width="0.5"/>
+                        <!-- map pin -->
+                        <circle cx="90" cy="317" r="3" fill="none" stroke="#3A3A52" stroke-width="0.7"/>
+                        <line x1="90" y1="320" x2="90" y2="326" stroke="#3A3A52" stroke-width="0.7"/>
+
+                        <rect x="170" y="286" width="140" height="55" fill="none" stroke="#252535" stroke-width="0.6"/>
+                        <text x="240" y="296" fill="#2E2E42" font-size="4" text-anchor="middle">BILHETERIA ONLINE</text>
+                        <rect x="176" y="299" width="128" height="8" rx="1" fill="none" stroke="#2E2E42" stroke-width="0.5"/>
+                        <rect x="176" y="311" width="128" height="8" rx="1" fill="none" stroke="#2E2E42" stroke-width="0.5"/>
+                        <rect x="176" y="323" width="128" height="8" rx="1" fill="none" stroke="#2E2E42" stroke-width="0.5"/>
+                        <text x="240" y="305" fill="#252535" font-size="3.5" text-anchor="middle">Adulto · Criança · Família</text>
+                        <text x="240" y="317" fill="#252535" font-size="3.5" text-anchor="middle">Selecionar Data</text>
+                        <text x="240" y="329" fill="#252535" font-size="3.5" text-anchor="middle">[ COMPRAR INGRESSO ]</text>
+
+                        <!-- === FOOTER === -->
+                        <rect x="20" y="341" width="290" height="22" fill="none" stroke="#1E1E2A" stroke-width="0.6"/>
+                        <rect x="26" y="347" width="40" height="3" rx="1" fill="#141420"/>
+                        <rect x="26" y="352" width="60" height="3" rx="1" fill="#141420"/>
+                        <rect x="110" y="347" width="30" height="3" rx="1" fill="#141420"/>
+                        <rect x="110" y="352" width="30" height="3" rx="1" fill="#141420"/>
+                        <rect x="200" y="347" width="30" height="3" rx="1" fill="#141420"/>
+                        <rect x="200" y="352" width="30" height="3" rx="1" fill="#141420"/>
+                        <rect x="270" y="347" width="34" height="8" rx="1" fill="none" stroke="#252535" stroke-width="0.5"/>
+                        <text x="287" y="353" fill="#252535" font-size="3.5" text-anchor="middle">WhatsApp</text>
+                        <text x="165" y="372" fill="#1E1E2A" font-size="3.5" text-anchor="middle">FOOTER · © 2025 Parque Oschin</text>
+
+                        <!-- === ANOTAÇÕES TÉCNICAS LATERAIS === -->
+                        <!-- Colchetes indicadores de seções -->
+                        <line x1="16" y1="42" x2="12" y2="42" stroke="#252535" stroke-width="0.5"/>
+                        <line x1="12" y1="42" x2="12" y2="137" stroke="#252535" stroke-width="0.5"/>
+                        <line x1="12" y1="137" x2="16" y2="137" stroke="#252535" stroke-width="0.5"/>
+                        <text x="10" y="93" fill="#252535" font-size="3" text-anchor="middle" transform="rotate(-90,10,93)">HERO · 100vh</text>
+
+                        <line x1="16" y1="151" x2="12" y2="151" stroke="#1E1E2A" stroke-width="0.5"/>
+                        <line x1="12" y1="151" x2="12" y2="221" stroke="#1E1E2A" stroke-width="0.5"/>
+                        <line x1="12" y1="221" x2="16" y2="221" stroke="#1E1E2A" stroke-width="0.5"/>
+                        <text x="10" y="190" fill="#1E1E2A" font-size="3" text-anchor="middle" transform="rotate(-90,10,190)">CONTENT</text>
+
+                        <!-- === SECTION: GALERIA === -->
+                        <rect x="20" y="363" width="290" height="60" fill="none" stroke="#252535" stroke-width="0.6"/>
+                        <text x="165" y="373" fill="#2E2E42" font-size="4" text-anchor="middle">GALERIA · grid masonry + vídeo</text>
+                        <!-- 6 image placeholders -->
+                        <rect x="26" y="377" width="44" height="40" rx="1" fill="#0E0E18" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="26" y1="377" x2="70" y2="417" stroke="#141420" stroke-width="0.4"/>
+                        <line x1="70" y1="377" x2="26" y2="417" stroke="#141420" stroke-width="0.4"/>
+                        <rect x="74" y="377" width="44" height="18" rx="1" fill="#0E0E18" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="74" y1="377" x2="118" y2="395" stroke="#141420" stroke-width="0.4"/>
+                        <line x1="118" y1="377" x2="74" y2="395" stroke="#141420" stroke-width="0.4"/>
+                        <!-- vídeo badge -->
+                        <circle cx="96" cy="410" r="4" fill="none" stroke="#3A3A52" stroke-width="0.5"/>
+                        <polygon points="94,408 94,412 99,410" fill="#3A3A52"/>
+                        <rect x="74" y="399" width="44" height="18" rx="1" fill="#0E0E18" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="74" y1="399" x2="118" y2="417" stroke="#141420" stroke-width="0.4"/>
+                        <line x1="118" y1="399" x2="74" y2="417" stroke="#141420" stroke-width="0.4"/>
+                        <rect x="122" y="377" width="44" height="40" rx="1" fill="#0E0E18" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="122" y1="377" x2="166" y2="417" stroke="#141420" stroke-width="0.4"/>
+                        <line x1="166" y1="377" x2="122" y2="417" stroke="#141420" stroke-width="0.4"/>
+                        <rect x="170" y="377" width="44" height="18" rx="1" fill="#0E0E18" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="170" y1="377" x2="214" y2="395" stroke="#141420" stroke-width="0.4"/>
+                        <line x1="214" y1="377" x2="170" y2="395" stroke="#141420" stroke-width="0.4"/>
+                        <rect x="170" y="399" width="44" height="18" rx="1" fill="#0E0E18" stroke="#1A1A28" stroke-width="0.5"/>
+                        <rect x="218" y="377" width="86" height="40" rx="1" fill="#0E0E18" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="218" y1="377" x2="304" y2="417" stroke="#141420" stroke-width="0.4"/>
+                        <line x1="304" y1="377" x2="218" y2="417" stroke="#141420" stroke-width="0.4"/>
+                        <text x="261" y="399" fill="#252535" font-size="4" text-anchor="middle">DESTAQUE</text>
+
+                        <!-- === SECTION: NEWSLETTER / WHATSAPP CTA === -->
+                        <rect x="20" y="423" width="290" height="30" fill="none" stroke="#252535" stroke-width="0.6" stroke-dasharray="2,1"/>
+                        <text x="165" y="432" fill="#2E2E42" font-size="4" text-anchor="middle">CAPTAÇÃO · Email + WhatsApp</text>
+                        <!-- input email -->
+                        <rect x="36" y="436" width="120" height="10" rx="2" fill="none" stroke="#2E2E42" stroke-width="0.5"/>
+                        <text x="96" y="443" fill="#252535" font-size="3.5" text-anchor="middle">seu@email.com</text>
+                        <!-- whatsapp button -->
+                        <rect x="164" y="436" width="55" height="10" rx="2" fill="none" stroke="#2E2E42" stroke-width="0.6"/>
+                        <text x="191" y="443" fill="#2E2E42" font-size="3.5" text-anchor="middle">📲 WhatsApp</text>
+                        <!-- cta button -->
+                        <rect x="226" y="436" width="70" height="10" rx="2" fill="none" stroke="#3A3A52" stroke-width="0.7"/>
+                        <text x="261" y="443" fill="#3A3A52" font-size="3.5" text-anchor="middle">[ RECEBER NOVIDADES ]</text>
+
+                        <!-- === SECTION: INSTAGRAM FEED === -->
+                        <rect x="20" y="453" width="290" height="55" fill="none" stroke="#252535" stroke-width="0.6"/>
+                        <text x="165" y="463" fill="#2E2E42" font-size="4" text-anchor="middle">INSTAGRAM FEED · @parqueoschin · API</text>
+                        <!-- 6 instagram thumbnails -->
+                        <rect x="26" y="467" width="42" height="35" rx="1" fill="#0E0E18" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="26" y1="467" x2="68" y2="502" stroke="#141420" stroke-width="0.4"/>
+                        <line x1="68" y1="467" x2="26" y2="502" stroke="#141420" stroke-width="0.4"/>
+                        <rect x="72" y="467" width="42" height="35" rx="1" fill="#0E0E18" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="72" y1="467" x2="114" y2="502" stroke="#141420" stroke-width="0.4"/>
+                        <line x1="114" y1="467" x2="72" y2="502" stroke="#141420" stroke-width="0.4"/>
+                        <rect x="118" y="467" width="42" height="35" rx="1" fill="#0E0E18" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="118" y1="467" x2="160" y2="502" stroke="#141420" stroke-width="0.4"/>
+                        <line x1="160" y1="467" x2="118" y2="502" stroke="#141420" stroke-width="0.4"/>
+                        <rect x="164" y="467" width="42" height="35" rx="1" fill="#0E0E18" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="164" y1="467" x2="206" y2="502" stroke="#141420" stroke-width="0.4"/>
+                        <line x1="206" y1="467" x2="164" y2="502" stroke="#141420" stroke-width="0.4"/>
+                        <rect x="210" y="467" width="42" height="35" rx="1" fill="#0E0E18" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="210" y1="467" x2="252" y2="502" stroke="#141420" stroke-width="0.4"/>
+                        <line x1="252" y1="467" x2="210" y2="502" stroke="#141420" stroke-width="0.4"/>
+                        <rect x="256" y="467" width="42" height="35" rx="1" fill="#0E0E18" stroke="#1A1A28" stroke-width="0.5"/>
+                        <line x1="256" y1="467" x2="298" y2="502" stroke="#141420" stroke-width="0.4"/>
+                        <line x1="298" y1="467" x2="256" y2="502" stroke="#141420" stroke-width="0.4"/>
+
+                        <!-- === PÁGINAS INTERNAS (mapa de site) === -->
+                        <rect x="20" y="508" width="290" height="50" fill="none" stroke="#1E1E2A" stroke-width="0.6" stroke-dasharray="1,2"/>
+                        <text x="165" y="518" fill="#252535" font-size="3.5" text-anchor="middle" font-family="monospace">PÁGINAS INTERNAS · SITEMAP</text>
+                        <!-- page nodes -->
+                        <rect x="26" y="522" width="38" height="10" rx="1" fill="none" stroke="#252535" stroke-width="0.5"/>
+                        <text x="45" y="529" fill="#252535" font-size="3" text-anchor="middle">Atrações</text>
+                        <rect x="70" y="522" width="38" height="10" rx="1" fill="none" stroke="#252535" stroke-width="0.5"/>
+                        <text x="89" y="529" fill="#252535" font-size="3" text-anchor="middle">Bilheteria</text>
+                        <rect x="114" y="522" width="38" height="10" rx="1" fill="none" stroke="#252535" stroke-width="0.5"/>
+                        <text x="133" y="529" fill="#252535" font-size="3" text-anchor="middle">Galeria</text>
+                        <rect x="158" y="522" width="38" height="10" rx="1" fill="none" stroke="#252535" stroke-width="0.5"/>
+                        <text x="177" y="529" fill="#252535" font-size="3" text-anchor="middle">Infraestr.</text>
+                        <rect x="202" y="522" width="38" height="10" rx="1" fill="none" stroke="#252535" stroke-width="0.5"/>
+                        <text x="221" y="529" fill="#252535" font-size="3" text-anchor="middle">Blog</text>
+                        <rect x="246" y="522" width="38" height="10" rx="1" fill="none" stroke="#252535" stroke-width="0.5"/>
+                        <text x="265" y="529" fill="#252535" font-size="3" text-anchor="middle">FAQ + Contato</text>
+                        <!-- LP row -->
+                        <text x="165" y="543" fill="#1E1E2A" font-size="3" text-anchor="middle" font-family="monospace">LANDING PAGES · Inverno / Criança / Feriado / Escola / Eventos</text>
+                        <rect x="26" y="546" width="55" height="8" rx="1" fill="none" stroke="#1E1E2A" stroke-width="0.4" stroke-dasharray="1,1"/>
+                        <rect x="87" y="546" width="55" height="8" rx="1" fill="none" stroke="#1E1E2A" stroke-width="0.4" stroke-dasharray="1,1"/>
+                        <rect x="148" y="546" width="55" height="8" rx="1" fill="none" stroke="#1E1E2A" stroke-width="0.4" stroke-dasharray="1,1"/>
+                        <rect x="209" y="546" width="55" height="8" rx="1" fill="none" stroke="#1E1E2A" stroke-width="0.4" stroke-dasharray="1,1"/>
+                        <text x="53" y="551" fill="#1E1E2A" font-size="2.8" text-anchor="middle">LP Inverno</text>
+                        <text x="114" y="551" fill="#1E1E2A" font-size="2.8" text-anchor="middle">LP Criança</text>
+                        <text x="175" y="551" fill="#1E1E2A" font-size="2.8" text-anchor="middle">LP Feriado</text>
+                        <text x="236" y="551" fill="#1E1E2" font-size="2.8" text-anchor="middle">LP Escola</text>
+
+                        <!-- WhatsApp float button -->
+                        <circle cx="302" cy="500" r="7" fill="none" stroke="#2E2E42" stroke-width="0.8"/>
+                        <text x="302" y="503" fill="#2E2E42" font-size="7" text-anchor="middle">📲</text>
+                        <line x1="302" y1="507" x2="302" y2="515" stroke="#252535" stroke-width="0.5" stroke-dasharray="1,1"/>
+                        <text x="302" y="519" fill="#252535" font-size="2.8" text-anchor="middle">Float</text>
+                        <text x="302" y="523" fill="#252535" font-size="2.8" text-anchor="middle">WA</text>
+
+                        <!-- === ANOTAÇÕES TÉCNICAS EXTRAS === -->
+                        <line x1="16" y1="363" x2="12" y2="363" stroke="#1E1E2A" stroke-width="0.5"/>
+                        <line x1="12" y1="363" x2="12" y2="508" stroke="#1E1E2A" stroke-width="0.5"/>
+                        <line x1="12" y1="508" x2="16" y2="508" stroke="#1E1E2A" stroke-width="0.5"/>
+                        <text x="10" y="440" fill="#1E1E2A" font-size="3" text-anchor="middle" transform="rotate(-90,10,440)">ENGAGEMENT</text>
+
+                        <!-- Escala / versão -->
+                        <text x="22" y="617" fill="#1E1E2A" font-size="3.5" font-family="monospace">ESCALA 1:1 · MOBILE-FIRST · v1.0 DRAFT</text>
+                        <text x="298" y="617" fill="#1E1E2A" font-size="3.5" text-anchor="end" font-family="monospace">CF © 2025</text>
+                    </svg>
+                </div>
+
+                <!-- COLUNA DIREITA: Features (compact 2-col grid) -->
+                <div class="flex-1 flex flex-col gap-2">
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="bg-[#131313] border border-[#1A1A1A] rounded-lg p-2.5">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <div class="w-5 h-5 rounded bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center shrink-0"><i data-lucide="globe" class="w-3 h-3 text-white"></i></div>
+                                <h5 class="font-bold text-[11px] text-white">E-commerce Conversivo</h5>
+                            </div>
+                            <p class="text-[9px] text-[#52525B] leading-relaxed">Bilheteria digital rápida, SEO otimizado e SSL 256-bit — focado em vender sem fricção.</p>
+                        </div>
+                        <div class="bg-[#131313] border border-[#1A1A1A] rounded-lg p-2.5">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <div class="w-5 h-5 rounded bg-[#1A1A1A] border border-[#252525] flex items-center justify-center shrink-0"><i data-lucide="smartphone" class="w-3 h-3 text-emerald-400"></i></div>
+                                <h5 class="font-bold text-[11px] text-white">Mobile-First (&lt;2s)</h5>
+                            </div>
+                            <p class="text-[9px] text-[#52525B] leading-relaxed">Design para decisão rápida no celular com mapas interativos e carregamento sub-2 segundos.</p>
+                        </div>
+                        <div class="bg-[#131313] border border-[#1A1A1A] rounded-lg p-2.5">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <div class="w-5 h-5 rounded bg-[#1A1A1A] border border-[#252525] flex items-center justify-center shrink-0"><i data-lucide="star" class="w-3 h-3 text-amber-400"></i></div>
+                                <h5 class="font-bold text-[11px] text-white">Prova Social Automática</h5>
+                            </div>
+                            <p class="text-[9px] text-[#52525B] leading-relaxed">Google Reviews e TripAdvisor integrados automaticamente para credibilidade instantânea.</p>
+                        </div>
+                        <div class="bg-[#131313] border border-[#1A1A1A] rounded-lg p-2.5">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <div class="w-5 h-5 rounded bg-[#1A1A1A] border border-[#252525] flex items-center justify-center shrink-0"><i data-lucide="image" class="w-3 h-3 text-[#818CF8]"></i></div>
+                                <h5 class="font-bold text-[11px] text-white">Atrações Dinâmicas</h5>
+                            </div>
+                            <p class="text-[9px] text-[#52525B] leading-relaxed">Páginas ricas por atração com fotos, vídeos e CTA direto para compra do ingresso.</p>
+                        </div>
+                        <div class="bg-[#131313] border border-violet-500/15 rounded-lg p-2.5">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <div class="w-5 h-5 rounded bg-[#1A1A1A] border border-[#252525] flex items-center justify-center shrink-0"><i data-lucide="megaphone" class="w-3 h-3 text-violet-400"></i></div>
+                                <h5 class="font-bold text-[11px] text-white">Marketing Turístico</h5>
+                            </div>
+                            <p class="text-[9px] text-[#52525B] leading-relaxed">Landing pages sazonais (Inverno, Feriados) otimizadas para Google/Meta Ads.</p>
+                        </div>
+                        <div class="bg-[#131313] border border-emerald-500/15 rounded-lg p-2.5">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <div class="w-5 h-5 rounded bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0"><i data-lucide="bot" class="w-3 h-3 text-emerald-400"></i></div>
+                                <h5 class="font-bold text-[11px] text-white">Assistente IA 24h</h5>
+                            </div>
+                            <p class="text-[9px] text-[#52525B] leading-relaxed">IA responde dúvidas sobre ingressos e horários a qualquer hora. Escala para WhatsApp com contexto.</p>
+                        </div>
+                    </div>
+                    <!-- GEO Card: full-width highlight -->
+                    <div class="rounded-lg p-3" style="background:linear-gradient(135deg,#0D0A1E,#0A0A0A);border:1px solid rgba(109,40,217,0.4);">
+                        <div class="flex items-center gap-2 mb-1.5">
+                            <div class="w-5 h-5 rounded flex items-center justify-center shrink-0" style="background:rgba(109,40,217,0.15);border:1px solid rgba(109,40,217,0.3)"><i data-lucide="brain-circuit" class="w-3 h-3" style="color:#A78BFA"></i></div>
+                            <h5 class="font-bold text-[11px] text-white">GEO — Visibilidade em Buscas de IA</h5>
+                            <span class="ml-auto text-[7px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded" style="color:#A78BFA;background:rgba(109,40,217,0.15);border:1px solid rgba(109,40,217,0.3)">Incluso</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <p class="text-[9px] leading-relaxed flex-1" style="color:#6B6B7A"><strong style="color:#C4B5FD">ChatGPT, Perplexity &amp; Google AI:</strong> Estruturamos o conteúdo do site para o Parque Oschin ser citado e recomendado diretamente pelas IAs de busca — futuro-seguro desde o lançamento.</p>
+                            <p class="text-[9px] leading-relaxed flex-1" style="color:#6B6B7A"><strong style="color:#C4B5FD">llms.txt &amp; Schema Avançado:</strong> Protocolo de acessibilidade para crawlers de IA e dados estruturados que amplificam a autoridade da marca nas respostas geradas por LLMs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- S4.5: Estrutura do Site (Escopo & Sitemap) -->
+        <div class="slide flex-col justify-start" style="padding:2rem 2.5rem">
+            <div class="flex items-center gap-3 mb-2">
+                <span
+                    class="px-2 py-1 bg-[#1A1A1A] border border-[#252525] text-[#818CF8] text-[10px] font-bold rounded uppercase tracking-widest">Site &mdash; Plataforma Web</span>
+                <div class="w-px h-4 bg-[#333]"></div>
+                <span class="text-[9px] text-[#52525B] uppercase tracking-wider">Mapeamento de Páginas</span>
+            </div>
+            <h2 class="font-serif text-[22px] font-semibold text-white mb-1 leading-tight">Escopo do Site &mdash;
+                <span class="accent-text">Sitemap de Conversão Turística</span></h2>
+            <p class="text-[12px] text-[#71717A] mb-4 max-w-3xl">O escopo de desenvolvimento não contempla "páginas vazias". Cada URL construída tem um objetivo financeiro e de encantamento — abaixo, o plano de implementação do <strong class="text-white">website do Parque Oschin</strong>.</p>
+                <!-- COLUNA ESQUERDA: Wireframe Sitemap -->
+            <div class="flex gap-4 flex-1 min-h-0">
+                <div class="w-[38%] rounded-xl overflow-hidden flex flex-col relative" style="background:#0C0C10;border:1px solid #1E1E2A;box-shadow:0 8px 32px -8px rgba(0,0,0,0.9)">
+                    <!-- Label de projeto -->
+                    <div class="absolute top-2 left-2 z-10 flex items-center gap-1.5">
+                        <div class="px-1.5 py-0.5 rounded font-mono text-[5.5px] font-bold uppercase tracking-widest" style="background:rgba(99,102,241,0.12);border:1px solid rgba(99,102,241,0.25);color:#818CF8">
+                            SM-001 · SITEMAP
+                        </div>
+                        <div class="w-1 h-1 rounded-full bg-[#818CF8] animate-pulse"></div>
+                    </div>
+                    <!-- SVG Sitemap Blueprint -->
+                    <svg viewBox="0 0 280 520" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" style="font-family:monospace">
+                        <defs>
+                            <pattern id="smgrid" width="16" height="16" patternUnits="userSpaceOnUse">
+                                <circle cx="0" cy="0" r="0.4" fill="#1E1E2A"/>
+                                <circle cx="16" cy="0" r="0.4" fill="#1E1E2A"/>
+                                <circle cx="0" cy="16" r="0.4" fill="#1E1E2A"/>
+                                <circle cx="16" cy="16" r="0.4" fill="#1E1E2A"/>
+                            </pattern>
+                        </defs>
+                        <rect width="280" height="520" fill="url(#smgrid)"/>
+                        <!-- Régua lateral -->
+                        <line x1="14" y1="10" x2="14" y2="510" stroke="#252535" stroke-width="0.5"/>
+                        <text x="3" y="40" fill="#2A2A3A" font-size="4" transform="rotate(-90,3,40)">parqueoschin.com.br · sitemap v1.0</text>
+
+                        <!-- === HOMEPAGE (root) === -->
+                        <rect x="80" y="20" width="120" height="28" rx="4" fill="none" stroke="#4F46E5" stroke-width="1.2"/>
+                        <rect x="80" y="20" width="120" height="28" rx="4" fill="rgba(79,70,229,0.08)"/>
+                        <text x="140" y="31" fill="#818CF8" font-size="6" font-weight="bold" text-anchor="middle">/</text>
+                        <text x="140" y="41" fill="#6366F1" font-size="5" text-anchor="middle">Homepage</text>
+
+                        <!-- Conector central -->
+                        <line x1="140" y1="48" x2="140" y2="68" stroke="#252535" stroke-width="0.8"/>
+                        <line x1="50" y1="68" x2="230" y2="68" stroke="#252535" stroke-width="0.8"/>
+
+                        <!-- === NÍVEL 2 === -->
+                        <!-- Atrações -->
+                        <line x1="55" y1="68" x2="55" y2="88" stroke="#252535" stroke-width="0.8"/>
+                        <rect x="24" y="88" width="62" height="22" rx="3" fill="none" stroke="#2E2E42" stroke-width="0.8"/>
+                        <text x="55" y="97" fill="#A1A1AA" font-size="5" text-anchor="middle">/atracoes</text>
+                        <text x="55" y="106" fill="#52525B" font-size="4" text-anchor="middle">Atrações</text>
+
+                        <!-- Ingressos -->
+                        <line x1="110" y1="68" x2="110" y2="88" stroke="#252535" stroke-width="0.8"/>
+                        <rect x="79" y="88" width="62" height="22" rx="3" fill="none" stroke="#059669" stroke-width="1"/>
+                        <rect x="79" y="88" width="62" height="22" rx="3" fill="rgba(5,150,105,0.06)"/>
+                        <text x="110" y="97" fill="#34D399" font-size="5" text-anchor="middle">/ingressos</text>
+                        <text x="110" y="106" fill="#34D399" font-size="4" text-anchor="middle">E-commerce</text>
+
+                        <!-- Blog/SEO -->
+                        <line x1="170" y1="68" x2="170" y2="88" stroke="#252535" stroke-width="0.8"/>
+                        <rect x="139" y="88" width="62" height="22" rx="3" fill="none" stroke="#2E2E42" stroke-width="0.8"/>
+                        <text x="170" y="97" fill="#A1A1AA" font-size="5" text-anchor="middle">/blog</text>
+                        <text x="170" y="106" fill="#52525B" font-size="4" text-anchor="middle">Blog / SEO</text>
+
+                        <!-- Sobre -->
+                        <line x1="225" y1="68" x2="225" y2="88" stroke="#252535" stroke-width="0.8"/>
+                        <rect x="194" y="88" width="62" height="22" rx="3" fill="none" stroke="#2E2E42" stroke-width="0.8"/>
+                        <text x="225" y="97" fill="#A1A1AA" font-size="5" text-anchor="middle">/sobre</text>
+                        <text x="225" y="106" fill="#52525B" font-size="4" text-anchor="middle">Institucional</text>
+
+                        <!-- === NÍVEL 3 — Ingressos sub-pages === -->
+                        <line x1="110" y1="110" x2="110" y2="130" stroke="#252535" stroke-width="0.6" stroke-dasharray="2,1"/>
+                        <line x1="85" y1="130" x2="135" y2="130" stroke="#252535" stroke-width="0.6" stroke-dasharray="2,1"/>
+
+                        <line x1="85" y1="130" x2="85" y2="148" stroke="#252535" stroke-width="0.6" stroke-dasharray="2,1"/>
+                        <rect x="58" y="148" width="54" height="18" rx="2" fill="none" stroke="#1A3A2A" stroke-width="0.7"/>
+                        <text x="85" y="157" fill="#52525B" font-size="4.5" text-anchor="middle">/checkout</text>
+                        <text x="85" y="163" fill="#374151" font-size="3.5" text-anchor="middle">Checkout</text>
+
+                        <line x1="135" y1="130" x2="135" y2="148" stroke="#252535" stroke-width="0.6" stroke-dasharray="2,1"/>
+                        <rect x="108" y="148" width="54" height="18" rx="2" fill="none" stroke="#1A3A2A" stroke-width="0.7"/>
+                        <text x="135" y="157" fill="#52525B" font-size="4.5" text-anchor="middle">/confirmacao</text>
+                        <text x="135" y="163" fill="#374151" font-size="3.5" text-anchor="middle">Confirmação</text>
+
+                        <!-- === NÍVEL 3 — Atrações sub === -->
+                        <line x1="55" y1="110" x2="55" y2="130" stroke="#252535" stroke-width="0.6" stroke-dasharray="2,1"/>
+                        <rect x="24" y="130" width="62" height="18" rx="2" fill="none" stroke="#1E1E2A" stroke-width="0.7"/>
+                        <text x="55" y="141" fill="#52525B" font-size="4.5" text-anchor="middle">/atracoes/[slug]</text>
+                        <text x="55" y="147" fill="#374151" font-size="3.5" text-anchor="middle">Página de Atração</text>
+
+                        <!-- === LANDING PAGES === -->
+                        <line x1="140" y1="175" x2="140" y2="195" stroke="#3A1E6A" stroke-width="0.8" stroke-dasharray="3,2"/>
+                        <rect x="60" y="195" width="160" height="24" rx="3" fill="none" stroke="#6D28D9" stroke-width="0.8" stroke-dasharray="3,2"/>
+                        <rect x="60" y="195" width="160" height="24" rx="3" fill="rgba(109,40,217,0.05)"/>
+                        <text x="140" y="206" fill="#A78BFA" font-size="5.5" font-weight="bold" text-anchor="middle">/lp/[campanha]</text>
+                        <text x="140" y="215" fill="#6D28D9" font-size="4" text-anchor="middle">Landing Pages Sazonais (Ads)</text>
+
+                        <!-- Linha conectora tracejada do nível 2 para landing pages -->
+                        <line x1="140" y1="48" x2="140" y2="68" stroke="#252535" stroke-width="0.5"/>
+
+                        <!-- === SEO PAGES === -->
+                        <line x1="170" y1="110" x2="170" y2="230" stroke="#252535" stroke-width="0.6" stroke-dasharray="2,1"/>
+                        <rect x="130" y="230" width="80" height="18" rx="2" fill="none" stroke="#1E1E2A" stroke-width="0.7"/>
+                        <text x="170" y="241" fill="#52525B" font-size="4.5" text-anchor="middle">/blog/[categoria]</text>
+                        <text x="170" y="247" fill="#374151" font-size="3.5" text-anchor="middle">SEO Content Hub</text>
+
+                        <!-- === LEGENDA === -->
+                        <rect x="20" y="280" width="240" height="58" rx="4" fill="none" stroke="#1A1A2A" stroke-width="0.8"/>
+                        <text x="30" y="292" fill="#52525B" font-size="5" font-weight="bold">LEGENDA</text>
+
+                        <rect x="30" y="298" width="10" height="7" rx="1.5" fill="none" stroke="#4F46E5" stroke-width="1"/>
+                        <rect x="30" y="298" width="10" height="7" rx="1.5" fill="rgba(79,70,229,0.08)"/>
+                        <text x="44" y="305" fill="#818CF8" font-size="4.5">Página Principal</text>
+
+                        <rect x="30" y="310" width="10" height="7" rx="1.5" fill="none" stroke="#059669" stroke-width="1"/>
+                        <rect x="30" y="310" width="10" height="7" rx="1.5" fill="rgba(5,150,105,0.06)"/>
+                        <text x="44" y="317" fill="#34D399" font-size="4.5">Página de Receita</text>
+
+                        <rect x="120" y="298" width="10" height="7" rx="1.5" fill="none" stroke="#6D28D9" stroke-width="0.8" stroke-dasharray="2,1"/>
+                        <text x="134" y="305" fill="#A78BFA" font-size="4.5">Landing (Ads)</text>
+
+                        <rect x="120" y="310" width="10" height="7" rx="1.5" fill="none" stroke="#2E2E42" stroke-width="0.8"/>
+                        <text x="134" y="317" fill="#52525B" font-size="4.5">Página de Suporte / Info</text>
+
+                        <!-- Total de páginas -->
+                        <rect x="20" y="348" width="240" height="24" rx="4" fill="rgba(79,70,229,0.06)" stroke="#252535" stroke-width="0.8"/>
+                        <text x="140" y="358" fill="#818CF8" font-size="5.5" font-weight="bold" text-anchor="middle">Total: 12+ páginas otimizadas para SEO e Conversão</text>
+                        <text x="140" y="367" fill="#52525B" font-size="4" text-anchor="middle">Cada URL tem objetivo financeiro definido</text>
+
+                        <!-- Annotation label -->
+                        <text x="140" y="400" fill="#3A3A52" font-size="4.5" text-anchor="middle">parqueoschin.com.br · arquitetura v1.0</text>
+                    </svg>
+                </div>
+
+                <!-- COLUNA DIREITA: Doc-cards 2x2 -->
+                <div class="flex-1 grid grid-cols-2 gap-3 content-start">
+                    <!-- Home -->
+                    <div class="doc-card doc-card-indigo p-4">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="p-2 bg-[#4F46E5]/10 rounded"><i data-lucide="layout" class="w-4 h-4 text-[#818CF8]"></i></div>
+                            <h4 class="font-serif text-[13px] font-bold text-white">1. Homepage</h4>
+                        </div>
+                        <ul class="space-y-1.5 pl-2 text-[11px] text-[#A1A1AA]">
+                            <li class="flex items-start gap-1.5"><span class="text-[#818CF8] font-bold">→</span> <strong>Header Dinâmico</strong> com "Comprar Ingressos"</li>
+                            <li class="flex items-start gap-1.5"><span class="text-[#818CF8] font-bold">→</span> <strong>Hero (1ª dobra)</strong> com vídeo da natureza do parque</li>
+                            <li class="flex items-start gap-1.5"><span class="text-[#818CF8] font-bold">→</span> Avaliações TripAdvisor/Google integradas</li>
+                        </ul>
+                    </div>
+                    <!-- Landing Pages -->
+                    <div class="doc-card doc-card-dark p-4">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="p-2 bg-[#52525B]/10 rounded"><i data-lucide="target" class="w-4 h-4 text-[#A1A1AA]"></i></div>
+                            <h4 class="font-serif text-[13px] font-bold text-white">2. Landing Pages (Ads)</h4>
+                        </div>
+                        <ul class="space-y-1.5 pl-2 text-[11px] text-[#A1A1AA]">
+                            <li class="flex items-start gap-1.5"><span class="text-[#52525B] font-bold">→</span> Campanhas sazonais: Inverno, Feriados, Crianças</li>
+                            <li class="flex items-start gap-1.5"><span class="text-[#52525B] font-bold">→</span> CTA direto para bilheteria e máximo ROI em Ads</li>
+                        </ul>
+                    </div>
+                    <!-- Bilheteria -->
+                    <div class="doc-card doc-card-emerald p-4">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="p-2 bg-emerald-500/10 rounded"><i data-lucide="ticket" class="w-4 h-4 text-emerald-400"></i></div>
+                            <h4 class="font-serif text-[13px] font-bold text-white">3. Bilheteria Digital</h4>
+                        </div>
+                        <ul class="space-y-1.5 pl-2 text-[11px] text-[#A1A1AA]">
+                            <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">→</span> Calendário dinâmico com disponibilidade real</li>
+                            <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">→</span> Checkout Pix/Cartão sem fricção</li>
+                        </ul>
+                    </div>
+                    <!-- Institucional -->
+                    <div class="doc-card doc-card-dark p-4">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="p-2 bg-[#52525B]/10 rounded"><i data-lucide="book-open" class="w-4 h-4 text-[#A1A1AA]"></i></div>
+                            <h4 class="font-serif text-[13px] font-bold text-white">4. Institucional</h4>
+                        </div>
+                        <ul class="space-y-1.5 pl-2 text-[11px] text-[#A1A1AA]">
+                            <li class="flex items-start gap-1.5"><span class="text-[#52525B] font-bold">→</span> Mapa de atrações, infraestrutura e regras</li>
+                            <li class="flex items-start gap-1.5"><span class="text-[#52525B] font-bold">→</span> Conformidade LGPD e Termos de Compra</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- S14: Suporte & Manutenção -->
+        <div class="slide flex-col justify-start" style="padding:2rem 2.5rem">
+            <div class="flex items-center gap-3 mb-2">
+                <span
+                    class="px-2 py-1 bg-[#1A1A1A] border border-[#252525] text-[#818CF8] text-[10px] font-bold rounded uppercase tracking-widest">Pós-Entrega</span>
+                <div class="w-px h-4 bg-[#333]"></div>
+                <span class="text-[9px] text-[#52525B] uppercase tracking-wider">O que acontece depois que o sistema vai
+                    ao ar</span>
+            </div>
+            <h2 class="font-serif text-[22px] font-semibold text-white mb-1 leading-tight">Suporte Contínuo &mdash;
+                <span
+                    style="background:linear-gradient(135deg,#818CF8,#6D28D9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Seu
+                    sistema nunca fica parado</span></h2>
+            <p class="text-sm text-[#71717A] mb-4 max-w-3xl leading-relaxed">A entrega não termina com o lançamento.
+                Após o sistema entrar no ar, a Creative Flow permanece como parceira técnica ativa — monitorando,
+                atualizando e garantindo que tudo funcione com a mesma performance do primeiro dia.</p>
+
+            <div class="flex gap-4 flex-1 min-h-0">
+                <!-- COLUNA ESQUERDA: Painel estilo ticket/suporte -->
+                <div class="w-[46%] bg-[#0A0A0A] border border-[#818CF8]/25 rounded-xl overflow-hidden flex flex-col">
+                    <!-- Browser bar -->
+                    <div
+                        class="h-8 bg-[#111] border-b border-[#1A1A1A] flex items-center justify-between px-3 shrink-0">
+                        <div class="flex items-center gap-2">
+                            <div class="flex gap-1"><span class="w-2 h-2 rounded-full bg-red-500/40"></span><span
+                                    class="w-2 h-2 rounded-full bg-amber-500/40"></span><span
+                                    class="w-2 h-2 rounded-full bg-emerald-500/40"></span></div>
+                            <span class="text-[8px] text-[#52525B] font-mono ml-1">support.creativeflow.com.br /
+                                oschin</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-1 px-2 py-0.5 bg-[#818CF8]/10 border border-[#818CF8]/25 rounded-full">
+                            <div class="w-1.5 h-1.5 rounded-full bg-[#818CF8] animate-pulse"></div>
+                            <span class="text-[7px] text-[#818CF8] font-bold uppercase">Suporte Ativo</span>
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo painel suporte -->
+                    <div class="flex flex-1 overflow-hidden">
+                        <!-- Mini sidebar -->
+                        <div
+                            class="w-14 bg-[#0D0D0D] border-r border-[#1A1A1A] flex flex-col items-center pt-3 gap-2 shrink-0">
+                            <div
+                                class="w-6 h-6 rounded-md bg-[#818CF8]/20 border border-[#818CF8]/30 flex items-center justify-center text-[5px] font-bold text-[#818CF8]">
+                                CF</div>
+                            <div class="w-px h-2 bg-[#222]"></div>
+                            <div
+                                class="w-7 h-7 rounded-lg bg-[#818CF8]/15 border border-[#818CF8]/25 flex items-center justify-center">
+                                <i data-lucide="headphones" class="w-3 h-3 text-[#818CF8]"></i></div>
+                            <div
+                                class="w-7 h-7 rounded-lg bg-[#161616] border border-[#222] flex items-center justify-center">
+                                <i data-lucide="refresh-cw" class="w-3 h-3 text-[#52525B]"></i></div>
+                            <div
+                                class="w-7 h-7 rounded-lg bg-[#161616] border border-[#222] flex items-center justify-center">
+                                <i data-lucide="shield-check" class="w-3 h-3 text-[#52525B]"></i></div>
+                            <div
+                                class="w-7 h-7 rounded-lg bg-[#161616] border border-[#222] flex items-center justify-center">
+                                <i data-lucide="bar-chart-2" class="w-3 h-3 text-[#52525B]"></i></div>
+                        </div>
+
+                        <!-- Main support content -->
+                        <div class="flex-1 p-2.5 flex flex-col gap-2 overflow-hidden">
+                            <!-- SLA Stats -->
+                            <div class="grid grid-cols-3 gap-1.5">
+                                <div class="bg-[#111] border border-emerald-500/20 rounded-lg p-2 text-center">
+                                    <div class="text-[14px] font-bold text-emerald-400">99.9%</div>
+                                    <div class="text-[6px] text-[#52525B] uppercase tracking-wide">Uptime SLA</div>
+                                </div>
+                                <div class="bg-[#111] border border-[#1A1A1A] rounded-lg p-2 text-center">
+                                    <div class="text-[14px] font-bold text-[#818CF8]">&lt;4h</div>
+                                    <div class="text-[6px] text-[#52525B] uppercase tracking-wide">Resp. Crítica</div>
+                                </div>
+                                <div class="bg-[#111] border border-[#1A1A1A] rounded-lg p-2 text-center">
+                                    <div class="text-[14px] font-bold text-amber-400">24h</div>
+                                    <div class="text-[6px] text-[#52525B] uppercase tracking-wide">Resp. Geral</div>
+                                </div>
+                            </div>
+
+                            <!-- Últimas atualizações -->
+                            <div class="bg-[#111] border border-[#1A1A1A] rounded-lg p-2 flex flex-col gap-1">
+                                <div class="text-[8px] font-bold text-white mb-1 flex items-center justify-between">
+                                    <span>Log de Atualizações de Segurança</span>
+                                    <span class="text-[6px] text-emerald-400">● Monitoramento Ativo</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 py-1 border-b border-[#1A1A1A]">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></div>
+                                    <span class="text-[6px] text-emerald-400 font-bold w-12 shrink-0">Aplicado</span>
+                                    <span class="text-[6px] text-[#A1A1AA] flex-1">Cloudflare WAF Rules — Patch crítico
+                                        v2.14</span>
+                                    <span class="text-[5px] text-[#52525B]">Mai/25</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 py-1 border-b border-[#1A1A1A]">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></div>
+                                    <span class="text-[6px] text-emerald-400 font-bold w-12 shrink-0">Aplicado</span>
+                                    <span class="text-[6px] text-[#A1A1AA] flex-1">Node.js 22 LTS — Atualização de
+                                        runtime</span>
+                                    <span class="text-[5px] text-[#52525B]">Abr/25</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 py-1 border-b border-[#1A1A1A]">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></div>
+                                    <span class="text-[6px] text-emerald-400 font-bold w-12 shrink-0">Aplicado</span>
+                                    <span class="text-[6px] text-[#A1A1AA] flex-1">Supabase Auth — Correção de
+                                        CVE-2025-0312</span>
+                                    <span class="text-[5px] text-[#52525B]">Mar/25</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 py-1">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shrink-0"></div>
+                                    <span class="text-[6px] text-amber-400 font-bold w-12 shrink-0">Em análise</span>
+                                    <span class="text-[6px] text-[#A1A1AA] flex-1">React 19.1 — Avaliação de
+                                        compatibilidade</span>
+                                    <span class="text-[5px] text-[#52525B]">Ago/25</span>
+                                </div>
+                            </div>
+
+                            <!-- Canal de suporte -->
+                            <div class="bg-[#111] border border-[#1A1A1A] rounded-lg p-2">
+                                <div class="text-[8px] font-bold text-white mb-1.5">Canais de Atendimento</div>
+                                <div class="flex gap-1.5">
+                                    <div class="flex-1 bg-[#0D0D0D] rounded p-1.5 flex items-center gap-1.5">
+                                        <i data-lucide="message-circle"
+                                            class="w-2.5 h-2.5 text-emerald-400 shrink-0"></i>
+                                        <div>
+                                            <div class="text-[6px] font-bold text-white">WhatsApp</div>
+                                            <div class="text-[5px] text-[#52525B]">Resposta prioritária</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-1 bg-[#0D0D0D] rounded p-1.5 flex items-center gap-1.5">
+                                        <i data-lucide="mail" class="w-2.5 h-2.5 text-[#818CF8] shrink-0"></i>
+                                        <div>
+                                            <div class="text-[6px] font-bold text-white">E-mail</div>
+                                            <div class="text-[5px] text-[#52525B]">Documentado e rastreável</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-1 bg-[#0D0D0D] rounded p-1.5 flex items-center gap-1.5">
+                                        <i data-lucide="video" class="w-2.5 h-2.5 text-amber-400 shrink-0"></i>
+                                        <div>
+                                            <div class="text-[6px] font-bold text-white">Videocall</div>
+                                            <div class="text-[5px] text-[#52525B]">Para diagnósticos</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUNA DIREITA: O que está incluso (compact 2-col grid) -->
+                <div class="flex-1 flex flex-col gap-2">
+                    <div class="grid grid-cols-2 gap-2">
+                        <!-- Atualizações de Segurança -->
+                        <div class="bg-[#131313] border border-[#818CF8]/20 rounded-lg p-2.5">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <div class="w-5 h-5 rounded-lg bg-gradient-to-br from-[#818CF8] to-[#6D28D9] flex items-center justify-center shrink-0"><i data-lucide="shield-check" class="w-3 h-3 text-white"></i></div>
+                                <div><h5 class="font-bold text-[11px] text-white">Segurança</h5><span class="text-[7px] text-[#818CF8] font-bold uppercase">Incluso</span></div>
+                            </div>
+                            <p class="text-[9px] text-[#52525B] leading-relaxed">Patches críticos aplicados imediatamente. Seu software nunca ficará vulnerável.</p>
+                        </div>
+                        <!-- Manutenção Preventiva -->
+                        <div class="bg-[#131313] border border-[#1A1A1A] rounded-lg p-2.5">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <div class="w-5 h-5 rounded-lg bg-[#1A1A1A] border border-[#252525] flex items-center justify-center shrink-0"><i data-lucide="wrench" class="w-3 h-3 text-amber-400"></i></div>
+                                <h5 class="font-bold text-[11px] text-white">Manutenção Prev.</h5>
+                            </div>
+                            <p class="text-[9px] text-[#52525B] leading-relaxed">Monitoramento proativo. Identificamos problemas antes de virarem incidentes.</p>
+                        </div>
+                        <!-- Correção de Bugs -->
+                        <div class="bg-[#131313] border border-[#1A1A1A] rounded-lg p-2.5">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <div class="w-5 h-5 rounded-lg bg-[#1A1A1A] border border-[#252525] flex items-center justify-center shrink-0"><i data-lucide="bug" class="w-3 h-3 text-red-400"></i></div>
+                                <h5 class="font-bold text-[11px] text-white">Correção de Bugs</h5>
+                            </div>
+                            <p class="text-[9px] text-[#52525B] leading-relaxed">SLA de 4h para críticos. Qualquer incidente tratado com prioridade garantida.</p>
+                        </div>
+                        <!-- Backup & Recuperação -->
+                        <div class="bg-[#131313] border border-[#1A1A1A] rounded-lg p-2.5">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <div class="w-5 h-5 rounded-lg bg-[#1A1A1A] border border-[#252525] flex items-center justify-center shrink-0"><i data-lucide="database-backup" class="w-3 h-3 text-emerald-400"></i></div>
+                                <h5 class="font-bold text-[11px] text-white">Backup Diário</h5>
+                            </div>
+                            <p class="text-[9px] text-[#52525B] leading-relaxed">Backup diário do banco completo. Restauração total em caso de falha crítica.</p>
+                        </div>
+                        <!-- Evolução -->
+                        <div class="bg-[#131313] border border-emerald-500/15 rounded-lg p-2.5 col-span-2">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <div class="w-5 h-5 rounded-lg bg-[#1A1A1A] border border-[#252525] flex items-center justify-center shrink-0"><i data-lucide="trending-up" class="w-3 h-3 text-emerald-400"></i></div>
+                                <h5 class="font-bold text-[11px] text-white">Evolução e Novas Funcionalidades</h5>
+                            </div>
+                            <p class="text-[9px] text-[#52525B] leading-relaxed">O sistema é seu. Sempre que o Parque Oschin crescer, <strong class="text-[#A1A1AA]">a base está pronta para evoluir</strong>. Orçamos novas demandas com prioridade de parceiro — sem começar do zero.</p>
+                        </div>
+                    </div>
+                    <!-- GEO Card: full-width highlight -->
+                    <div class="rounded-lg p-3" style="background:#0D0A1E;border:1px solid rgba(109,40,217,0.4)">
+                        <div class="flex items-center gap-2 mb-1.5">
+                            <div class="w-5 h-5 rounded-lg flex items-center justify-center shrink-0" style="background:rgba(109,40,217,0.15);border:1px solid rgba(109,40,217,0.3)"><i data-lucide="brain-circuit" class="w-3 h-3" style="color:#A78BFA"></i></div>
+                            <h5 class="font-bold text-[11px] text-white">GEO — Otimização para Busca por IA</h5>
+                            <span class="ml-auto text-[7px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded" style="color:#A78BFA;background:rgba(109,40,217,0.15);border:1px solid rgba(109,40,217,0.3)">Incluso</span>
+                        </div>
+                        <p class="text-[9px] leading-relaxed" style="color:#6B6B7A">Monitoramos e atualizamos o conteúdo estruturado do site para que o Parque Oschin seja <strong style="color:#A1A1AA">citado e recomendado pelo ChatGPT, Perplexity e Google AI Overviews</strong> — garantindo visibilidade no novo paradigma de busca por inteligência artificial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- S15: Investimento -->
+        <div class="slide flex-col justify-start">
+            <p class="section-label">Investimento &amp; Comparativo</p>
+            <h2 class="font-serif text-2xl font-semibold text-white mb-1">Escolha o seu Pacote de Investimento</h2>
+            <p class="text-sm text-[#71717A] mb-6 max-w-2xl">Dois caminhos, uma fundação sólida. Todos os pacotes
+                incluem segurança, hospedagem e banco de dados profissional.</p>
+
+            <div class="w-full flex gap-5 items-stretch flex-1">
+
+                <!-- CARD ESSENCIAL -->
+                <div class="flex-1 flex flex-col bg-[#111] border border-emerald-500/15 rounded-2xl overflow-hidden relative">
+                    <div class="absolute top-0 left-0 right-0 flex justify-center">
+                        <div class="bg-emerald-500/10 border-x border-b border-emerald-500/20 px-4 py-1 rounded-b-lg">
+                            <p class="text-[8px] font-bold uppercase tracking-widest text-emerald-400/70">Pacote 1</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pt-8 pb-5 border-b border-emerald-500/30 bg-gradient-to-b from-emerald-500/15 to-transparent">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-[#71717A] mb-2">Pacote 1</p>
+                        <h3 class="text-lg font-bold text-white mb-1">Essencial</h3>
+                        <p class="text-[11px] text-[#71717A]">Fundação digital completa: Site, Área do Cliente e App
+                            Desktop para gestão.</p>
+                        <div class="mt-4 flex items-end gap-2">
+                            <span class="text-3xl font-bold text-white">R$ 16.700</span>
+                            <span class="text-sm text-[#71717A] mb-0.5">setup único</span>
+                        </div>
+                    </div>
+                    <div class="flex-1 px-6 py-5 flex flex-col gap-3">
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="code" class="w-2.5 h-2.5 text-[#52525B]"></i></div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-[12px] font-semibold text-white">Desenvolvimento Completo</p>
+                                    <span class="text-[10px] text-[#3F3F46] font-bold">R$ 14.200</span>
+                                </div>
+                                <p class="text-[10px] text-[#52525B] mt-0.5 leading-tight">E-commerce de Ingressos, Portal Imersivo Institucional e Painel Administrativo de Gestão.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="cloud" class="w-2.5 h-2.5 text-[#52525B]"></i></div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-[12px] font-semibold text-white">Infraestrutura Cloud + Setup</p>
+                                    <span class="text-[10px] text-[#3F3F46] font-bold">R$ 1.500</span>
+                                </div>
+                                <p class="text-[10px] text-[#52525B] mt-0.5 leading-tight">Configuração de banco de
+                                    dados (Supabase), CDN (Cloudflare) e deploy em produção.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="graduation-cap" class="w-2.5 h-2.5 text-[#52525B]"></i></div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-[12px] font-semibold text-white">Treinamento + Implantação Inicial
+                                    </p>
+                                    <span class="text-[10px] text-[#3F3F46] font-bold">R$ 1.000</span>
+                                </div>
+                                <p class="text-[10px] text-[#52525B] mt-0.5 leading-tight">Sessão remota ao vivo +
+                                    documentação e onboarding da equipe do Parque Oschin.</p>
+                            </div>
+                        </div>
+
+                        <div class="h-px bg-[#1F1F1F] my-1"></div>
+
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="bot" class="w-2.5 h-2.5 text-emerald-400"></i></div>
+                            <div class="flex-1">
+                                <p class="text-[12px] font-semibold text-white">Chat IA no Site + Notificação ao Atendimento
+                                </p>
+                                <p class="text-[10px] text-[#52525B] mt-0.5 leading-tight">IA atende visitantes 24h no site.
+                                    Quando alguém pede atendimento humano, o sistema salva a conversa no <strong
+                                        class="text-[#A1A1AA]">inbox do Painel Admin</strong> e envia alerta instantâneo
+                                    no <strong class="text-[#A1A1AA]">WhatsApp de Atendimento</strong>.</p>
+                            </div>
+                        </div>
+
+                        <!-- NOVO: Disparador mensal de guias -->
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="send" class="w-2.5 h-2.5 text-emerald-400"></i></div>
+                            <div class="flex-1">
+                                <p class="text-[12px] font-semibold text-white">Disparador de Lembretes (WhatsApp +
+                                    E-mail)</p>
+                                <p class="text-[10px] text-[#52525B] mt-0.5 leading-tight">Ao comprar um ingresso, o sistema dispara um <strong class="text-[#A1A1AA]">WhatsApp + e-mail
+                                        automático</strong> com a confirmação. Lembretes automáticos podem ser ativados para dias antes da visita para redução de no-shows.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CARD INTERMEDIÁRIO -->
+                <div
+                    class="flex-1 flex flex-col bg-[#0C0C1A] border border-[#818CF8]/30 rounded-2xl overflow-hidden relative">
+                    <div class="absolute top-0 left-0 right-0 flex justify-center">
+                        <div class="bg-[#818CF8]/10 border-x border-b border-[#818CF8]/20 px-4 py-1 rounded-b-lg">
+                            <p class="text-[8px] font-bold uppercase tracking-widest text-[#818CF8]/70">Pacote 2</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pt-8 pb-5 border-b border-[#818CF8]/20 bg-gradient-to-b from-[#818CF8]/[0.03] to-transparent">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-[#818CF8] mb-2">Pacote 2</p>
+                        <h3 class="text-lg font-bold text-white mb-1">Intermediário</h3>
+                        <p class="text-[11px] text-[#71717A]">Operação avançada: automação, IA no checkout, Painel de Gestão e controle de catracas/ingressos.</p>
+
+                        <div class="mt-4 flex items-end gap-2">
+                            <span class="text-3xl font-bold accent-text">R$ 20.300</span>
+                            <span class="text-sm text-[#52525B] mb-0.5">setup único</span>
+                        </div>
+                    </div>
+                    <div class="flex-1 px-6 py-5 flex flex-col gap-3">
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 rounded-full bg-[#818CF8]/15 border border-[#818CF8]/30 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="code" class="w-2.5 h-2.5 text-[#818CF8]"></i></div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-[12px] font-semibold text-white">Desenvolvimento Completo</p>
+                                    <span class="text-[10px] text-[#52525B] font-bold">R$ 14.200</span>
+                                </div>
+                                <p class="text-[10px] text-[#71717A] mt-0.5 leading-tight">E-commerce de Ingressos, Portal Imersivo Institucional e Painel Administrativo de Gestão Avançado.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 rounded-full bg-[#818CF8]/15 border border-[#818CF8]/30 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="cloud" class="w-2.5 h-2.5 text-[#818CF8]"></i></div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-[12px] font-semibold text-white">Infraestrutura Cloud + Setup</p>
+                                    <span class="text-[10px] text-[#52525B] font-bold">R$ 1.500</span>
+                                </div>
+                                <p class="text-[10px] text-[#71717A] mt-0.5 leading-tight">Configuração de banco de
+                                    dados (Supabase), CDN (Cloudflare) e deploy em produção.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 rounded-full bg-[#818CF8]/15 border border-[#818CF8]/30 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="graduation-cap" class="w-2.5 h-2.5 text-[#818CF8]"></i></div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-[12px] font-semibold text-white">Treinamento + Implantação Inicial
+                                    </p>
+                                    <span class="text-[10px] text-[#52525B] font-bold">R$ 1.000</span>
+                                </div>
+                                <p class="text-[10px] text-[#71717A] mt-0.5 leading-tight">Sessão remota ao vivo +
+                                    documentação e onboarding da equipe do Parque Oschin.</p>
+                            </div>
+                        </div>
+
+                        <div class="h-px bg-[#818CF8]/15 my-1"></div>
+
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="bot" class="w-2.5 h-2.5 text-emerald-400"></i></div>
+                            <div class="flex-1">
+                                <p class="text-[12px] font-semibold text-white">Chat IA no Site + Notificação ao Atendimento
+                                </p>
+                                <p class="text-[10px] text-[#71717A] mt-0.5 leading-tight">IA atende visitantes 24h no site.
+                                    Quando alguém pede atendimento humano, o sistema salva a conversa no <strong
+                                        class="text-[#A1A1AA]">inbox do Painel Admin</strong> e envia alerta instantâneo
+                                    no <strong class="text-[#A1A1AA]">WhatsApp de Atendimento</strong>.</p>
+                            </div>
+                        </div>
+
+                        <!-- Disparador Mensal (igual Essencial) -->
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="send" class="w-2.5 h-2.5 text-emerald-400"></i></div>
+                            <div class="flex-1">
+                                <p class="text-[12px] font-semibold text-white">Disparador de Lembretes (WhatsApp + E-mail)</p>
+                                <p class="text-[10px] text-[#71717A] mt-0.5 leading-tight">Ao comprar um ingresso, o sistema dispara um <strong class="text-[#A1A1AA]">WhatsApp + e-mail automático</strong> com a confirmação. Lembretes automáticos podem ser ativados para dias antes da visita.</p>
+                            </div>
+                        </div>
+
+                        <div class="h-px bg-[#818CF8]/15 my-1"></div>
+                        <!-- Pack Inteligência como bundle -->
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 rounded-full bg-[#818CF8]/15 border border-[#818CF8]/30 flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="sparkles" class="w-2.5 h-2.5 text-[#818CF8]"></i></div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-[12px] font-bold text-white">Pack Inteligência</p>
+                                    <span
+                                        class="text-[9px] font-bold text-[#818CF8] bg-[#818CF8]/10 border border-[#818CF8]/20 rounded px-1.5 py-0.5">R$
+                                        3.600</span>
+                                </div>
+                                <div class="mt-1.5 flex flex-col gap-1">
+                                    <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                            class="w-2 h-2 text-[#818CF8] shrink-0"></i><span
+                                            class="text-[10px] text-[#71717A]">Gestão de Equipe com controle de acessos
+                                            (RBAC)</span></div>
+                                    <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                            class="w-2 h-2 text-[#818CF8] shrink-0"></i><span
+                                            class="text-[10px] text-[#71717A]">Automação via IA — Leitura e extração de
+                                            PDF</span></div>
+                                    <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                            class="w-2 h-2 text-[#818CF8] shrink-0"></i><span
+                                            class="text-[10px] text-[#71717A]">Dashboard analítico avançado + relatórios
+                                            exportáveis</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="text-[10px] text-[#3F3F46] max-w-3xl leading-relaxed mt-4">* Arquitetura de Compliance &amp;
+                Blindagem Cibernética (LGPD, CFC, AES-256, WAF) incluída em ambos os pacotes como fundação. Novas
+                funcionalidades podem ser orçadas como expansões após o Go-Live.</p>
+        </div>
+        <!-- S16: Recorrencia Mensal (OPEX) -->
+        <div class="slide flex-col justify-start">
+            <p class="section-label">Recorrência Mensal · OPEX</p>
+            <h2 class="font-serif text-2xl font-semibold text-white mb-1">Parceria Contínua de TI</h2>
+            <p class="text-sm text-[#71717A] mb-5 max-w-2xl">A Creative Flow assume o papel de departamento de
+                tecnologia do Parque Oschin — infraestrutura, segurança e suporte em uma única mensalidade previsível.</p>
+
+            <div class="flex gap-5 w-full items-stretch flex-1">
+
+                <!-- Coluna esquerda: Valor -->
+                <div class="w-52 shrink-0 flex flex-col gap-3">
+                    <div
+                        class="flex-1 bg-gradient-to-b from-[#0F0F1E] to-[#0C0C18] border border-[#818CF8]/30 rounded-2xl p-5 flex flex-col">
+                        <div
+                            class="w-9 h-9 rounded-xl bg-[#818CF8]/10 border border-[#818CF8]/20 flex items-center justify-center mb-4">
+                            <i data-lucide="repeat-2" class="w-4 h-4 text-[#818CF8]"></i>
+                        </div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-[#818CF8] mb-3">Investimento
+                            Mensal</p>
+                        <div class="flex items-baseline gap-1.5 mb-1">
+                            <span class="text-[15px] font-bold text-[#A1A1AA]">R$</span>
+                            <span class="text-[38px] font-bold text-white leading-none tracking-tight">1.650</span>
+                            <span class="text-[12px] font-medium text-[#52525B] ml-1">/mês</span>
+                        </div>
+                        <div class="flex-1"></div>
+
+                        <div class="mt-4 pt-4 border-t border-[#818CF8]/15">
+                            <p class="text-[9px] text-[#818CF8] font-bold uppercase tracking-wide mb-1">Início da
+                                cobrança</p>
+                            <p class="text-[10px] text-[#71717A] leading-relaxed">Apenas após a entrega e aprovação
+                                final do sistema.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="bg-[#111] border border-[#1F1F1F] rounded-xl p-2.5 text-center">
+                            <p class="text-[8px] text-[#3F3F46] uppercase tracking-wide leading-none mb-1">SLA Crítico
+                            </p>
+                            <p class="text-[15px] font-bold text-white">4h</p>
+                        </div>
+                        <div class="bg-[#111] border border-[#1F1F1F] rounded-xl p-2.5 text-center">
+                            <p class="text-[8px] text-[#3F3F46] uppercase tracking-wide leading-none mb-1">Uptime</p>
+                            <p class="text-[15px] font-bold text-emerald-400">99,9%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna direita: 3 pilares -->
+                <div class="flex-1 flex flex-col gap-3">
+
+                    <div class="flex-1 bg-[#111] border border-[#1A1A1A] rounded-2xl p-4 flex gap-4 items-start">
+                        <div
+                            class="w-8 h-8 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-orange-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-2.5">
+                                <h4 class="text-[11px] font-bold text-white uppercase tracking-wider">Cloudflare Pro —
+                                    Segurança &amp; Rede</h4>
+                                <span
+                                    class="text-[8px] font-bold text-orange-400 bg-orange-400/10 border border-orange-400/20 rounded px-2 py-0.5 uppercase tracking-wide shrink-0 ml-2">Incluso</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-4 gap-y-1.5">
+                                <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                        class="w-2.5 h-2.5 text-orange-400 shrink-0"></i><span
+                                        class="text-[10px] text-[#71717A]">WAF — Firewall de Aplicação Web</span></div>
+                                <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                        class="w-2.5 h-2.5 text-orange-400 shrink-0"></i><span
+                                        class="text-[10px] text-[#71717A]">CDN Global — 180+ Pontos de Presença</span>
+                                </div>
+                                <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                        class="w-2.5 h-2.5 text-orange-400 shrink-0"></i><span
+                                        class="text-[10px] text-[#71717A]">Proteção Anti-DDoS Enterprise</span></div>
+                                <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                        class="w-2.5 h-2.5 text-orange-400 shrink-0"></i><span
+                                        class="text-[10px] text-[#71717A]">SSL/TLS Premium + Rate Limiting</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 bg-[#111] border border-[#1A1A1A] rounded-2xl p-4 flex gap-4 items-start">
+                        <div
+                            class="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+                            <i data-lucide="database" class="w-4 h-4 text-emerald-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-2.5">
+                                <h4 class="text-[11px] font-bold text-white uppercase tracking-wider">Infraestrutura
+                                    Cloud — Banco &amp; Hosting</h4>
+                                <span
+                                    class="text-[8px] font-bold text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 rounded px-2 py-0.5 uppercase tracking-wide shrink-0 ml-2">Incluso</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-4 gap-y-1.5">
+                                <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                        class="w-2.5 h-2.5 text-emerald-400 shrink-0"></i><span
+                                        class="text-[10px] text-[#71717A]">Supabase PostgreSQL — Banco dedicado</span>
+                                </div>
+                                <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                        class="w-2.5 h-2.5 text-emerald-400 shrink-0"></i><span
+                                        class="text-[10px] text-[#71717A]">Cloudflare Pages — Edge Hosting Global</span>
+                                </div>
+                                <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                        class="w-2.5 h-2.5 text-emerald-400 shrink-0"></i><span
+                                        class="text-[10px] text-[#71717A]">Storage seguro para documentos</span></div>
+                                <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                        class="w-2.5 h-2.5 text-emerald-400 shrink-0"></i><span
+                                        class="text-[10px] text-[#71717A]">Backup diário realizado pela equipe CF</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 bg-[#0D0D1A] border border-[#818CF8]/25 rounded-2xl p-4 flex gap-4 items-start">
+                        <div
+                            class="w-8 h-8 rounded-xl bg-[#818CF8]/10 border border-[#818CF8]/20 flex items-center justify-center shrink-0">
+                            <i data-lucide="headphones" class="w-4 h-4 text-[#818CF8]"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-2.5">
+                                <h4 class="text-[11px] font-bold text-white uppercase tracking-wider">Suporte Técnico
+                                    &amp; Evolução Contínua</h4>
+                                <span
+                                    class="text-[8px] font-bold text-[#818CF8] bg-[#818CF8]/10 border border-[#818CF8]/20 rounded px-2 py-0.5 uppercase tracking-wide shrink-0 ml-2">Incluso</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-4 gap-y-1.5">
+                                <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                        class="w-2.5 h-2.5 text-[#818CF8] shrink-0"></i><span
+                                        class="text-[10px] text-[#71717A]">Atualização de libs e frameworks</span></div>
+                                <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                        class="w-2.5 h-2.5 text-[#818CF8] shrink-0"></i><span
+                                        class="text-[10px] text-[#71717A]">Patches de vulnerabilidade mensais</span>
+                                </div>
+                                <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                        class="w-2.5 h-2.5 text-[#818CF8] shrink-0"></i><span
+                                        class="text-[10px] text-[#71717A]">Monitoramento 24/7 do sistema</span></div>
+                                <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                        class="w-2.5 h-2.5 text-[#818CF8] shrink-0"></i><span
+                                        class="text-[10px] text-[#71717A]">Canal direto via WhatsApp</span></div>
+                                <div class="flex items-center gap-1.5 col-span-2" style="background:rgba(109,40,217,0.08);border:1px solid rgba(109,40,217,0.2);border-radius:6px;padding:4px 8px;margin-top:2px">
+                                    <i data-lucide="brain-circuit" class="w-2.5 h-2.5 shrink-0" style="color:#A78BFA"></i>
+                                    <span class="text-[10px]" style="color:#A78BFA"><strong style="color:#C4B5FD">GEO — IA Search:</strong> Manutenção mensal do conteúdo estruturado para visibilidade no ChatGPT, Perplexity e Google AI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- S17: Retorno sobre Investimento -->
+        <div class="slide flex-col justify-start">
+            <p class="section-label">Retorno sobre Investimento</p>
+            <h2 class="font-serif text-2xl font-semibold text-white mb-1">Economia com nosso ecossistema</h2>
+            <p class="text-sm text-[#71717A] mb-5 max-w-2xl">Por que investir conosco é a decisão financeira mais
+                inteligente para o Parque Oschin?</p>
+
+            <div class="grid grid-cols-2 gap-4 w-full">
+                <!-- Aquisição de Ativo -->
+                <div class="bg-[#111] border border-[#1F1F1F] rounded-2xl p-5">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-2">
+                            <div
+                                class="w-8 h-8 rounded-xl bg-[#818CF8]/10 border border-[#818CF8]/20 flex items-center justify-center shrink-0">
+                                <i data-lucide="trending-down" class="w-4 h-4 text-[#818CF8]"></i>
+                            </div>
+                            <h4 class="text-[13px] font-bold text-white">Aquisição de Ativo (Setup)</h4>
+                        </div>
+                        <i data-lucide="building-2" class="w-6 h-6 text-[#3F3F46]"></i>
+                    </div>
+
+                    <div class="flex justify-between items-center py-2 border-b border-[#1F1F1F]">
+                        <span class="text-[11px] text-[#71717A]">Custo Agência Padrão:</span>
+                        <span class="text-[12px] font-bold text-red-400">R$ 65.000</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 mb-3">
+                        <span class="text-[11px] text-[#71717A]">Nosso Investimento (Intermediário):</span>
+                        <span class="text-[12px] font-bold text-emerald-400">R$ 20.300</span>
+                    </div>
+
+                    <p class="text-[10px] text-[#A1A1AA] leading-relaxed">
+                        Economia imediata de <strong class="text-white">R$ 44.700</strong> na construção do ecossistema,
+                        entregando uma plataforma full-stack completa.
+                    </p>
+                </div>
+
+                <!-- Nível de Engenharia -->
+                <div class="bg-[#111] border border-[#1F1F1F] rounded-2xl p-5">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-2">
+                            <div
+                                class="w-8 h-8 rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center shrink-0">
+                                <i data-lucide="layers" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <h4 class="text-[13px] font-bold text-white">Nível de Engenharia</h4>
+                        </div>
+                        <i data-lucide="code-2" class="w-6 h-6 text-[#3F3F46]"></i>
+                    </div>
+
+                    <div class="flex justify-between items-center py-2 border-b border-[#1F1F1F]">
+                        <span class="text-[11px] text-[#71717A]">Padrão de Mercado (Frágil):</span>
+                        <span class="text-[12px] font-bold text-red-400">WordPress / PHP</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 mb-3">
+                        <span class="text-[11px] text-[#71717A]">Nosso Padrão (Enterprise):</span>
+                        <span class="text-[12px] font-bold text-emerald-400">React + Edge Cloud</span>
+                    </div>
+
+                    <p class="text-[10px] text-[#A1A1AA] leading-relaxed">
+                        Não usamos templates CMS. Desenvolvemos com a mesma stack nativa utilizada por <strong
+                            class="text-white">Netflix, Uber e Nubank</strong>. Alta performance e imunidade contra bots
+                        automatizados.
+                    </p>
+                </div>
+
+                <!-- Manutenção Mensal -->
+                <div class="bg-[#111] border border-[#1F1F1F] rounded-2xl p-5">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-2">
+                            <div
+                                class="w-8 h-8 rounded-xl bg-[#1A1A1A] border border-[#252525] flex items-center justify-center shrink-0">
+                                <i data-lucide="refresh-ccw" class="w-4 h-4 text-[#A1A1AA]"></i>
+                            </div>
+                            <h4 class="text-[13px] font-bold text-white">Manutenção Mensal (OPEX)</h4>
+                        </div>
+                        <i data-lucide="settings-2" class="w-6 h-6 text-[#3F3F46]"></i>
+                    </div>
+
+                    <div class="flex justify-between items-center py-2 border-b border-[#1F1F1F]">
+                        <span class="text-[11px] text-[#71717A]">Custo Agências (TI + Cloud):</span>
+                        <span class="text-[12px] font-bold text-red-400">R$ 4.500 /mês</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 mb-3">
+                        <span class="text-[11px] text-[#71717A]">Nosso Custo Unificado:</span>
+                        <span class="text-[12px] font-bold text-emerald-400">R$ 1.650 /mês</span>
+                    </div>
+
+                    <p class="text-[10px] text-[#A1A1AA] leading-relaxed">
+                        Infraestrutura unificada (Suporte + Hospedagem + Cloudflare WAF). Economia anual de <strong
+                            class="text-white">R$ 34.200</strong> no seu caixa operacional.
+                    </p>
+                </div>
+
+                <!-- Total -->
+                <div
+                    class="bg-[#0C0C1A] border border-emerald-500/20 rounded-2xl p-5 flex flex-col justify-center items-center text-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-emerald-500/5"></div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-emerald-400/80 mb-1 relative z-10">
+                        Economia Total no 1º Ano</p>
+                    <p class="text-[8px] text-emerald-400/50 mb-3 relative z-10">Setup (R$ 44.700) + OPEX Anual (R$
+                        34.200)</p>
+
+                    <div
+                        class="bg-emerald-500/10 border border-emerald-500/20 rounded-xl py-3 px-6 w-full mb-2 relative z-10">
+                        <h3 class="text-3xl font-bold text-white">R$ 78.900</h3>
+                        <p class="text-[9px] font-bold text-emerald-400 uppercase tracking-wide mt-0.5">MANTIDOS NO
+                            CAIXA DO PARQUE OSCHIN</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-[8px] text-[#52525B] text-center mt-3 uppercase tracking-wider">Cálculo baseado na média de
+                mercado para agências de software corporativas e escopo full-stack de alto nível.</p>
+        </div>
+
+        <!-- S18: Encerramento Creative Flow -->
+        <div class="slide flex-col justify-center items-center text-center relative overflow-hidden">
+
+            <!-- Glow de fundo sutil -->
+            <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 50% at 50% 55%, rgba(129,140,248,0.07) 0%, transparent 70%);"></div>
+
+            <!-- Logo Creative Flow -->
+            <div class="flex items-center gap-4 mb-8 relative z-10">
+                <!-- Ícone SVG -->
+                <svg viewBox="0 0 120 120" class="w-14 h-14 drop-shadow-[0_0_18px_rgba(129,140,248,0.35)]">
+                    <g fill="#818CF8">
+                        <g filter="url(#goo)">
+                            <circle cx="45" cy="30" r="13"/>
+                            <circle cx="45" cy="70" r="13"/>
+                            <line x1="45" y1="30" x2="45" y2="70" stroke="#818CF8" stroke-width="8" stroke-linecap="round"/>
+                        </g>
+                        <circle cx="18" cy="50" r="8.5"/>
+                        <circle cx="45" cy="96" r="8.5"/>
+                        <circle cx="45" cy="113" r="3.5"/>
+                    </g>
+                    <g fill="#818CF8">
+                        <g filter="url(#goo)">
+                            <circle cx="75" cy="50" r="13"/>
+                            <circle cx="75" cy="90" r="13"/>
+                            <line x1="75" y1="50" x2="75" y2="90" stroke="#818CF8" stroke-width="8" stroke-linecap="round"/>
+                        </g>
+                        <circle cx="102" cy="70" r="8.5"/>
+                        <circle cx="75" cy="24" r="8.5"/>
+                        <circle cx="75" cy="7" r="3.5"/>
+                    </g>
+                </svg>
+                <!-- Wordmark -->
+                <div class="flex flex-col items-start leading-none">
+                    <span class="text-4xl font-bold tracking-tighter uppercase text-white">Creative<span class="text-[#818CF8]">Flow</span></span>
+                    <span class="text-[10px] font-semibold uppercase tracking-[.18em] text-[#52525B] mt-1">Intelligence Agency</span>
+                </div>
+            </div>
+
+            <!-- Divisor fino -->
+            <div class="w-24 h-px bg-[#1F1F1F] mb-8 relative z-10"></div>
+
+            <!-- Dados da empresa -->
+            <div class="flex flex-col items-center gap-2 relative z-10 mb-8">
+                <p class="text-[13px] text-[#52525B]">CNPJ <strong class="text-[#3F3F46] font-mono">65.986.666/0001-06</strong></p>
+                <p class="text-[13px] text-[#52525B]">contato@creativeflow.com.br &nbsp;·&nbsp; (19) 97106-0911</p>
+                <p class="text-[13px] text-[#52525B]">creativeflow.com.br</p>
+            </div>
+
+            <!-- Confidencialidade -->
+            <p class="text-[10px] text-[#2A2A2A] relative z-10">© 2026 Creative Flow. Proposta confidencial. Validade: 15 dias.</p>
+        </div>
+
+    </div><!-- /slide-container -->
+
+    <script>
+        let cur = 0, zoom = 1, slides, total;
+        function init() { slides = document.querySelectorAll('.slide'); total = slides.length; document.getElementById('totalSlides').textContent = total; upd() }
+        function upd() { slides.forEach((s, i) => { s.classList.remove('active', 'prev'); if (i === cur) s.classList.add('active'); else if (i < cur) s.classList.add('prev') }); document.getElementById('currentSlide').textContent = cur + 1; document.getElementById('progress').style.width = ((cur + 1) / total * 100) + '%' }
+        function nextSlide() { if (cur < total - 1) { cur++; upd() } }
+        function prevSlide() { if (cur > 0) { cur--; upd() } }
+        function toggleFullscreen() { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); const ic = document.getElementById('fsIcon'); ic.setAttribute('data-lucide', document.fullscreenElement ? 'maximize' : 'minimize'); lucide.createIcons() }
+        function changeZoom(d) { zoom = Math.max(.5, Math.min(1.5, zoom + d)); document.querySelector('.slide-container').style.transform = 'scale(' + zoom + ')'; document.getElementById('zoomLevel').textContent = Math.round(zoom * 100) + '%' }
+        function resetZoom() { zoom = 1; document.querySelector('.slide-container').style.transform = 'scale(1)'; document.getElementById('zoomLevel').textContent = '100%' }
+
+        // Logo Boot Animation
+        function startLogoSequence() {
+            const text = document.getElementById('text-anim');
+            // Fade-in the text immediately
+            setTimeout(() => {
+                if (text) text.classList.add('text-revealed');
+            }, 50);
+
+            setTimeout(() => {
+                const icon = document.getElementById('icon-anim');
+                if (icon) {
+                    icon.classList.remove('icon-loading');
+                    icon.style.transition = 'all 1.4s cubic-bezier(0.22, 1, 0.36, 1)';
+                    icon.style.transform = 'rotate(720deg) scale(1)';
+                }
+
+                document.querySelectorAll('.pulse-dot').forEach(d => {
+                    d.style.animationPlayState = 'paused';
+                    d.style.opacity = '1';
+                    d.style.transform = 'scale(1)';
+                });
+            }, 2500);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => { init(); lucide.createIcons(); startLogoSequence(); });
+        document.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === ' ') nextSlide(); if (e.key === 'ArrowLeft') prevSlide(); if (e.key === 'f') toggleFullscreen() });
+        let wt = 0; document.addEventListener('wheel', e => { e.preventDefault(); const now = Date.now(); if (now - wt < 400) return; wt = now; e.deltaY > 0 ? nextSlide() : prevSlide() }, { passive: false });
+        let tx = 0; document.addEventListener('touchstart', e => { tx = e.touches[0].clientX }); document.addEventListener('touchend', e => { const d = e.changedTouches[0].clientX - tx; if (d < -50) nextSlide(); if (d > 50) prevSlide() });
+    </script>
+</body>
+
+</html>
+
