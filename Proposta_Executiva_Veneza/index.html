@@ -400,6 +400,46 @@
             font-weight: 600;
             color: #71717A
         }
+
+        .cf-slide-logo {
+            position: absolute;
+            top: 1.65rem;
+            right: 2.25rem;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            width: 150px;
+            pointer-events: none
+        }
+
+        .cf-slide-logo svg {
+            width: 32px;
+            height: 32px;
+            overflow: visible
+        }
+
+        .cf-slide-logo-title {
+            font-size: 12px;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -0.03em;
+            line-height: 1
+        }
+
+        .cf-slide-logo-title span {
+            color: #818CF8
+        }
+
+        .cf-slide-logo-kicker {
+            font-size: 7px;
+            font-weight: 700;
+            color: #A5B4FC;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            margin-top: 4px
+        }
     </style>
 </head>
 
@@ -3858,6 +3898,47 @@
         function changeZoom(d) { zoom = Math.max(.5, Math.min(1.5, zoom + d)); document.querySelector('.slide-container').style.transform = 'scale(' + zoom + ')'; document.getElementById('zoomLevel').textContent = Math.round(zoom * 100) + '%' }
         function resetZoom() { zoom = 1; document.querySelector('.slide-container').style.transform = 'scale(1)'; document.getElementById('zoomLevel').textContent = '100%' }
 
+        function staticCreativeFlowLogo() {
+            return `
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                    <g fill="#818CF8">
+                        <g filter="url(#goo)">
+                            <circle cx="45" cy="30" r="13" />
+                            <circle cx="45" cy="70" r="13" />
+                            <line x1="45" y1="30" x2="45" y2="70" stroke="#818CF8" stroke-width="8" stroke-linecap="round" />
+                        </g>
+                        <circle cx="18" cy="50" r="8.5" />
+                        <circle cx="45" cy="96" r="8.5" />
+                        <circle cx="45" cy="113" r="3.5" />
+                    </g>
+                    <g fill="#818CF8">
+                        <g filter="url(#goo)">
+                            <circle cx="75" cy="50" r="13" />
+                            <circle cx="75" cy="90" r="13" />
+                            <line x1="75" y1="50" x2="75" y2="90" stroke="#818CF8" stroke-width="8" stroke-linecap="round" />
+                        </g>
+                        <circle cx="102" cy="70" r="8.5" />
+                        <circle cx="75" cy="24" r="8.5" />
+                        <circle cx="75" cy="7" r="3.5" />
+                    </g>
+                </svg>
+                <div class="text-right">
+                    <div class="cf-slide-logo-title">Creative<span>Flow</span></div>
+                    <div class="cf-slide-logo-kicker">Intelligence Agency</div>
+                </div>`;
+        }
+
+        function mountStaticLogos() {
+            const slideList = document.querySelectorAll('.slide');
+            slideList.forEach((slide, index) => {
+                if (index === 0 || index === slideList.length - 1) return;
+                const logo = document.createElement('div');
+                logo.className = 'cf-slide-logo';
+                logo.innerHTML = staticCreativeFlowLogo();
+                slide.appendChild(logo);
+            });
+        }
+
         // Logo Boot Animation
         function startLogoSequence() {
             const text = document.getElementById('text-anim');
@@ -3882,7 +3963,7 @@
             }, 2500);
         }
 
-        document.addEventListener('DOMContentLoaded', () => { init(); lucide.createIcons(); startLogoSequence(); });
+        document.addEventListener('DOMContentLoaded', () => { mountStaticLogos(); init(); lucide.createIcons(); startLogoSequence(); });
         document.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === ' ') nextSlide(); if (e.key === 'ArrowLeft') prevSlide(); if (e.key === 'f') toggleFullscreen() });
         let wt = 0; document.addEventListener('wheel', e => { e.preventDefault(); const now = Date.now(); if (now - wt < 400) return; wt = now; e.deltaY > 0 ? nextSlide() : prevSlide() }, { passive: false });
         let tx = 0; document.addEventListener('touchstart', e => { tx = e.touches[0].clientX }); document.addEventListener('touchend', e => { const d = e.changedTouches[0].clientX - tx; if (d < -50) nextSlide(); if (d > 50) prevSlide() });
