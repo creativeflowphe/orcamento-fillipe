@@ -1,5 +1,5 @@
 const fs = require('fs');
-const html = fs.readFileSync('index-cf-dark-v2.html', 'utf8');
+const html = fs.readFileSync('index.html', 'utf8');
 
 let depth = 0;
 let lines = html.split('\n');
