@@ -464,7 +464,7 @@
     </div>
 
     <!-- Voltar para o Hub -->
-    <a href="../index.html" class="fixed top-6 left-6 flex items-center gap-2 bg-[#1C1C1C]/90 backdrop-blur-md px-4 py-2 rounded-full z-[60] hover:bg-[#2A2A2A] text-white transition group cursor-pointer" style="box-shadow:0 4px 24px -6px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)">
+    <a href="../index.html" data-hub-back onclick="if(window.parent&&window.parent!==window){if(window.parent.__creativeFlowCloseProposal){window.parent.__creativeFlowCloseProposal();}else{window.parent.postMessage({type:'creativeflow:close-proposal'}, '*');} return false;}" class="fixed top-6 left-6 flex items-center gap-2 bg-[#1C1C1C]/90 backdrop-blur-md px-4 py-2 rounded-full z-[60] hover:bg-[#2A2A2A] text-white transition group cursor-pointer" style="box-shadow:0 4px 24px -6px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)">
         <i data-lucide="layout-grid" class="w-4 h-4 text-[#818CF8] group-hover:scale-110 transition-transform"></i>
         <span class="text-[10px] font-bold tracking-[0.15em] text-gray-300 group-hover:text-white uppercase transition-colors">Voltar ao Hub</span>
     </a>
@@ -562,8 +562,8 @@
                     </div>
                     <h1 class="text-[44px] font-extrabold mb-4 text-white leading-[1.1] tracking-[-0.03em]">Modernização
                         de Infraestrutura e<br><span class="accent-text">Automação de Processos Contábeis</span></h1>
-                    <p class="text-base text-[#71717A] max-w-xl leading-relaxed mb-10">Ecossistema digital completo e
-                        blindado para a Veneza Contabilidade, em conformidade com LGPD e normas do CFC.</p>
+                    <p class="text-base text-[#71717A] max-w-xl leading-relaxed mb-10">Ecossistema digital completo
+                        para a Veneza Contabilidade, em conformidade com LGPD e normas do CFC.</p>
                     <div class="flow-border pl-6 py-3 mb-8">
                         <p class="mb-2"><span
                                 class="text-[10px] font-bold tracking-[.12em] uppercase text-[#52525B] block mb-0.5">Empresa
@@ -598,11 +598,10 @@
                     class="bg-[#161616]/60 backdrop-blur-sm border border-white/5 rounded-xl p-6 mb-6 shadow-xl relative overflow-hidden w-full">
                     <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#818CF8] to-[#4F46E5]"></div>
                     <p class="text-[15px] text-[#A1A1AA] leading-relaxed">Este documento técnico-comercial apresenta a
-                        proposta oficial para o desenvolvimento de um ecossistema digital completo e blindado para a
-                        Veneza Contabilidade. O nosso foco absoluto é entregar uma plataforma tecnológica de ponta que
-                        opere como um escudo protetor, garantindo <strong class="text-white">adequação irrefutável à
-                            LGPD e às normas do CFC</strong>, elevando a segurança jurídica da empresa enquanto escala a
-                        produtividade através de automações de alta performance.</p>
+                        proposta oficial para o desenvolvimento de um ecossistema digital completo para a
+                        Veneza Contabilidade. O foco é entregar uma plataforma organizada, segura e prática para
+                        proteger documentos, atender à <strong class="text-white">LGPD e às normas do CFC</strong> e
+                        reduzir trabalho manual na rotina contábil.</p>
                 </div>
 
                 <!-- Animated stat cards -->
@@ -635,7 +634,7 @@
                                 class="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform"></i>
                             <p class="text-2xl font-bold text-white">AES-256</p>
                         </div>
-                        <p class="text-[10px] uppercase tracking-[.12em] text-[#52525B] font-bold">Criptografia Militar
+                        <p class="text-[10px] uppercase tracking-[.12em] text-[#52525B] font-bold">Criptografia de Dados
                         </p>
                         <p class="text-xs text-[#52525B] mt-1">Em repouso e em trânsito</p>
                     </div>
@@ -664,7 +663,7 @@
                     <div
                         class="bg-[#0D0D0D] border border-[#1A1A1A] rounded-lg p-3 text-center hover:border-emerald-500/20 transition-all">
                         <i data-lucide="shield-alert" class="w-5 h-5 text-emerald-400 mx-auto mb-2"></i>
-                        <p class="text-[11px] font-semibold text-white mb-0.5">Blindagem</p>
+                        <p class="text-[11px] font-semibold text-white mb-0.5">Proteção</p>
                         <p class="text-[10px] text-[#52525B]">LGPD + CFC + WAF</p>
                     </div>
                 </div>
@@ -673,9 +672,9 @@
 
         <!-- S3: Compliance (COMPACT - NO OVERFLOW) -->
         <div class="slide flex-col justify-start">
-            <p class="section-label">1. Arquitetura de Compliance &amp; Blindagem Cibernética</p>
+            <p class="section-label">1. Segurança, LGPD &amp; Organização Documental</p>
             <p class="font-serif text-[15px] text-[#A1A1AA] leading-relaxed mb-4 max-w-3xl">A arquitetura deste sistema
-                atua como um <strong class="text-white">escudo legal automatizado</strong> para a Veneza Contabilidade.
+                organiza documentos, acessos e registros para a Veneza Contabilidade operar com mais segurança e menos risco.
             </p>
             <div class="space-y-3 flex-1 overflow-hidden">
                 <!-- LGPD -->
@@ -693,11 +692,11 @@
                                         Cliente.</span></li>
                                 <li class="check-item"><i data-lucide="check-circle-2"
                                         class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>Direito ao
-                                            Esquecimento:</strong> Rotinas seguras de anonimização e exclusão
+                                            Esquecimento:</strong> Rotinas controladas de anonimização e exclusão
                                         (respeitando guarda de 5 anos).</span></li>
                                 <li class="check-item"><i data-lucide="check-circle-2"
                                         class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>Isolamento de
-                                            Tenants:</strong> Arquitetura que impede vazamentos cruzados entre
+                                            Clientes:</strong> Arquitetura que separa documentos e acessos entre
                                         clientes.</span></li>
                             </ul>
                         </div>
@@ -714,22 +713,21 @@
                             <ul class="space-y-1.5">
                                 <li class="check-item"><i data-lucide="check-circle-2"
                                         class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>ITG 2000:</strong>
-                                        Documentos nato-digitais com redundância e garantia de integridade.</span></li>
+                                        Documentos digitais com redundância e controle de integridade.</span></li>
                                 <li class="check-item"><i data-lucide="check-circle-2"
-                                        class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>Audit Trail
-                                            Imutável:</strong> Rastreabilidade contínua (Quem, Quando, Onde e O
+                                        class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>Registro de Auditoria:</strong> Rastreabilidade contínua (Quem, Quando, Onde e O
                                         Quê).</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <!-- Blindagem -->
+                <!-- Segurança -->
                 <div class="doc-card doc-card-dark p-5">
                     <div class="flex items-start gap-3">
                         <div class="mt-0.5 p-2 bg-[#52525B]/10 rounded"><i data-lucide="shield-check"
                                 class="w-5 h-5 text-[#A1A1AA]"></i></div>
                         <div class="flex-1">
-                            <h4 class="font-serif text-[15px] font-bold text-white mb-2">Blindagem Cibernética e Acesso
+                            <h4 class="font-serif text-[15px] font-bold text-white mb-2">Segurança de Acesso e Dados
                             </h4>
                             <ul class="space-y-1.5">
                                 <li class="check-item"><i data-lucide="check-circle-2"
@@ -737,10 +735,10 @@
                                             TLS 1.3:</strong> Proteção para dados em repouso e trânsito.</span></li>
                                 <li class="check-item"><i data-lucide="check-circle-2"
                                         class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>MFA e RBAC:</strong>
-                                        Autenticação de dois fatores e segmentação departamental rígida.</span></li>
+                                        Autenticação de dois fatores e permissões por perfil de usuário.</span></li>
                                 <li class="check-item"><i data-lucide="check-circle-2"
                                         class="w-3.5 h-3.5 text-emerald-500"></i><span><strong>WAF (Web Application
-                                            Firewall):</strong> Proteção ativa contra extração de dados.</span></li>
+                                            Firewall):</strong> Camada extra de proteção contra tentativas de ataque.</span></li>
                             </ul>
                         </div>
                     </div>
@@ -992,9 +990,9 @@
             <h2 class="font-serif text-[22px] font-semibold text-white mb-1 leading-tight">Área do Cliente &mdash; <span
                     style="background:linear-gradient(135deg,#A78BFA,#6D28D9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Cofre
                     Digital</span></h2>
-            <p class="text-[12px] text-[#71717A] mb-4 max-w-3xl">Interface blindada e exclusiva para cada cliente da
-                Veneza. Não é uma pasta na nuvem — é um <strong class="text-white">portal com rastreabilidade jurídica
-                    completa</strong>: guias de imposto, arquivo histórico imutável e captura estratégica de
+            <p class="text-[12px] text-[#71717A] mb-4 max-w-3xl">Interface segura e exclusiva para cada cliente da
+                Veneza. Não é uma pasta na nuvem — é um <strong class="text-white">portal com histórico de acesso e
+                    entrega</strong>: guias de imposto, arquivo histórico auditável e captura estratégica de
                 depoimentos, tudo em um só lugar.</p>
             <div class="flex gap-4 flex-1 min-h-0">
                 <!-- COLUNA ESQUERDA: Cofre Mockup -->
@@ -1155,7 +1153,7 @@
                             <h5 class="font-bold text-[12px] text-white">Rastreabilidade Jurídica de Acessos</h5>
                         </div>
                         <p class="text-[10px] text-[#52525B] leading-relaxed">Cada visualização, download ou interação
-                            gera um log imutável com <strong class="text-[#A1A1AA]">IP, horário e dispositivo</strong>.
+                            gera um registro técnico com <strong class="text-[#A1A1AA]">IP, horário e dispositivo</strong>.
                             Em caso de disputa judicial, a Veneza tem prova técnica de que o documento foi entregue e
                             acessado.</p>
                     </div>
@@ -1176,19 +1174,19 @@
                             <div
                                 class="w-7 h-7 rounded-lg bg-[#1A1A1A] border border-[#252525] flex items-center justify-center shrink-0">
                                 <i data-lucide="shield" class="w-3.5 h-3.5 text-violet-400"></i></div>
-                            <h5 class="font-bold text-[12px] text-white">Acesso Blindado por CNPJ</h5>
+                            <h5 class="font-bold text-[12px] text-white">Acesso Separado por CNPJ</h5>
                         </div>
                         <p class="text-[10px] text-[#52525B] leading-relaxed">Cada cliente enxerga <strong
                                 class="text-[#A1A1AA]">apenas seus próprios documentos</strong> — isolamento total por
-                            CNPJ via regras de banco de dados. Impossível acessar dados de outro cliente, mesmo com
-                            engenharia reversa.</p>
+                            CNPJ via regras de banco de dados. Bloqueio técnico para impedir acesso a dados de outro
+                            cliente, mesmo em cenários de tentativa avançada.</p>
                     </div>
                     <div class="bg-[#131313] border border-emerald-500/15 rounded-lg p-3.5">
                         <div class="flex items-center gap-2 mb-1.5">
                             <div class="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0"><i data-lucide="bell" class="w-3.5 h-3.5 text-emerald-400"></i></div>
                             <h5 class="font-bold text-[12px] text-white">Notificação Automática de Documento Recebido</h5>
                         </div>
-                        <p class="text-[10px] text-[#52525B] leading-relaxed">Assim que a Veneza envia um documento, o cliente recebe um <strong class="text-[#A1A1AA]">e-mail automático de aviso</strong>. Se o arquivo não for aberto no portal, o sistema <strong class="text-[#A1A1AA]">reenvia o e-mail em intervalos configuráveis</strong> até a visualização ser confirmada. Garantia de entrega com registro de logs imutáveis e zero necessidade de cobrança manual.</p>
+                        <p class="text-[10px] text-[#52525B] leading-relaxed">Assim que a Veneza envia um documento, o cliente recebe um <strong class="text-[#A1A1AA]">e-mail automático de aviso</strong>. Se o arquivo não for aberto no portal, o sistema <strong class="text-[#A1A1AA]">reenvia o e-mail em intervalos configuráveis</strong> até a visualização ser confirmada. Entrega acompanhada por registro técnico auditável e menos cobrança manual.</p>
                     </div>
                 </div>
             </div>
@@ -1321,7 +1319,7 @@
                                 class="border-2 border-dashed border-[#252525] rounded-md p-2 flex items-center gap-2 bg-[#0D0D0D]">
                                 <i data-lucide="upload-cloud" class="w-4 h-4 text-[#52525B] shrink-0"></i>
                                 <div class="flex-1">
-                                    <div class="text-[6px] font-bold text-[#3F3F46]">Drag &amp; Drop — Upload em Massa
+                                    <div class="text-[6px] font-bold text-[#3F3F46]">Drag &amp; Drop — Upload de Guias
                                     </div>
                                     <div class="text-[5px] text-[#2A2A2A]">Arraste as guias. O sistema distribui
                                         automaticamente para cada cliente.</div>
@@ -1330,12 +1328,12 @@
                                     class="w-12 h-4 accent-gradient rounded text-[5px] text-white font-bold flex items-center justify-center">
                                     Enviar</div>
                             </div>
-                            <!-- CMS + Analytics pills -->
+                            <!-- Site + Analytics pills -->
                             <div class="flex gap-1.5">
                                 <div
                                     class="flex-1 h-5 bg-[#111] border border-[#1A1A1A] rounded flex items-center gap-1 px-1.5">
                                     <i data-lucide="edit-3" class="w-2.5 h-2.5 text-[#818CF8]"></i>
-                                    <span class="text-[5px] text-[#52525B]">CMS: Editar Site Público</span>
+                                    <span class="text-[5px] text-[#52525B]">Editar Site Público</span>
                                 </div>
                                 <div
                                     class="flex-1 h-5 bg-[#111] border border-[#1A1A1A] rounded flex items-center gap-1 px-1.5">
@@ -1353,12 +1351,12 @@
                             <div
                                 class="w-7 h-7 rounded-lg bg-gradient-to-br from-slate-600 to-slate-800 flex items-center justify-center shrink-0">
                                 <i data-lucide="upload-cloud" class="w-3.5 h-3.5 text-white"></i></div>
-                            <h5 class="font-bold text-[12px] text-white">Upload em Massa (Linha de Produção)</h5>
+                            <h5 class="font-bold text-[12px] text-white">Upload em Massa de Guias</h5>
                         </div>
                         <p class="text-[10px] text-[#52525B] leading-relaxed">A equipe arrasta dezenas de guias de uma
-                            vez. O sistema lê, organiza e <strong class="text-[#A1A1AA]">distribui para cada cliente
-                                automaticamente</strong> — sem categorizar arquivo por arquivo. O que levava horas vira
-                            segundos.</p>
+                            vez. O sistema identifica o cliente pelo CNPJ quando possível e envia tudo para uma
+                            <strong class="text-[#A1A1AA]">fila de conferência antes da publicação</strong> — reduzindo
+                            o trabalho manual sem abrir mão da revisão da equipe.</p>
                     </div>
                     <div class="bg-[#131313] border border-[#1A1A1A] rounded-lg p-3.5">
                         <div class="flex items-center gap-2 mb-1.5">
@@ -1377,10 +1375,10 @@
                             <div
                                 class="w-7 h-7 rounded-lg bg-[#1A1A1A] border border-[#252525] flex items-center justify-center shrink-0">
                                 <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i></div>
-                            <h5 class="font-bold text-[12px] text-white">Blindagem contra "Não Recebi"</h5>
+                            <h5 class="font-bold text-[12px] text-white">Proteção contra "Não Recebi"</h5>
                         </div>
                         <p class="text-[10px] text-[#52525B] leading-relaxed">Cada visualização e download gera log
-                            imutável com <strong class="text-[#A1A1AA]">data, hora, IP e dispositivo</strong>. Nunca
+                            auditável com <strong class="text-[#A1A1AA]">data, hora, IP e dispositivo</strong>. Nunca
                             mais um cliente alega que não recebeu a guia. A Veneza tem prova técnica de entrega.</p>
                     </div>
                     <div class="bg-[#131313] border border-[#1A1A1A] rounded-lg p-3.5">
@@ -1388,7 +1386,7 @@
                             <div
                                 class="w-7 h-7 rounded-lg bg-[#1A1A1A] border border-[#252525] flex items-center justify-center shrink-0">
                                 <i data-lucide="edit-3" class="w-3.5 h-3.5 text-[#818CF8]"></i></div>
-                            <h5 class="font-bold text-[12px] text-white">CMS: Controle Total do Site</h5>
+                            <h5 class="font-bold text-[12px] text-white">Controle do Site Institucional</h5>
                         </div>
                         <p class="text-[10px] text-[#52525B] leading-relaxed">Fillipe edita telefone, e-mail, endereço,
                             textos e depoimentos do site público <strong class="text-[#A1A1AA]">sem depender de
@@ -1789,7 +1787,7 @@
                 <i data-lucide="info" class="w-4 h-4 text-indigo-400 mt-0.5"></i>
                 <p class="text-xs text-indigo-200 leading-relaxed"><strong class="text-white">Atenção:</strong> A partir
                     deste slide apresentamos o <strong class="text-white">Pacote de Contratação 2</strong> — que engloba
-                    100% do Pacote 1 e adiciona Gestão de Equipe, Esteira de Trabalho e God Mode.</p>
+                    100% do Pacote 1 e adiciona Gestão de Equipe, Esteira de Trabalho e Controle Master.</p>
             </div>
             <!-- Header -->
             <div class="flex items-center gap-3 mb-3">
@@ -1798,7 +1796,7 @@
                     2 — Cenário Recomendado</span>
                 <div class="w-px h-4 bg-[#333]"></div>
                 <i data-lucide="layers" class="w-3.5 h-3.5 text-[#818CF8]"></i>
-                <span class="text-[9px] text-[#52525B] uppercase tracking-wider">Herda: Site · Cofre · CMS · SEO</span>
+                <span class="text-[9px] text-[#52525B] uppercase tracking-wider">Herda: Site · Cofre · Conteúdo · SEO</span>
             </div>
             <h2 class="font-serif text-[22px] font-semibold text-white mb-1 leading-tight">Área de Trabalho — <span
                     class="accent-text">Esteira de Produção</span></h2>
@@ -1971,7 +1969,7 @@
         </div>
 
 
-        <!-- S9: God Mode -->
+        <!-- S9: Controle Master -->
         <div class="slide flex-col justify-start" style="padding:2rem 2.5rem">
             <div class="flex items-center gap-3 mb-2">
                 <span
@@ -1983,8 +1981,8 @@
                         class="text-[9px] font-bold text-emerald-400 uppercase tracking-wider">Live Dashboard</span>
                 </div>
             </div>
-            <h2 class="font-serif text-[22px] font-semibold text-white mb-1 leading-tight">God Mode — <span
-                    class="accent-text">Visão Omnisciente do Fillipe</span></h2>
+            <h2 class="font-serif text-[22px] font-semibold text-white mb-1 leading-tight">Controle Master — <span
+                    class="accent-text">Visão Executiva do Fillipe</span></h2>
             <p class="text-[12px] text-[#71717A] mb-4 max-w-3xl">Uma aba exclusiva no painel do Fillipe que exibe, em
                 tempo real, o que cada funcionário está fazendo — com <strong class="text-white">tempo médio geral de
                     conclusão</strong> de todos os trabalhos do escritório, <strong class="text-white">filtro individual
@@ -2144,7 +2142,7 @@
                     </div>
                 </div>
 
-                <!-- COLUNA DIREITA: Recursos God Mode -->
+                <!-- COLUNA DIREITA: Recursos Controle Master -->
                 <div class="w-[38%] flex flex-col gap-3">
                     <!-- Leaderboard -->
                     <div class="bg-[#131313] border border-[#1A1A1A] rounded-lg p-3 flex-1">
@@ -2181,7 +2179,7 @@
                         <p class="text-[9px] text-[#3F3F46] mt-2 leading-relaxed">Ranking automático por velocidade ×
                             qualidade. Trabalho devolvido = penalidade. Hora fantasma = queda no ranking.</p>
                     </div>
-                    <!-- Métricas God Mode -->
+                    <!-- Métricas Controle Master -->
                     <div class="bg-[#131313] border border-[#1A1A1A] rounded-lg p-3 space-y-2">
                         <div class="flex items-start gap-2">
                             <div
@@ -2470,15 +2468,15 @@
             </div>
         </div>
 
-        <!-- S9: Tecnologia Premium — React + Node + Vite -->
+        <!-- S9: Tecnologia Base — React + Node + Vite -->
         <div class="slide flex-col justify-start">
-            <p class="section-label">Tecnologia Premium 1</p>
-            <h2 class="font-serif text-2xl font-semibold text-white mb-2">Stack de Desenvolvimento de Classe Mundial
+            <p class="section-label">Tecnologia 1</p>
+            <h2 class="font-serif text-2xl font-semibold text-white mb-2">Base Técnica Moderna e Confiável
             </h2>
             <p class="text-sm text-[#71717A] mb-5 max-w-3xl leading-relaxed">Todos os sistemas da Veneza serão
-                construídos com <strong class="text-white">React</strong> — a biblioteca criada pelo <strong
-                    class="text-white">Meta (Facebook)</strong> e usada por Instagram, WhatsApp Web, Netflix, Airbnb e
-                Uber. É a tecnologia mais avançada e adotada do mundo para construção de interfaces digitais.</p>
+                construídos com <strong class="text-white">React</strong>, uma tecnologia moderna para criar interfaces
+                rápidas, organizadas e fáceis de evoluir. Isso permite que a Veneza tenha site, área do cliente e painel
+                administrativo com a mesma base técnica.</p>
 
             <div class="grid grid-cols-3 gap-4 mb-3">
                 <!-- Site -->
@@ -2676,12 +2674,11 @@
 
         <!-- S10: Segurança Cloudflare -->
         <div class="slide flex-col justify-start">
-            <p class="section-label">Tecnologia Premium 2</p>
-            <h2 class="font-serif text-2xl font-semibold text-white mb-1">Blindagem de Rede com Cloudflare</h2>
+            <p class="section-label">Tecnologia 2</p>
+            <h2 class="font-serif text-2xl font-semibold text-white mb-1">Proteção de Rede com Cloudflare</h2>
             <p class="text-sm text-[#71717A] mb-5 max-w-3xl leading-relaxed">Toda a infraestrutura da Veneza será
-                protegida pela <strong class="text-white">Cloudflare</strong> — a maior rede de segurança e performance
-                da internet, responsável por proteger <strong class="text-white">mais de 20% de todo o tráfego web
-                    mundial</strong>.</p>
+                protegida pela <strong class="text-white">Cloudflare</strong>, uma camada de segurança e desempenho que
+                ajuda o site a carregar rápido e reduz exposição a ataques comuns na internet.</p>
 
             <!-- Métricas em destaque -->
             <div class="grid grid-cols-4 gap-3 mb-4">
@@ -2738,7 +2735,7 @@
                         <div class="w-7 h-7 rounded-lg bg-orange-500/10 flex items-center justify-center shrink-0">
                             <i data-lucide="shield" class="w-3.5 h-3.5 text-orange-400"></i>
                         </div>
-                        <h5 class="text-[12px] font-bold text-white">DDoS — Proteção Absoluta</h5>
+                        <h5 class="text-[12px] font-bold text-white">DDoS — Proteção Reforçada</h5>
                     </div>
                     <p class="text-[11px] text-[#71717A] leading-relaxed">Neutraliza ataques de <strong
                             class="text-white">volumetria, camada 7 e floods de tráfego</strong> em tempo real — sem
@@ -2827,13 +2824,13 @@
 
         <!-- S11: Desktop App (Electron) -->
         <div class="slide flex-col justify-start">
-            <p class="section-label">Tecnologia Premium 3</p>
+            <p class="section-label">Tecnologia 3</p>
             <h2 class="font-serif text-2xl font-semibold text-white mb-2">Painel Admin Instalável no PC (Desktop App)
             </h2>
             <p class="text-sm text-[#71717A] mb-6 max-w-3xl leading-relaxed">O <strong class="text-white">Painel
                     Administrativo</strong> da Veneza terá uma versão exclusiva <strong class="text-white">instalável
                     direto no computador</strong>. O Admin é o coração da operação e o motor que mantém a contabilidade
-                girando. O grande diferencial desta tecnologia é a resiliência absoluta: <strong class="text-white">se a
+                girando. O grande diferencial desta tecnologia é a resiliência operacional: <strong class="text-white">se a
                     hospedagem web sofrer qualquer instabilidade ou o site cair, o aplicativo não para.</strong> A sua
                 equipe continua trabalhando e gerenciando os processos normalmente, blindando a operação contra falhas
                 de rede externas.</p>
@@ -2984,16 +2981,16 @@
 
         <!-- S12: Infra e DB (Supabase) -->
         <div class="slide flex-col justify-start">
-            <p class="section-label">Tecnologia Premium 4</p>
+            <p class="section-label">Tecnologia 4</p>
             <h2 class="font-serif text-2xl font-semibold text-white mb-2 flex items-center gap-3">
                 Infraestrutura e Banco de Dados (Supabase)
                 <img src="https://cdn.simpleicons.org/supabase/3ECF8E" alt="Supabase Logo" class="h-6">
             </h2>
-            <p class="text-sm text-[#71717A] mb-6 max-w-3xl leading-relaxed">Para garantir performance militar,
+            <p class="text-sm text-[#71717A] mb-6 max-w-3xl leading-relaxed">Para garantir boa performance,
                 segurança e sincronização instantânea de dados, utilizamos o <strong
                     class="text-white">Supabase</strong> como o motor de banco de dados e backend do ecossistema Veneza.
-                Desenvolvido sobre a arquitetura do PostgreSQL (o banco de dados relacional mais avançado e confiável do
-                mercado), o Supabase entrega uma base de dados impenetrável e pronta para as exigências fiscais.</p>
+                Desenvolvido sobre a arquitetura do PostgreSQL, o Supabase entrega uma base de dados estável, organizada
+                e preparada para as exigências fiscais.</p>
 
             <div class="grid grid-cols-[1.5fr_1fr] gap-5 mb-5">
                 <!-- Por que usamos -->
@@ -3019,24 +3016,22 @@
                             <div
                                 class="w-5 h-5 rounded bg-[#3ECF8E]/10 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="shield-check" class="w-3 h-3 text-[#3ECF8E]"></i></div><span><strong
-                                    class="text-white">Segurança RLS:</strong> Políticas rigorosas (Row Level Security)
-                                garantem a blindagem total por cliente. Um usuário jamais verá os documentos de
-                                outro.</span>
+                                    class="text-white">Segurança RLS:</strong> Políticas de acesso (Row Level Security)
+                                separam documentos por cliente e reduzem risco de acesso indevido.</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <div
                                 class="w-5 h-5 rounded bg-[#3ECF8E]/10 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="lock" class="w-3 h-3 text-[#3ECF8E]"></i></div><span><strong
-                                    class="text-white">Conformidade LGPD Total:</strong> O Supabase se enquadra em todas
-                                as normativas de segurança e sigilo exigidas pela LGPD, protegendo os dados fiscais de
-                                ponta a ponta.</span>
+                                    class="text-white">Apoio à LGPD:</strong> A estrutura ajuda a aplicar boas práticas
+                                de segurança, sigilo e controle de acesso para dados fiscais.</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <div
                                 class="w-5 h-5 rounded bg-[#3ECF8E]/10 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="database" class="w-3 h-3 text-[#3ECF8E]"></i></div><span><strong
                                     class="text-white">PostgreSQL Nativo:</strong> Arquitetura relacional escalável e
-                                confiável, sendo o mesmo padrão homologado por bancos e fintechs globais.</span>
+                                confiável para organizar dados, clientes e documentos.</span>
                         </li>
                     </ul>
                 </div>
@@ -3051,15 +3046,15 @@
                             <div class="w-8 h-8 rounded bg-[#3ECF8E]/10 flex items-center justify-center">
                                 <i data-lucide="globe" class="w-4 h-4 text-[#3ECF8E]"></i>
                             </div>
-                            <h5 class="font-bold text-sm text-white">Padrão Ouro de Mercado</h5>
+                            <h5 class="font-bold text-sm text-white">Base de Dados Profissional</h5>
                         </div>
                         <p class="text-xs text-[#A1A1AA] leading-relaxed mb-4">O Supabase é a fundação tecnológica
-                            escolhida por corporações multibilionárias. A Veneza terá o mesmo <strong
-                                class="text-[#3ECF8E]">nível enterprise</strong> de estabilidade usado por líderes da
-                            indústria que não podem perder um único byte de dado.</p>
+                            escolhida por produtos digitais de alta escala. A Veneza terá estabilidade <strong
+                                class="text-[#3ECF8E]">de padrão profissional</strong> para operar dados sensíveis com
+                            segurança e previsibilidade.</p>
 
-                        <p class="text-[10px] font-bold text-[#71717A] uppercase tracking-widest mb-3">Confiado
-                            globalmente por gigantes:</p>
+                        <p class="text-[10px] font-bold text-[#71717A] uppercase tracking-widest mb-3">Referências de
+                            mercado:</p>
                         <div class="flex flex-wrap gap-x-3 gap-y-2 items-center opacity-90">
                             <span
                                 class="px-2 py-1 bg-[#1A1A1A] rounded border border-[#27272A] text-[11px] font-serif font-bold text-white tracking-wide">PwC</span>
@@ -3396,10 +3391,9 @@
                                 class="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="send" class="w-2.5 h-2.5 text-emerald-400"></i></div>
                             <div class="flex-1">
-                                <p class="text-[12px] font-semibold text-white">Disparador Mensal de Guias (WhatsApp +
-                                    E-mail)</p>
+                                <p class="text-[12px] font-semibold text-white">Disparador Mensal de Guias por E-mail</p>
                                 <p class="text-[10px] text-[#52525B] mt-0.5 leading-tight">Ao enviar um documento para o
-                                    cliente, o sistema dispara um <strong class="text-[#A1A1AA]">WhatsApp + e-mail
+                                    cliente, o sistema dispara um <strong class="text-[#A1A1AA]">e-mail
                                         automático</strong>. O e-mail se repete em intervalos configuráveis <strong
                                         class="text-[#A1A1AA]">até o cliente abrir o arquivo</strong> na Área do
                                     Cliente. Zero cobrança manual.</p>
@@ -3435,10 +3429,10 @@
                             <div class="flex-1">
                                 <div class="flex items-center justify-between">
                                     <p class="text-[12px] font-semibold text-white">Desenvolvimento Completo</p>
-                                    <span class="text-[10px] text-[#52525B] font-bold">R$ 14.200</span>
+                                    <span class="text-[10px] text-[#52525B] font-bold">R$ 17.800</span>
                                 </div>
                                 <p class="text-[10px] text-[#71717A] mt-0.5 leading-tight">Site Institucional, Área do
-                                    Cliente, Painel Admin e App Desktop (React+Electron).</p>
+                                    Cliente, Painel Admin, Área do Funcionário e App Desktop (React+Electron).</p>
                             </div>
                         </div>
 
@@ -3494,10 +3488,9 @@
                                 class="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="send" class="w-2.5 h-2.5 text-emerald-400"></i></div>
                             <div class="flex-1">
-                                <p class="text-[12px] font-semibold text-white">Disparador Mensal de Guias (WhatsApp +
-                                    E-mail)</p>
+                                <p class="text-[12px] font-semibold text-white">Disparador Mensal de Guias por E-mail</p>
                                 <p class="text-[10px] text-[#71717A] mt-0.5 leading-tight">Ao enviar um documento para o
-                                    cliente, o sistema dispara um <strong class="text-[#A1A1AA]">WhatsApp + e-mail
+                                    cliente, o sistema dispara um <strong class="text-[#A1A1AA]">e-mail
                                         automático</strong>. O e-mail se repete em intervalos configuráveis <strong
                                         class="text-[#A1A1AA]">até o cliente abrir o arquivo</strong> na Área do
                                     Cliente.</p>
@@ -3514,8 +3507,7 @@
                                 <div class="flex items-center justify-between">
                                     <p class="text-[12px] font-bold text-white">Pack Inteligência</p>
                                     <span
-                                        class="text-[9px] font-bold text-[#818CF8] bg-[#818CF8]/10 border border-[#818CF8]/20 rounded px-1.5 py-0.5">R$
-                                        3.600</span>
+                                        class="text-[9px] font-bold text-[#818CF8] bg-[#818CF8]/10 border border-[#818CF8]/20 rounded px-1.5 py-0.5">Adicionado</span>
                                 </div>
                                 <div class="mt-1.5 flex flex-col gap-1">
                                     <div class="flex items-center gap-1.5"><i data-lucide="check"
@@ -3524,8 +3516,10 @@
                                             (RBAC)</span></div>
                                     <div class="flex items-center gap-1.5"><i data-lucide="check"
                                             class="w-2 h-2 text-[#818CF8] shrink-0"></i><span
-                                            class="text-[10px] text-[#71717A]">Automação via IA — Leitura e extração de
-                                            PDF</span></div>
+                                            class="text-[10px] text-[#71717A]">Validação de PDF por regras do sistema</span></div>
+                                    <div class="flex items-center gap-1.5"><i data-lucide="check"
+                                            class="w-2 h-2 text-[#818CF8] shrink-0"></i><span
+                                            class="text-[10px] text-[#71717A]">Base preparada para IA documental em fase futura</span></div>
                                     <div class="flex items-center gap-1.5"><i data-lucide="check"
                                             class="w-2 h-2 text-[#818CF8] shrink-0"></i><span
                                             class="text-[10px] text-[#71717A]">Dashboard analítico avançado + relatórios
@@ -3539,12 +3533,12 @@
             </div>
 
             <p class="text-[10px] text-[#3F3F46] max-w-3xl leading-relaxed mt-4">* Arquitetura de Compliance &amp;
-                Blindagem Cibernética (Criptografia AES-256, WAF e infraestrutura tecnológica alinhada às exigências da LGPD e CFC) incluída em ambos os pacotes como fundação. Novas
+                Segurança de dados (Criptografia AES-256, WAF e infraestrutura tecnológica alinhada às exigências da LGPD e CFC) incluída em ambos os pacotes como fundação. Novas
                 funcionalidades podem ser orçadas como expansões após o Go-Live.</p>
         </div>
-        <!-- S16: Recorrencia Mensal (OPEX) -->
+        <!-- S16: Recorrencia Mensal -->
         <div class="slide flex-col justify-start">
-            <p class="section-label">Recorrência Mensal · OPEX</p>
+            <p class="section-label">Recorrência Mensal · Operação, Segurança e Suporte</p>
             <h2 class="font-serif text-2xl font-semibold text-white mb-1">Parceria Contínua de TI</h2>
             <p class="text-sm text-[#71717A] mb-5 max-w-2xl">A Creative Flow assume o papel de departamento de
                 tecnologia da Veneza — infraestrutura, segurança e suporte em uma única mensalidade previsível.</p>
@@ -3613,14 +3607,14 @@
                                         class="text-[10px] text-[#71717A]">WAF — Firewall de Aplicação Web</span></div>
                                 <div class="flex items-center gap-1.5"><i data-lucide="check"
                                         class="w-2.5 h-2.5 text-orange-400 shrink-0"></i><span
-                                        class="text-[10px] text-[#71717A]">CDN Global — 180+ Pontos de Presença</span>
+                                        class="text-[10px] text-[#71717A]">CDN Global — 300+ Pontos de Presença</span>
                                 </div>
                                 <div class="flex items-center gap-1.5"><i data-lucide="check"
                                         class="w-2.5 h-2.5 text-orange-400 shrink-0"></i><span
-                                        class="text-[10px] text-[#71717A]">Proteção Anti-DDoS Enterprise</span></div>
+                                        class="text-[10px] text-[#71717A]">Proteção Anti-DDoS avançada</span></div>
                                 <div class="flex items-center gap-1.5"><i data-lucide="check"
                                         class="w-2.5 h-2.5 text-orange-400 shrink-0"></i><span
-                                        class="text-[10px] text-[#71717A]">SSL/TLS Premium + Rate Limiting</span></div>
+                                        class="text-[10px] text-[#71717A]">SSL/TLS + Rate Limiting</span></div>
                             </div>
                         </div>
                     </div>
@@ -3774,14 +3768,13 @@
                         <span class="text-[12px] font-bold text-red-400">WordPress / PHP</span>
                     </div>
                     <div class="flex justify-between items-center py-2 mb-3">
-                        <span class="text-[11px] text-[#71717A]">Nosso Padrão (Enterprise):</span>
+                        <span class="text-[11px] text-[#71717A]">Nosso Padrão (Profissional):</span>
                         <span class="text-[12px] font-bold text-emerald-400">React + Edge Cloud</span>
                     </div>
 
                     <p class="text-[10px] text-[#A1A1AA] leading-relaxed">
-                        Não usamos templates CMS. Desenvolvemos com a mesma stack nativa utilizada por <strong
-                            class="text-white">Netflix, Uber e Nubank</strong>. Alta performance e imunidade contra bots
-                        automatizados.
+                        Não usamos templates prontos. Desenvolvemos com stack moderna usada em produtos digitais de alta
+                        escala. Alta performance e proteção contra bots automatizados.
                     </p>
                 </div>
 
@@ -3793,7 +3786,7 @@
                                 class="w-8 h-8 rounded-xl bg-[#1A1A1A] border border-[#252525] flex items-center justify-center shrink-0">
                                 <i data-lucide="refresh-ccw" class="w-4 h-4 text-[#A1A1AA]"></i>
                             </div>
-                            <h4 class="text-[13px] font-bold text-white">Manutenção Mensal (OPEX)</h4>
+                            <h4 class="text-[13px] font-bold text-white">Operação Mensal</h4>
                         </div>
                         <i data-lucide="settings-2" class="w-6 h-6 text-[#3F3F46]"></i>
                     </div>
@@ -3803,7 +3796,7 @@
                         <span class="text-[12px] font-bold text-red-400">R$ 4.500 /mês</span>
                     </div>
                     <div class="flex justify-between items-center py-2 mb-3">
-                        <span class="text-[11px] text-[#71717A]">Nosso Custo Unificado:</span>
+                        <span class="text-[11px] text-[#71717A]">Investimento Mensal Creative Flow:</span>
                         <span class="text-[12px] font-bold text-emerald-400">R$ 1.650 /mês</span>
                     </div>
 
@@ -3819,7 +3812,7 @@
                     <div class="absolute inset-0 bg-emerald-500/5"></div>
                     <p class="text-[9px] font-bold uppercase tracking-widest text-emerald-400/80 mb-1 relative z-10">
                         Economia Total no 1º Ano</p>
-                    <p class="text-[8px] text-emerald-400/50 mb-3 relative z-10">Setup (R$ 44.700) + OPEX Anual (R$
+                    <p class="text-[8px] text-emerald-400/50 mb-3 relative z-10">Setup (R$ 44.700) + Operação Anual (R$
                         34.200)</p>
 
                     <div
@@ -3894,7 +3887,38 @@
         function upd() { slides.forEach((s, i) => { s.classList.remove('active', 'prev'); if (i === cur) s.classList.add('active'); else if (i < cur) s.classList.add('prev') }); document.getElementById('currentSlide').textContent = cur + 1; document.getElementById('progress').style.width = ((cur + 1) / total * 100) + '%' }
         function nextSlide() { if (cur < total - 1) { cur++; upd() } }
         function prevSlide() { if (cur > 0) { cur--; upd() } }
-        function toggleFullscreen() { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); const ic = document.getElementById('fsIcon'); ic.setAttribute('data-lucide', document.fullscreenElement ? 'maximize' : 'minimize'); lucide.createIcons() }
+        const FULLSCREEN_PREF_KEY = 'fh_proposta_fullscreen_v1';
+        const isFullscreen = () => Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+        const requestFullscreen = async () => {
+            try {
+                if (document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen();
+                else if (document.documentElement.webkitRequestFullscreen) document.documentElement.webkitRequestFullscreen();
+            } catch {}
+        };
+        const exitFullscreen = async () => {
+            try {
+                if (document.exitFullscreen) await document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+            } catch {}
+        };
+        const setFullscreenPreference = (enabled) => {
+            try { localStorage.setItem(FULLSCREEN_PREF_KEY, enabled ? 'on' : 'off'); } catch {}
+        };
+        const wantsFullscreen = () => {
+            try { return localStorage.getItem(FULLSCREEN_PREF_KEY) === 'on'; } catch { return false; }
+        };
+        async function toggleFullscreen() {
+            if (isFullscreen()) {
+                setFullscreenPreference(false);
+                await exitFullscreen();
+            } else {
+                setFullscreenPreference(true);
+                await requestFullscreen();
+            }
+            const ic = document.getElementById('fsIcon');
+            if (ic) ic.setAttribute('data-lucide', isFullscreen() ? 'minimize' : 'maximize');
+            if (window.lucide) lucide.createIcons();
+        }
         function changeZoom(d) { zoom = Math.max(.5, Math.min(1.5, zoom + d)); document.querySelector('.slide-container').style.transform = 'scale(' + zoom + ')'; document.getElementById('zoomLevel').textContent = Math.round(zoom * 100) + '%' }
         function resetZoom() { zoom = 1; document.querySelector('.slide-container').style.transform = 'scale(1)'; document.getElementById('zoomLevel').textContent = '100%' }
 
@@ -3963,7 +3987,20 @@
             }, 2500);
         }
 
-        document.addEventListener('DOMContentLoaded', () => { mountStaticLogos(); init(); lucide.createIcons(); startLogoSequence(); });
+        document.addEventListener('DOMContentLoaded', () => {
+            mountStaticLogos();
+            init();
+            if (window.lucide) lucide.createIcons();
+            startLogoSequence();
+            document.querySelectorAll('[data-hub-back]').forEach((link) => {
+                link.addEventListener('click', async (event) => {
+                    if (!wantsFullscreen() || isFullscreen()) return;
+                    event.preventDefault();
+                    await requestFullscreen();
+                    window.location.href = link.href;
+                });
+            });
+        });
         document.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === ' ') nextSlide(); if (e.key === 'ArrowLeft') prevSlide(); if (e.key === 'f') toggleFullscreen() });
         let wt = 0; document.addEventListener('wheel', e => { e.preventDefault(); const now = Date.now(); if (now - wt < 400) return; wt = now; e.deltaY > 0 ? nextSlide() : prevSlide() }, { passive: false });
         let tx = 0; document.addEventListener('touchstart', e => { tx = e.touches[0].clientX }); document.addEventListener('touchend', e => { const d = e.changedTouches[0].clientX - tx; if (d < -50) nextSlide(); if (d > 50) prevSlide() });

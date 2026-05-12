@@ -484,7 +484,7 @@
     </div>
 
     <!-- Voltar para o Hub -->
-    <a href="../index.html"
+    <a href="../index.html" data-hub-back onclick="if(window.parent&&window.parent!==window){if(window.parent.__creativeFlowCloseProposal){window.parent.__creativeFlowCloseProposal();}else{window.parent.postMessage({type:'creativeflow:close-proposal'}, '*');} return false;}"
         class="fixed top-6 left-6 flex items-center gap-2 backdrop-blur-md px-4 py-2 rounded-full z-[60] transition group cursor-pointer"
         style="background:#292D27;box-shadow:0 4px 24px -6px rgba(38,41,35,.25),0 0 0 1px rgba(141,184,67,.2)">
         <i data-lucide="layout-grid" class="w-4 h-4 group-hover:scale-110 transition-transform"
@@ -602,7 +602,7 @@
                         <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg"
                             style="background:#F1E7DA;border:1px solid rgba(167,52,58,0.25);">
                             <div class="w-2 h-2 rounded-full" style="background:#635BFF;"></div>
-                            <span class="text-[10px] font-bold text-[#262923]">Stripe + Asaas</span>
+                            <span class="text-[10px] font-bold text-[#262923]">Checkout + Gateway</span>
                         </div>
                         <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg"
                             style="background:#F1E7DA;border:1px solid rgba(167,52,58,0.25);">
@@ -1022,7 +1022,7 @@
                         style="background:rgba(167,52,58,0.15);border:1px solid rgba(167,52,58,0.3);"><i
                             data-lucide="shopping-cart" class="w-3.5 h-3.5 text-[#A7343A]"></i></div>
                     <div>
-                        <p class="text-[11px] font-bold text-[#262923]">Checkout Reativo + Stripe Elements</p>
+                        <p class="text-[11px] font-bold text-[#262923]">Checkout Seguro + Gateway</p>
                         <p class="text-[10px] text-[#5A4F44]">Checkout reativo sem recarregar página. Order Bumps
                             adicionados via Turbo Frame — aumento de ticket médio em tempo real.</p>
                     </div>
@@ -1327,8 +1327,8 @@
                 </div>
                 <h2 class="text-[22px] font-bold text-[#262923] leading-tight">Página de Vendas + <span
                         style="color:#A7343A">Order Bumps</span></h2>
-                <p class="text-[12px] text-[#5A4F44] mt-0.5">Estrutura de checkout de alta conversão com gateways Stripe
-                    e Asaas — ingresso vendido em segundos.</p>
+                <p class="text-[12px] text-[#5A4F44] mt-0.5">Estrutura de checkout de alta conversão com gateway de
+                    pagamento seguro — ingresso vendido em segundos.</p>
             </div>
             <!-- Mini logo -->
             <div class="cf-slide-logo cf-slide-logo-inline shrink-0">
@@ -1619,7 +1619,7 @@
                 <!-- Imagem completa: object-contain preserva tudo -->
                 <div class="flex-1 flex items-center justify-center overflow-hidden"
                     style="background:#17120E">
-                    <img src="mapa-site-lillaleta.png" alt="Mapa do Site Villa Leta" class="w-full h-full"
+                    <img src="mapa-site-villaleta.png" alt="Mapa do Site Villa Leta" class="w-full h-full"
                         style="object-fit:cover;object-position:center;border-bottom-left-radius:12px;border-bottom-right-radius:12px;filter:drop-shadow(0 20px 24px rgba(58,35,20,.74));" />
                 </div>
             </div>
@@ -1837,9 +1837,9 @@
                     <span class="text-[7px] font-bold uppercase tracking-[0.18em]" style="color:#C8A45D">Control Room</span>
                 </div>
                 <!-- Imagem completa -->
-                <div class="flex-1 overflow-hidden" style="background:#17120E">
+                <div class="flex-1 overflow-hidden flex items-center justify-center" style="background:#17120E">
                     <img src="admin-site-villa.png" alt="Painel Admin Villa Leta" class="w-full h-full"
-                        style="object-fit:cover;object-position:center;border-bottom-left-radius:12px;border-bottom-right-radius:12px;filter:drop-shadow(0 20px 24px rgba(58,35,20,.74));" />
+                        style="object-fit:contain;object-position:center;border-bottom-left-radius:12px;border-bottom-right-radius:12px;filter:drop-shadow(0 20px 24px rgba(58,35,20,.74));" />
                 </div>
             </div>
 
@@ -2038,7 +2038,7 @@
                     style="background:#17120E">
                     <img src="01463d97-e166-4cce-aaa6-72ecc3d743a7.png" alt="Mapa do Admin Villa Leta"
                         class="w-full h-full"
-                        style="object-fit:cover;object-position:center;border-radius:12px;filter:drop-shadow(0 20px 24px rgba(58,35,20,.74));">
+                        style="object-fit:contain;object-position:center;border-radius:12px;filter:drop-shadow(0 20px 24px rgba(58,35,20,.74));">
                 </div>
             </div>
 
@@ -3237,11 +3237,11 @@
                             style="background:rgba(167,52,58,0.1);border:1px solid rgba(167,52,58,0.25)">
                             <i data-lucide="award" class="w-4 h-4 text-[#A7343A]"></i>
                         </div>
-                        <h5 style="font-size:14px;font-weight:800;color:#262923">Padrão Enterprise</h5>
+                        <h5 style="font-size:14px;font-weight:800;color:#262923">Padrão Profissional</h5>
                     </div>
                     <p style="font-size:12px;color:#2A4A18;line-height:1.6;margin-bottom:16px">A fundação tecnológica
-                        escolhida por corporações multibilionárias. O Villa Leta Monte Verde terá estabilidade <strong
-                            style="color:#262923">nível enterprise</strong>.</p>
+                        escolhida por produtos digitais de alta escala. O Villa Leta Monte Verde terá estabilidade <strong
+                            style="color:#262923">de padrão profissional</strong>.</p>
 
                     <div
                         style="font-size:10px;font-weight:800;color:#8F2B31;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px">
@@ -3363,10 +3363,10 @@
                         <span style="font-size:9px;color:#6B7280;font-weight:600">Mar/25</span>
                     </div>
                     <div class="flex items-center gap-3 py-2">
-                        <div class="w-1.5 h-1.5 rounded-full animate-pulse shrink-0" style="background:#D97706"></div>
-                        <span style="font-size:9px;font-weight:800;color:#D97706;width:48px;shrink-0">Análise</span>
-                        <span style="font-size:10px;color:#374151;font-weight:600;flex:1">React 19.1 — Testes de
-                            compatibilidade</span>
+                        <div class="w-1.5 h-1.5 rounded-full shrink-0" style="background:#8F2B31"></div>
+                        <span style="font-size:9px;font-weight:800;color:#8F2B31;width:48px;shrink-0">Validado</span>
+                        <span style="font-size:10px;color:#374151;font-weight:600;flex:1">React 19.1 — Compatibilidade
+                            validada</span>
                         <span style="font-size:9px;color:#6B7280;font-weight:600">Ago/25</span>
                     </div>
                 </div>
@@ -3599,7 +3599,7 @@
             </div>
         </div>
     </div>
-    <!-- S16: Recorrencia Mensal (OPEX) -->
+    <!-- S16: Recorrencia Mensal -->
     <div class="slide flex-col justify-start" style="padding:1.45rem 2.1rem; overflow:hidden;">
 
         <!-- BG decorations -->
@@ -3614,7 +3614,7 @@
                     <span
                         class="px-2.5 py-1 text-[10px] font-bold rounded uppercase tracking-widest shadow-sm"
                         style="background:#262923;border:1px solid rgba(200,164,93,0.45);color:#E7D4AE">Recorrência
-                        Mensal · OPEX</span>
+                        Mensal · Operação, Segurança e Suporte</span>
                     <div class="w-8 h-px" style="background:rgba(200,164,93,0.45)"></div>
                     <span class="text-[9px] text-[#5A4F44] uppercase tracking-wider">Parceria Contínua de TI —
                         Infraestrutura + Suporte + Evolução</span>
@@ -3703,7 +3703,7 @@
                         <span class="text-[9px] text-[#5A4F44]">· Sem carência</span>
                     </div>
                     <p class="text-[8.5px] text-[#5A4F44] leading-relaxed">Rescisão: aviso prévio 30 dias. Sem reajuste
-                        anual automático, exceto upgrade forçado de infraestrutura Cloud ou Banco de Dados.</p>
+                        anual automático, exceto revisão técnica de infraestrutura Cloud ou Banco de Dados por crescimento real.</p>
                 </div>
             </div>
 
@@ -3736,7 +3736,7 @@
                             <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 shrink-0"
                                     style="color:#F97316"></i><span
                                     class="text-[10.5px] text-[#262923] font-semibold">Proteção Anti-DDoS
-                                    Enterprise</span></div>
+                                    avançada</span></div>
                             <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 shrink-0"
                                     style="color:#F97316"></i><span
                                     class="text-[10.5px] text-[#262923] font-semibold">SSL Full-Strict + Rate
@@ -3858,8 +3858,8 @@
                         style="background:linear-gradient(135deg,rgba(249,115,22,0.07),rgba(249,115,22,0.03));border:1px solid rgba(249,115,22,0.15);">
                         <i data-lucide="lock" class="w-3.5 h-3.5 text-orange-500 shrink-0"></i>
                         <div>
-                            <div class="text-[10px] font-bold text-orange-600">Preço fixo, sem surpresas</div>
-                            <div class="text-[8.5px] text-[#7A5020]">escalonamento sem custo extra</div>
+                            <div class="text-[10px] font-bold text-orange-600">Mensalidade previsível</div>
+                            <div class="text-[8.5px] text-[#7A5020]">revisão só por crescimento real</div>
                         </div>
                     </div>
                 </div>
@@ -3939,15 +3939,14 @@
                     <span style="font-size:14px;font-weight:800;color:#EF4444">WordPress / PHP</span>
                 </div>
                 <div class="flex justify-between items-center py-2.5 mb-4">
-                    <span style="font-size:12px;color:#2A4A18;font-weight:600">Nosso Padrão (Enterprise):</span>
+                    <span style="font-size:12px;color:#2A4A18;font-weight:600">Nosso Padrão (Profissional):</span>
                     <span style="font-size:14px;font-weight:800;color:#8F2B31">React + Edge Cloud</span>
                 </div>
 
                 <div class="mt-auto p-3 rounded-lg" style="background:#FFFFFF;border:1px solid rgba(167,52,58,0.2)">
                     <p style="font-size:11px;color:#262923;font-weight:500;line-height:1.5">
-                        Não usamos templates CMS. Desenvolvemos com a mesma stack nativa utilizada por <strong
-                            style="color:#8F2B31;font-weight:800">Netflix, Uber, Mercado Livre, iFood e Nubank</strong>.
-                        Alta performance e imunidade.
+                        Não usamos templates CMS. Desenvolvemos com stack moderna usada em produtos digitais de alta escala.
+                        Alta performance e segurança operacional.
                     </p>
                 </div>
             </div>
@@ -3961,7 +3960,7 @@
                             style="background:rgba(167,52,58,0.1);border:1px solid rgba(167,52,58,0.25)">
                             <i data-lucide="refresh-ccw" class="w-4 h-4" style="color:#A7343A"></i>
                         </div>
-                        <h4 style="font-size:15px;font-weight:800;color:#262923">Manutenção Mensal (OPEX)</h4>
+                        <h4 style="font-size:15px;font-weight:800;color:#262923">Operação Mensal</h4>
                     </div>
                     <i data-lucide="settings-2" class="w-6 h-6 opacity-30" style="color:#8F2B31"></i>
                 </div>
@@ -3972,7 +3971,7 @@
                     <span style="font-size:14px;font-weight:800;color:#EF4444">R$ 4.500 /mês</span>
                 </div>
                 <div class="flex justify-between items-center py-2.5 mb-4">
-                    <span style="font-size:12px;color:#2A4A18;font-weight:600">Nosso Custo Unificado:</span>
+                    <span style="font-size:12px;color:#2A4A18;font-weight:600">Investimento Mensal Creative Flow:</span>
                     <span style="font-size:14px;font-weight:800;color:#8F2B31">R$ 1.200 /mês</span>
                 </div>
 
@@ -3994,7 +3993,7 @@
                     style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#8F2B31;margin-bottom:4px;position:relative;z-index:10">
                     Economia Total no 1º Ano</p>
                 <p style="font-size:10px;color:#3A5A28;font-weight:600;margin-bottom:12px;position:relative;z-index:10">
-                    Setup (R$ 53.500) + OPEX Anual (R$ 39.600)</p>
+                    Setup (R$ 53.500) + Operação Anual (R$ 39.600)</p>
 
                 <div class="rounded-xl py-4 px-6 w-full mb-3 relative z-10"
                     style="background:linear-gradient(135deg,#A7343A,#7A2228);box-shadow:0 4px 12px rgba(61,107,31,0.2)">
@@ -4082,7 +4081,38 @@
         function upd() { slides.forEach((s, i) => { s.classList.remove('active', 'prev'); if (i === cur) s.classList.add('active'); else if (i < cur) s.classList.add('prev') }); document.getElementById('currentSlide').textContent = cur + 1; document.getElementById('progress').style.width = ((cur + 1) / total * 100) + '%' }
         function nextSlide() { if (cur < total - 1) { cur++; upd() } }
         function prevSlide() { if (cur > 0) { cur--; upd() } }
-        function toggleFullscreen() { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); const ic = document.getElementById('fsIcon'); ic.setAttribute('data-lucide', document.fullscreenElement ? 'maximize' : 'minimize'); lucide.createIcons() }
+        const FULLSCREEN_PREF_KEY = 'fh_proposta_fullscreen_v1';
+        const isFullscreen = () => Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+        const requestFullscreen = async () => {
+            try {
+                if (document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen();
+                else if (document.documentElement.webkitRequestFullscreen) document.documentElement.webkitRequestFullscreen();
+            } catch {}
+        };
+        const exitFullscreen = async () => {
+            try {
+                if (document.exitFullscreen) await document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+            } catch {}
+        };
+        const setFullscreenPreference = (enabled) => {
+            try { localStorage.setItem(FULLSCREEN_PREF_KEY, enabled ? 'on' : 'off'); } catch {}
+        };
+        const wantsFullscreen = () => {
+            try { return localStorage.getItem(FULLSCREEN_PREF_KEY) === 'on'; } catch { return false; }
+        };
+        async function toggleFullscreen() {
+            if (isFullscreen()) {
+                setFullscreenPreference(false);
+                await exitFullscreen();
+            } else {
+                setFullscreenPreference(true);
+                await requestFullscreen();
+            }
+            const ic = document.getElementById('fsIcon');
+            if (ic) ic.setAttribute('data-lucide', isFullscreen() ? 'minimize' : 'maximize');
+            if (window.lucide) lucide.createIcons();
+        }
         function changeZoom(d) { zoom = Math.max(.5, Math.min(1.5, zoom + d)); document.querySelector('.slide-container').style.transform = 'scale(' + zoom + ')'; document.getElementById('zoomLevel').textContent = Math.round(zoom * 100) + '%' }
         function resetZoom() { zoom = 1; document.querySelector('.slide-container').style.transform = 'scale(1)'; document.getElementById('zoomLevel').textContent = '100%' }
 
@@ -4155,7 +4185,20 @@
             }, 2500);
         }
 
-        document.addEventListener('DOMContentLoaded', () => { mountStaticLogos(); init(); lucide.createIcons(); startLogoSequence(); });
+        document.addEventListener('DOMContentLoaded', () => {
+            mountStaticLogos();
+            init();
+            if (window.lucide) lucide.createIcons();
+            startLogoSequence();
+            document.querySelectorAll('[data-hub-back]').forEach((link) => {
+                link.addEventListener('click', async (event) => {
+                    if (!wantsFullscreen() || isFullscreen()) return;
+                    event.preventDefault();
+                    await requestFullscreen();
+                    window.location.href = link.href;
+                });
+            });
+        });
         document.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === ' ') nextSlide(); if (e.key === 'ArrowLeft') prevSlide(); if (e.key === 'f') toggleFullscreen() });
         let wt = 0; document.addEventListener('wheel', e => { e.preventDefault(); const now = Date.now(); if (now - wt < 400) return; wt = now; e.deltaY > 0 ? nextSlide() : prevSlide() }, { passive: false });
         let tx = 0; document.addEventListener('touchstart', e => { tx = e.touches[0].clientX }); document.addEventListener('touchend', e => { const d = e.changedTouches[0].clientX - tx; if (d < -50) nextSlide(); if (d > 50) prevSlide() });

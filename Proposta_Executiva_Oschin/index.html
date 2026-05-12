@@ -479,7 +479,7 @@
     </div>
 
     <!-- Voltar para o Hub -->
-    <a href="../index.html"
+    <a href="../index.html" data-hub-back onclick="if(window.parent&&window.parent!==window){if(window.parent.__creativeFlowCloseProposal){window.parent.__creativeFlowCloseProposal();}else{window.parent.postMessage({type:'creativeflow:close-proposal'}, '*');} return false;}"
         class="fixed top-6 left-6 flex items-center gap-2 backdrop-blur-md px-4 py-2 rounded-full z-[60] transition group cursor-pointer"
         style="background:#414A33;box-shadow:0 4px 24px -6px rgba(45,74,30,.25),0 0 0 1px rgba(141,184,67,.2)">
         <i data-lucide="layout-grid" class="w-4 h-4 group-hover:scale-110 transition-transform"
@@ -525,8 +525,10 @@
         <div class="slide active flex-col justify-center">
             <!-- Decorative Watermark -->
             <div
-                class="absolute right-4 top-1/2 -translate-y-1/2 opacity-[0.01] pointer-events-none flex justify-end transition-all duration-700">
-                <img src="logo_oschin.png" class="w-[450px] md:w-[600px] object-contain brightness-0 invert" alt="" />
+                class="absolute right-4 top-1/2 -translate-y-1/2 opacity-[0.035] pointer-events-none flex justify-end transition-all duration-700">
+                <div class="font-serif text-[120px] md:text-[160px] font-black leading-none tracking-[-0.06em] text-[#1A2E10] text-right">
+                    Oschin
+                </div>
             </div>
 
             <!-- Content Wrapper -->
@@ -597,7 +599,7 @@
                         <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg"
                             style="background:#EBF0E4;border:1px solid rgba(141,184,67,0.25);">
                             <div class="w-2 h-2 rounded-full" style="background:#635BFF;"></div>
-                            <span class="text-[10px] font-bold text-[#1A2E10]">Stripe + Asaas</span>
+                            <span class="text-[10px] font-bold text-[#1A2E10]">Checkout + Gateway</span>
                         </div>
                         <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg"
                             style="background:#EBF0E4;border:1px solid rgba(141,184,67,0.25);">
@@ -1017,7 +1019,7 @@
                         style="background:rgba(141,184,67,0.15);border:1px solid rgba(141,184,67,0.3);"><i
                             data-lucide="shopping-cart" class="w-3.5 h-3.5 text-[#8DB843]"></i></div>
                     <div>
-                        <p class="text-[11px] font-bold text-[#1A2E10]">Checkout Reativo + Stripe Elements</p>
+                        <p class="text-[11px] font-bold text-[#1A2E10]">Checkout Seguro + Gateway</p>
                         <p class="text-[10px] text-[#4A6A38]">Checkout reativo sem recarregar página. Order Bumps
                             adicionados via Turbo Frame — aumento de ticket médio em tempo real.</p>
                     </div>
@@ -1322,8 +1324,8 @@
                 </div>
                 <h2 class="text-[22px] font-bold text-[#1A2E10] leading-tight">Página de Vendas + <span
                         style="color:#8DB843">Order Bumps</span></h2>
-                <p class="text-[12px] text-[#4A6A38] mt-0.5">Estrutura de checkout de alta conversão com gateways Stripe
-                    e Asaas — ingresso vendido em segundos.</p>
+                <p class="text-[12px] text-[#4A6A38] mt-0.5">Estrutura de checkout de alta conversão com gateway de
+                    pagamento seguro — ingresso vendido em segundos.</p>
             </div>
             <!-- Mini logo -->
             <div class="cf-slide-logo cf-slide-logo-inline shrink-0">
@@ -3224,11 +3226,11 @@
                             style="background:rgba(141,184,67,0.1);border:1px solid rgba(141,184,67,0.25)">
                             <i data-lucide="award" class="w-4 h-4 text-[#8DB843]"></i>
                         </div>
-                        <h5 style="font-size:14px;font-weight:800;color:#1A2E10">Padrão Enterprise</h5>
+                        <h5 style="font-size:14px;font-weight:800;color:#1A2E10">Padrão Profissional</h5>
                     </div>
                     <p style="font-size:12px;color:#2A4A18;line-height:1.6;margin-bottom:16px">A fundação tecnológica
-                        escolhida por corporações multibilionárias. O Parque Oschin terá estabilidade <strong
-                            style="color:#1A2E10">nível enterprise</strong>.</p>
+                        escolhida por produtos digitais de alta escala. O Parque Oschin terá estabilidade <strong
+                            style="color:#1A2E10">de padrão profissional</strong>.</p>
 
                     <div
                         style="font-size:10px;font-weight:800;color:#4A7C1F;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px">
@@ -3350,10 +3352,10 @@
                         <span style="font-size:9px;color:#6B7280;font-weight:600">Mar/25</span>
                     </div>
                     <div class="flex items-center gap-3 py-2">
-                        <div class="w-1.5 h-1.5 rounded-full animate-pulse shrink-0" style="background:#D97706"></div>
-                        <span style="font-size:9px;font-weight:800;color:#D97706;width:48px;shrink-0">Análise</span>
-                        <span style="font-size:10px;color:#374151;font-weight:600;flex:1">React 19.1 — Testes de
-                            compatibilidade</span>
+                        <div class="w-1.5 h-1.5 rounded-full shrink-0" style="background:#4A7C1F"></div>
+                        <span style="font-size:9px;font-weight:800;color:#4A7C1F;width:48px;shrink-0">Validado</span>
+                        <span style="font-size:10px;color:#374151;font-weight:600;flex:1">React 19.1 — Compatibilidade
+                            validada</span>
                         <span style="font-size:9px;color:#6B7280;font-weight:600">Ago/25</span>
                     </div>
                 </div>
@@ -3586,7 +3588,7 @@
             </div>
         </div>
     </div>
-    <!-- S16: Recorrencia Mensal (OPEX) -->
+    <!-- S16: Recorrencia Mensal -->
     <div class="slide flex-col justify-start" style="padding:1.45rem 2.1rem; overflow:hidden;">
 
         <!-- BG decorations -->
@@ -3601,7 +3603,7 @@
                     <span
                         class="px-2.5 py-1 text-[10px] font-bold rounded uppercase tracking-widest shadow-sm"
                         style="background:#1A2E10;border:1px solid rgba(141,184,67,0.45);color:#DDEBC7">Recorrência
-                        Mensal · OPEX</span>
+                        Mensal · Operação, Segurança e Suporte</span>
                     <div class="w-8 h-px" style="background:rgba(61,107,31,0.45)"></div>
                     <span class="text-[9px] text-[#4A6A38] uppercase tracking-wider">Parceria Contínua de TI —
                         Infraestrutura + Suporte + Evolução</span>
@@ -3690,7 +3692,7 @@
                         <span class="text-[9px] text-[#4A6A38]">· Sem carência</span>
                     </div>
                     <p class="text-[8.5px] text-[#4A6A38] leading-relaxed">Rescisão: aviso prévio 30 dias. Sem reajuste
-                        anual automático, exceto upgrade forçado de infraestrutura Cloud ou Banco de Dados.</p>
+                        anual automático, exceto revisão técnica de infraestrutura Cloud ou Banco de Dados por crescimento real.</p>
                 </div>
             </div>
 
@@ -3723,7 +3725,7 @@
                             <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 shrink-0"
                                     style="color:#F97316"></i><span
                                     class="text-[10.5px] text-[#1A2E10] font-semibold">Proteção Anti-DDoS
-                                    Enterprise</span></div>
+                                    avançada</span></div>
                             <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 shrink-0"
                                     style="color:#F97316"></i><span
                                     class="text-[10.5px] text-[#1A2E10] font-semibold">SSL Full-Strict + Rate
@@ -3845,8 +3847,8 @@
                         style="background:linear-gradient(135deg,rgba(249,115,22,0.07),rgba(249,115,22,0.03));border:1px solid rgba(249,115,22,0.15);">
                         <i data-lucide="lock" class="w-3.5 h-3.5 text-orange-500 shrink-0"></i>
                         <div>
-                            <div class="text-[10px] font-bold text-orange-600">Preço fixo, sem surpresas</div>
-                            <div class="text-[8.5px] text-[#7A5020]">escalonamento sem custo extra</div>
+                            <div class="text-[10px] font-bold text-orange-600">Mensalidade previsível</div>
+                            <div class="text-[8.5px] text-[#7A5020]">revisão só por crescimento real</div>
                         </div>
                     </div>
                 </div>
@@ -3926,15 +3928,14 @@
                     <span style="font-size:14px;font-weight:800;color:#EF4444">WordPress / PHP</span>
                 </div>
                 <div class="flex justify-between items-center py-2.5 mb-4">
-                    <span style="font-size:12px;color:#2A4A18;font-weight:600">Nosso Padrão (Enterprise):</span>
+                    <span style="font-size:12px;color:#2A4A18;font-weight:600">Nosso Padrão (Profissional):</span>
                     <span style="font-size:14px;font-weight:800;color:#4A7C1F">React + Edge Cloud</span>
                 </div>
 
                 <div class="mt-auto p-3 rounded-lg" style="background:#FFFFFF;border:1px solid rgba(141,184,67,0.2)">
                     <p style="font-size:11px;color:#1A2E10;font-weight:500;line-height:1.5">
-                        Não usamos templates CMS. Desenvolvemos com a mesma stack nativa utilizada por <strong
-                            style="color:#4A7C1F;font-weight:800">Netflix, Uber, Mercado Livre, iFood e Nubank</strong>.
-                        Alta performance e imunidade.
+                        Não usamos templates CMS. Desenvolvemos com stack moderna usada em produtos digitais de alta escala.
+                        Alta performance e segurança operacional.
                     </p>
                 </div>
             </div>
@@ -3948,7 +3949,7 @@
                             style="background:rgba(141,184,67,0.1);border:1px solid rgba(141,184,67,0.25)">
                             <i data-lucide="refresh-ccw" class="w-4 h-4" style="color:#8DB843"></i>
                         </div>
-                        <h4 style="font-size:15px;font-weight:800;color:#1A2E10">Manutenção Mensal (OPEX)</h4>
+                        <h4 style="font-size:15px;font-weight:800;color:#1A2E10">Operação Mensal</h4>
                     </div>
                     <i data-lucide="settings-2" class="w-6 h-6 opacity-30" style="color:#4A7C1F"></i>
                 </div>
@@ -3959,7 +3960,7 @@
                     <span style="font-size:14px;font-weight:800;color:#EF4444">R$ 4.500 /mês</span>
                 </div>
                 <div class="flex justify-between items-center py-2.5 mb-4">
-                    <span style="font-size:12px;color:#2A4A18;font-weight:600">Nosso Custo Unificado:</span>
+                    <span style="font-size:12px;color:#2A4A18;font-weight:600">Investimento Mensal Creative Flow:</span>
                     <span style="font-size:14px;font-weight:800;color:#4A7C1F">R$ 1.200 /mês</span>
                 </div>
 
@@ -3981,7 +3982,7 @@
                     style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#4A7C1F;margin-bottom:4px;position:relative;z-index:10">
                     Economia Total no 1º Ano</p>
                 <p style="font-size:10px;color:#3A5A28;font-weight:600;margin-bottom:12px;position:relative;z-index:10">
-                    Setup (R$ 53.500) + OPEX Anual (R$ 39.600)</p>
+                    Setup (R$ 53.500) + Operação Anual (R$ 39.600)</p>
 
                 <div class="rounded-xl py-4 px-6 w-full mb-3 relative z-10"
                     style="background:linear-gradient(135deg,#8DB843,#3D6B1F);box-shadow:0 4px 12px rgba(61,107,31,0.2)">
@@ -4069,7 +4070,38 @@
         function upd() { slides.forEach((s, i) => { s.classList.remove('active', 'prev'); if (i === cur) s.classList.add('active'); else if (i < cur) s.classList.add('prev') }); document.getElementById('currentSlide').textContent = cur + 1; document.getElementById('progress').style.width = ((cur + 1) / total * 100) + '%' }
         function nextSlide() { if (cur < total - 1) { cur++; upd() } }
         function prevSlide() { if (cur > 0) { cur--; upd() } }
-        function toggleFullscreen() { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); const ic = document.getElementById('fsIcon'); ic.setAttribute('data-lucide', document.fullscreenElement ? 'maximize' : 'minimize'); lucide.createIcons() }
+        const FULLSCREEN_PREF_KEY = 'fh_proposta_fullscreen_v1';
+        const isFullscreen = () => Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+        const requestFullscreen = async () => {
+            try {
+                if (document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen();
+                else if (document.documentElement.webkitRequestFullscreen) document.documentElement.webkitRequestFullscreen();
+            } catch {}
+        };
+        const exitFullscreen = async () => {
+            try {
+                if (document.exitFullscreen) await document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+            } catch {}
+        };
+        const setFullscreenPreference = (enabled) => {
+            try { localStorage.setItem(FULLSCREEN_PREF_KEY, enabled ? 'on' : 'off'); } catch {}
+        };
+        const wantsFullscreen = () => {
+            try { return localStorage.getItem(FULLSCREEN_PREF_KEY) === 'on'; } catch { return false; }
+        };
+        async function toggleFullscreen() {
+            if (isFullscreen()) {
+                setFullscreenPreference(false);
+                await exitFullscreen();
+            } else {
+                setFullscreenPreference(true);
+                await requestFullscreen();
+            }
+            const ic = document.getElementById('fsIcon');
+            if (ic) ic.setAttribute('data-lucide', isFullscreen() ? 'minimize' : 'maximize');
+            if (window.lucide) lucide.createIcons();
+        }
         function changeZoom(d) { zoom = Math.max(.5, Math.min(1.5, zoom + d)); document.querySelector('.slide-container').style.transform = 'scale(' + zoom + ')'; document.getElementById('zoomLevel').textContent = Math.round(zoom * 100) + '%' }
         function resetZoom() { zoom = 1; document.querySelector('.slide-container').style.transform = 'scale(1)'; document.getElementById('zoomLevel').textContent = '100%' }
 
@@ -4142,7 +4174,20 @@
             }, 2500);
         }
 
-        document.addEventListener('DOMContentLoaded', () => { mountStaticLogos(); init(); lucide.createIcons(); startLogoSequence(); });
+        document.addEventListener('DOMContentLoaded', () => {
+            mountStaticLogos();
+            init();
+            if (window.lucide) lucide.createIcons();
+            startLogoSequence();
+            document.querySelectorAll('[data-hub-back]').forEach((link) => {
+                link.addEventListener('click', async (event) => {
+                    if (!wantsFullscreen() || isFullscreen()) return;
+                    event.preventDefault();
+                    await requestFullscreen();
+                    window.location.href = link.href;
+                });
+            });
+        });
         document.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === ' ') nextSlide(); if (e.key === 'ArrowLeft') prevSlide(); if (e.key === 'f') toggleFullscreen() });
         let wt = 0; document.addEventListener('wheel', e => { e.preventDefault(); const now = Date.now(); if (now - wt < 400) return; wt = now; e.deltaY > 0 ? nextSlide() : prevSlide() }, { passive: false });
         let tx = 0; document.addEventListener('touchstart', e => { tx = e.touches[0].clientX }); document.addEventListener('touchend', e => { const d = e.changedTouches[0].clientX - tx; if (d < -50) nextSlide(); if (d > 50) prevSlide() });
