@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proposta Executiva | Creative Flow — Oschin e VillaLeta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --forest:#1A2E10; --forest-2:#263e19; --moss:#3D6B1F; --leaf:#8DB843; --sage:#4A6A38; --cream:#F5F0E4; --paper:#FDFAF3; --line:rgba(141,184,67,.25); --ink:#263221; --muted:#607154; --gold:#F8E7B0; }
+    * { box-sizing:border-box; }
+    html { background:#D8D0BF; scroll-behavior:smooth; }
+    body { margin:0; background:radial-gradient(ellipse at 12% 0,rgba(90,140,50,.14),transparent 34%),radial-gradient(ellipse at 88% 100%,rgba(70,120,30,.12),transparent 35%),#D8D0BF; color:var(--ink); font-family:Inter,Arial,sans-serif; min-height:100vh; }
+    .deck { width:min(1120px,calc(100% - 40px)); margin:28px auto; }
+    .slide { min-height:730px; background:var(--cream); border:1px solid var(--line); box-shadow:0 8px 48px -8px rgba(45,74,30,.25); border-radius:18px; margin-bottom:28px; padding:48px 58px; position:relative; overflow:hidden; }
+    .slide::after { content:""; pointer-events:none; position:absolute; width:380px; height:380px; border-radius:50%; right:-230px; bottom:-230px; background:radial-gradient(circle,rgba(141,184,67,.16),transparent 67%); }
+    .brand { display:flex; align-items:center; gap:10px; position:absolute; top:29px; right:39px; z-index:1; }
+    .brand svg { height:32px; width:32px; }
+    .brand-name { font-size:13px; line-height:1; font-weight:800; color:var(--forest); letter-spacing:-.03em; }
+    .brand-name span { color:var(--leaf); }
+    .brand-kicker { color:var(--sage); font-size:7px; font-weight:700; text-transform:uppercase; letter-spacing:.18em; margin-top:4px; }
+    .eyebrow { display:flex; align-items:center; gap:9px; color:var(--leaf); font-size:10px; text-transform:uppercase; letter-spacing:.14em; font-weight:800; margin-bottom:13px; }
+    .eyebrow::before { content:""; width:23px; height:2px; background:var(--moss); }
+    h1,h2,h3,p { margin-top:0; }
+    h1,h2 { font-family:"Playfair Display",Georgia,serif; color:var(--forest); letter-spacing:-.04em; }
+    h1 { font-size:52px; line-height:1.05; max-width:720px; margin-bottom:19px; }
+    h2 { font-size:31px; line-height:1.13; margin-bottom:12px; }
+    h1 em,h2 em { color:var(--moss); font-style:normal; }
+    .sub { color:var(--muted); font-size:15px; line-height:1.65; max-width:680px; }
+    .cover { display:flex; flex-direction:column; justify-content:center; background:linear-gradient(132deg,rgba(18,36,11,.97),rgba(40,65,25,.90)),radial-gradient(circle at 76% 22%,rgba(141,184,67,.43),transparent 24%),#1A2E10; color:white; }
+    .cover::after { width:620px; height:620px; right:-270px; bottom:-340px; background:radial-gradient(circle,rgba(141,184,67,.27),transparent 65%); }
+    .cover h1 { color:white; max-width:750px; font-size:58px; }
+    .cover h1 em { color:var(--leaf); }
+    .cover .sub { color:#DDEBC7; max-width:630px; font-size:16px; }
+    .cover .meta { margin-top:48px; display:flex; gap:13px; align-items:center; color:#DDEBC7; font-size:12px; }
+    .pill { background:rgba(141,184,67,.16); border:1px solid rgba(141,184,67,.37); color:var(--leaf); border-radius:999px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; font-size:9px; padding:8px 12px; }
+    .slide-no { position:absolute; bottom:26px; left:58px; color:#849174; font-size:10px; font-weight:700; letter-spacing:.13em; }
+    .two-col { display:grid; grid-template-columns:1.05fr .95fr; gap:34px; align-items:center; min-height:555px; }
+    .full-col { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:26px; }
+    .card { border:1px solid var(--line); background:var(--paper); border-radius:13px; box-shadow:0 2px 12px rgba(45,74,30,.07); padding:19px; }
+    .card h3 { font-size:13px; margin:0 0 8px; color:var(--forest); }
+    .card p { color:var(--muted); font-size:12px; line-height:1.55; margin:0; }
+    .card-icon { width:30px; height:30px; display:grid; place-items:center; background:rgba(141,184,67,.14); color:var(--moss); border-radius:8px; margin-bottom:10px; font-size:15px; }
+    .list { list-style:none; padding:0; margin:20px 0 0; }
+    .list li { position:relative; color:#425139; font-size:13px; padding:7px 0 7px 19px; }
+    .list li::before { content:"✓"; color:var(--moss); font-weight:800; position:absolute; left:0; }
+    .page-grid { display:grid; grid-template-columns:1fr 1fr; gap:7px 18px; margin-top:18px; }
+    .page-grid span { position:relative; padding-left:15px; color:#425139; font-size:11px; line-height:1.35; }
+    .page-grid span::before { content:"✓"; position:absolute; left:0; color:var(--moss); font-weight:800; }
+    .image-slot { min-height:375px; border-radius:15px; border:1.5px dashed rgba(61,107,31,.45); background:linear-gradient(135deg,rgba(141,184,67,.12),rgba(253,250,243,.8)); display:flex; align-items:center; justify-content:center; text-align:center; padding:30px; color:var(--sage); }
+    .image-slot b { display:block; font-size:13px; margin-bottom:5px; color:var(--forest); }
+    .image-slot span { font-size:11px; color:var(--muted); }
+    .layout-previews { min-height:375px; display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:center; }
+    .layout-preview { min-height:360px; overflow:hidden; border:1px solid rgba(61,107,31,.22); border-radius:13px; background:var(--paper); box-shadow:0 10px 23px rgba(31,49,23,.16); }
+    .layout-preview img { display:block; width:100%; height:360px; object-fit:cover; object-position:top; }
+    .layout-preview figcaption { position:absolute; }
+    .site-preview { position:relative; margin:0; width:100%; height:420px; overflow:hidden; border:1px solid rgba(61,107,31,.22); border-radius:14px; padding:0; background:var(--paper); box-shadow:0 13px 28px rgba(31,49,23,.17); cursor:zoom-in; }
+    .site-preview img { display:block; width:100%; height:100%; object-fit:cover; object-position:top; }
+    .site-preview::after { content:"Clique para ampliar"; position:absolute; inset:0; display:grid; place-items:center; background:rgba(26,46,16,.72); color:white; font:700 12px Inter,Arial,sans-serif; letter-spacing:.1em; text-transform:uppercase; opacity:0; transition:opacity .2s ease; }
+    .site-preview:hover::after,.site-preview:focus-visible::after { opacity:1; }
+    .site-preview:focus-visible { outline:3px solid var(--leaf); outline-offset:3px; }
+    .admin-preview img { object-fit:contain; background:#F7F4EC; }
+    .image-dialog { width:min(94vw,900px); height:min(94vh,1100px); max-width:none; max-height:none; border:0; border-radius:16px; padding:14px; background:var(--paper); box-shadow:0 22px 60px rgba(0,0,0,.45); }
+    .image-dialog::backdrop { background:rgba(10,20,7,.78); backdrop-filter:blur(4px); }
+    .image-dialog img { display:block; width:100%; height:calc(94vh - 28px); object-fit:contain; }
+    .image-dialog button { position:absolute; top:24px; right:24px; width:36px; height:36px; border:0; border-radius:50%; background:var(--forest); color:white; font-size:23px; cursor:pointer; line-height:1; }
+    .brand-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:28px; }
+    .brand-card { overflow:hidden; border-radius:14px; border:1px solid var(--line); background:var(--paper); }
+    .brand-head { padding:21px; color:white; }
+    .brand-card.oschin .brand-head { background:linear-gradient(135deg,#1F3518,#587233); }
+    .brand-card.villa .brand-head { background:linear-gradient(135deg,#2B211B,#7B2024); }
+    .brand-head h3 { font-family:"Playfair Display",Georgia,serif; font-size:24px; margin:0 0 4px; }
+    .brand-head p { margin:0; font-size:11px; opacity:.8; }
+    .brand-body { padding:18px 21px 20px; }
+    .brand-body p { color:var(--muted); font-size:12px; margin:0; line-height:1.55; }
+    .architecture { margin-top:25px; background:var(--forest); border-radius:14px; padding:23px 25px; display:grid; grid-template-columns:1fr 34px 1fr 34px 1fr; align-items:center; color:white; text-align:center; }
+    .architecture strong { color:var(--gold); font-size:13px; }
+    .architecture span { display:block; margin-top:4px; color:#DDEBC7; font-size:11px; line-height:1.4; }
+    .architecture .arrow { color:var(--leaf); font-size:23px; }
+    .role-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:26px; }
+    .role-card { border-radius:14px; padding:23px; background:var(--paper); border:1px solid var(--line); }
+    .role-card.super { border-top:4px solid var(--forest); }
+    .role-card.manager { border-top:4px solid var(--leaf); }
+    .role-card h3 { margin:0 0 6px; color:var(--forest); font-size:15px; }
+    .role-card p { margin:0; color:var(--muted); font-size:12px; }
+    .module-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:22px; }
+    .module { background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:17px; }
+    .module b { font-size:12px; color:var(--forest); }
+    .module p { color:var(--muted); font-size:11px; margin:5px 0 0; line-height:1.45; }
+    .split { display:grid; grid-template-columns:.92fr 1.08fr; gap:28px; align-items:center; min-height:530px; }
+    .feature-line { display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); }
+    .feature-line:last-child { border-bottom:0; }
+    .feature-line i { display:grid; place-items:center; flex:none; width:29px; height:29px; background:rgba(141,184,67,.14); border-radius:8px; color:var(--moss); font-style:normal; }
+    .feature-line b { display:block; font-size:12px; color:var(--forest); margin-bottom:3px; }
+    .feature-line span { color:var(--muted); font-size:11px; line-height:1.45; }
+    .investment { background:linear-gradient(135deg,#192e10,#263f1a); color:white; display:flex; flex-direction:column; justify-content:center; }
+    .investment .brand { filter:brightness(0) invert(1); opacity:.82; }
+    .investment h2 { color:white; font-size:38px; max-width:600px; }
+    .investment .sub { color:#DDEBC7; }
+    .price-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:30px; }
+    .price-grid .total { grid-column:1/-1; }
+    .price-card { border:1px solid rgba(248,231,176,.27); border-radius:13px; padding:20px; background:rgba(255,255,255,.045); }
+    .price-card.total { background:var(--gold); color:var(--forest); border-color:var(--gold); }
+    .price-card .label { color:#DDEBC7; font-size:10px; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
+    .price-card.total .label { color:var(--sage); }
+    .price-card h3 { margin:10px 0 2px; color:white; font-size:17px; }
+    .price-card.total h3 { color:var(--forest); }
+    .price-card .value { color:var(--leaf); margin-top:16px; font-size:31px; line-height:1; font-weight:800; letter-spacing:-.04em; }
+    .price-card.total .value { color:var(--forest); }
+    .price-card small { color:#DDEBC7; font-size:10px; }
+    .price-card.total small { color:var(--sage); }
+    .conditions { margin-top:20px; border-left:2px solid var(--leaf); padding-left:14px; color:#DDEBC7; font-size:11px; line-height:1.55; max-width:760px; }
+    .end { display:flex; flex-direction:column; justify-content:center; }
+    .end h2 { font-size:39px; max-width:650px; }
+    .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:26px; }
+    .step { border:1px solid var(--line); border-radius:12px; padding:15px; background:var(--paper); }
+    .step-no { color:var(--leaf); font-size:11px; font-weight:800; letter-spacing:.1em; }
+    .step b { display:block; color:var(--forest); font-size:12px; margin-top:8px; }
+    .step span { display:block; color:var(--muted); font-size:10px; line-height:1.45; margin-top:4px; }
+    .footer-note { margin-top:34px; padding-top:17px; border-top:1px solid var(--line); color:var(--muted); font-size:11px; }
+    @media(max-width:760px) { .deck { width:100%; margin:0; } .slide { min-height:0; border-radius:0; margin:0 0 14px; padding:72px 25px 56px; } h1,.cover h1 { font-size:39px; } h2,.investment h2,.end h2 { font-size:30px; } .two-col,.split,.full-col,.brand-grid,.role-grid,.price-grid,.page-grid { grid-template-columns:1fr; } .module-grid { grid-template-columns:1fr 1fr; } .architecture { grid-template-columns:1fr; gap:8px; } .architecture .arrow { transform:rotate(90deg); } .brand { right:25px; top:24px; } .slide-no { left:25px; } .steps { grid-template-columns:1fr 1fr; } }
+    @media print { .deck { width:100%; margin:0; } .slide { break-after:page; margin:0; border-radius:0; box-shadow:none; page-break-after:always; } }
+    /* Refined editorial layout */
+    html,body { background:#e8e6de; }
+    .deck { width:min(1240px,calc(100% - 64px)); margin:32px auto; }
+    .slide { padding:94px 64px 76px; min-height:0; margin-bottom:24px; border:1px solid #dcded1; border-radius:8px; background:#f9f7ef; box-shadow:0 5px 24px #18271008; }
+    .slide::after { display:none; }
+    .brand { top:30px; right:64px; }
+    .slide-no { bottom:26px; left:64px; color:#65745a; }
+    h2 { font-size:clamp(30px,3.2vw,43px); letter-spacing:-.045em; line-height:1.12; }
+    .eyebrow { color:#597333; font-size:10px; letter-spacing:.18em; margin-bottom:20px; }
+    .sub { font-size:14px; line-height:1.8; color:#65715d; }
+    .cover { min-height:650px; padding-top:120px; background:radial-gradient(ellipse at 90% 10%,#47612688,transparent 60%),#1A2E10; }
+    .cover::before { content:""; position:absolute; width:440px; height:440px; border:1px solid #8db84330; border-radius:50%; right:-160px; bottom:-190px; box-shadow:0 0 0 65px #8db8430b,0 0 0 130px #8db84308; pointer-events:none; }
+    .cover .brand-name,.cover .brand-kicker { color:#f5f0e4; }
+    .cover h1 { max-width:880px; font-size:clamp(43px,5.4vw,70px); line-height:1.06; }
+    .cover .eyebrow,.investment .eyebrow { color:#bad28c; }
+    .cover .meta { border-top:1px solid #ffffff25; padding-top:25px; margin-top:36px; }
+    .cover .slide-no { color:#b4c29d; }
+    .split { grid-template-columns:1.08fr 1fr; gap:52px; min-height:0; align-items:center; }
+    .site-preview { height:auto; border-radius:9px; box-shadow:0 18px 36px #2035191c; border:1px solid #24382025; }
+    .site-preview img { height:auto; width:100%; object-fit:contain; }
+    .site-preview::after { inset:auto 16px 16px; border-radius:6px; padding:14px; background:#1a2e10ed; font-size:10px; box-shadow:0 3px 16px #0002; }
+    .page-grid { margin-top:24px; gap:0 18px; border-top:1px solid #dce1d1; }
+    .page-grid span { font-size:12px; padding:11px 0 11px 17px; border-bottom:1px solid #e4e7db; line-height:1.5; }
+    .page-grid span::before { font-size:10px; top:13px; }
+    .slide:has(.admin-preview) .split { display:flex; flex-direction:column-reverse; gap:30px; align-items:stretch; }
+    .slide:has(.admin-preview) .split>div { display:grid; grid-template-columns:1fr 1fr; column-gap:32px; }
+    .slide:has(.admin-preview) h2 { grid-column:1/-1; max-width:850px; }
+    .slide:has(.admin-preview) .eyebrow,.slide:has(.admin-preview) .sub { grid-column:1/-1; }
+    .slide:has(.admin-preview) .sub { max-width:800px; }
+    .feature-line { padding:17px 0; }
+    .feature-line b { font-size:13px; margin-bottom:6px; }
+    .feature-line span { display:block; font-size:12px; line-height:1.7; }
+    .feature-line i { width:34px; height:34px; }
+    .module-grid { margin-top:30px; gap:0; border:1px solid #dce1d1; border-radius:8px; overflow:hidden; background:#fffdf7; counter-reset:modules; }
+    .module { padding:25px; border:0; border-radius:0; background:transparent; border-bottom:1px solid #e4e7db; border-right:1px solid #e4e7db; }
+    .module::before { counter-increment:modules; content:counter(modules,decimal-leading-zero); display:block; color:#718947; font-size:10px; letter-spacing:.1em; margin-bottom:16px; }
+    .module b { font-size:14px; }
+    .module p { font-size:12px; line-height:1.75; margin-top:9px; }
+    .role-card { border-radius:7px; padding:24px; }
+    .role-card p { line-height:1.8; }
+    .two-col { gap:52px; min-height:0; align-items:start; }
+    .two-col>div+div { border-left:1px solid #dce1d1; padding-left:34px; }
+    .list li { font-size:12px; line-height:1.8; }
+    .investment { background:radial-gradient(ellipse at 95% 0,#48632b66,transparent 70%),#1a2e10; min-height:640px; }
+    .investment h2 { font-size:44px; max-width:780px; }
+    .price-grid { gap:18px; margin-top:32px; }
+    .price-card { border-radius:8px; padding:28px 23px; }
+    .price-card .value { font-size:37px; margin:28px 0 13px; white-space:nowrap; }
+    .price-card small { font-size:11px; line-height:1.6; }
+    .price-card.total { background:#f5e8bc; box-shadow:0 8px 28px #0002; }
+    .conditions { font-size:13px; line-height:1.8; margin-top:28px; max-width:none; padding:26px; background:#F8E7B0; color:#29351D; border:1px solid #E4CA78; border-left:5px solid #C6A447; border-radius:8px; }
+    .conditions h3 { font-size:18px; line-height:1.35; color:#1A2E10; margin:0 0 14px; }
+    .conditions p { margin:0 0 12px; }
+    .conditions p:last-child { margin-bottom:0; }
+    .conditions .commercial-note { border-top:1px solid #C6A44766; padding-top:14px; margin-top:16px; font-size:12px; }
+    .end { min-height:530px; }
+    .end h2 { font-size:43px; max-width:800px; }
+    .steps { gap:0; border-top:1px solid #d6dfca; margin-top:28px; }
+    .step { background:transparent; border:0; border-radius:0; padding:24px 20px 0 0; }
+    .step-no { font-family:Georgia,serif; font-size:27px; color:#6c854a; }
+    .step b { margin-top:15px; font-size:13px; }
+    .step span { font-size:12px; line-height:1.7; margin-top:10px; }
+    .image-dialog { width:min(96vw,1440px); height:94vh; padding:16px; }
+    .image-dialog img { height:100%; }
+    body:has(.image-dialog[open]) { overflow:hidden; }
+    @media(hover:none) { .site-preview::after { opacity:1; } }
+    @media(max-width:900px) {
+      .deck { width:calc(100% - 28px); margin:14px auto; }
+      .slide { padding:82px 30px 62px; }
+      .brand { right:30px; }.slide-no { left:30px; }
+      .split { gap:28px; }.page-grid { grid-template-columns:1fr; }
+      .price-grid { grid-template-columns:1fr; }.price-card .value { margin-top:16px; }
+    }
+    @media(max-width:650px) {
+      .deck { width:100%; margin:0; }.slide { border-radius:0; padding:80px 24px 56px; margin-bottom:12px; }
+      .cover { min-height:620px; }.cover h1 { font-size:44px; }
+      .cover .meta { flex-wrap:wrap; }.brand { right:24px; }.slide-no { left:24px; }
+      .split,.two-col,.module-grid,.role-grid { grid-template-columns:1fr; }
+      .split { gap:32px; }.split>.site-preview { order:2; }
+      .slide:has(.admin-preview) .split>div { display:block; }
+      .two-col>div+div { border-left:0; border-top:1px solid #dce1d1; padding:30px 0 0; }
+      h2,.investment h2,.end h2 { font-size:32px; }
+      .page-grid { grid-template-columns:1fr 1fr; gap:0 14px; }.page-grid span { font-size:11px; }
+      .module { padding:22px; }.steps { grid-template-columns:1fr 1fr; }
+      .image-dialog { border-radius:8px; }.image-dialog button { top:12px; right:12px; }
+    }
+    @media print {
+      html,body { background:white; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+      .deck { width:100%; margin:0; }.slide { padding:60px 32px; margin:0; border:0; box-shadow:none; border-radius:0; }
+      .site-preview::after { display:none; }.module,.role-card { break-inside:avoid; }
+      .brand { right:32px; top:18px; }.slide-no { left:32px; bottom:15px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; }.site-preview::after { transition:none; } }
+    /* Creative Flow website identity: cyan, purple and graphite.
+       Light surfaces and the agreed yellow notice remain unchanged. */
+    :root { --forest:#13161D; --forest-2:#1c2230; --moss:#087b96; --leaf:#12C2E9; --sage:#586373; --ink:#202733; --muted:#626b78; --line:rgba(18,194,233,.20); }
+    .slide { border-color:#dce0e6; box-shadow:0 5px 24px #13161d08; }
+    h1,h2,h3 { color:#13161D; }
+    h1 em,h2 em { color:#087b96; }
+    .eyebrow,.step-no,.module::before { color:#087b96; }
+    .eyebrow::before { background:linear-gradient(90deg,#12C2E9,#C471ED); }
+    .sub,.card p,.feature-line span,.module p,.role-card p,.step span,.footer-note { color:#626b78; }
+    .page-grid span,.list li { color:#424c5a; }
+    .slide-no { color:#687383; }
+    .cover,.investment { background:radial-gradient(ellipse at 95% 0,#c471ed20,transparent 58%),radial-gradient(ellipse at 0 100%,#12c2e91c,transparent 60%),#13161D; }
+    .cover::before { border-color:#12c2e930; box-shadow:0 0 0 65px #12c2e909,0 0 0 130px #c471ed08; }
+    .cover h1,.investment h2 { color:#fff; }
+    .cover h1 em { color:#12C2E9; }
+    .cover .eyebrow,.investment .eyebrow { color:#12C2E9; }
+    .cover .sub,.investment .sub,.cover .meta { color:#d1d6df; }
+    .cover .slide-no,.investment .slide-no { color:#aeb8c8 !important; }
+    .pill { color:#12C2E9; background:#12c2e912; border-color:#12c2e94d; }
+    .brand-name { color:#13161D; text-transform:uppercase; letter-spacing:-.05em; }
+    .brand-name span { color:#12C2E9; }
+    .brand-kicker { color:#626b78; }
+    .brand svg g { fill:#12C2E9; }
+    .brand svg line { stroke:#12C2E9; }
+    .investment .brand { filter:none; opacity:1; }
+    .cover .brand-name,.investment .brand-name { color:#fff; }
+    .cover .brand-kicker,.investment .brand-kicker { color:#b7c1d0; }
+    .site-preview { border-color:#13161d25; box-shadow:0 18px 36px #13161d1c; }
+    .site-preview::after { background:#13161def; }
+    .feature-line i,.card-icon { color:#087b96; background:#12c2e913; }
+    .page-grid,.module-grid,.feature-line,.footer-note,.steps { border-color:#dce0e6; }
+    .page-grid span,.module { border-color:#e1e5ea; }
+    .two-col>div+div { border-color:#dce0e6; }
+    .role-card.super { border-top-color:#12C2E9; }
+    .role-card.manager { border-top-color:#C471ED; }
+    .price-card { border-color:#ffffff26; background:#ffffff05; }
+    .price-card .label,.price-card small { color:#c9d2df; }
+    .price-card .value { color:#12C2E9; }
+    .price-card.total { background:linear-gradient(135deg,#12C2E9,#88d6f0); border-color:#12C2E9; }
+    .price-card.total .label,.price-card.total h3,.price-card.total .value,.price-card.total small { color:#13161D; }
+    .conditions { color:#34312a; }
+    .conditions h3 { color:#292719; }
+    .image-dialog::backdrop { background:#09090ad9; }
+    .image-dialog button { background:#13161D; color:#12C2E9; }
+    .footer-note { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px 20px; }
+    .footer-note a { color:#087b96; font-weight:700; text-decoration:none; }
+    .footer-note a:hover,.footer-note a:focus-visible { text-decoration:underline; }
+    .card.card-installments { border-color:#12C2E966; background:#f0fbfe; box-shadow:none; }
+    .card.card-installments h3 { color:#087b96; }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide cover">
+      <div class="brand">{{LOGO}}</div>
+      <div class="eyebrow">Proposta Executiva · 16 de setembro de 2026</div>
+      <h1>Dois parques.<br><em>Duas experiências digitais</em> próprias.</h1>
+      <p class="sub">Uma nova presença digital para Parque Oschin e VillaLeta: design autoral, conteúdo gerenciável e uma jornada de compra integrada ao sistema de ingressos que já opera hoje.</p>
+      <div class="meta"><span class="pill">Creative Flow</span><span>Elaborado para Fillipe Holding</span></div>
+      <div class="slide-no">01 / 09</div>
+    </section>
+
+    <section class="slide">
+      <div class="brand">{{LOGO}}</div>
+      <div class="split">
+        <button class="site-preview" type="button" data-image="assets/layout-oschin.png" data-alt="Layout proposto para o site do Parque Oschin" aria-label="Clique para ampliar o layout do Parque Oschin"><img src="assets/layout-oschin.png" alt="Layout proposto para o site do Parque Oschin"></button>
+        <div>
+          <div class="eyebrow">Site profissional · Parque Oschin</div>
+          <h2>A natureza começa na tela e convida para a <em>visita.</em></h2>
+          <p class="sub">Site responsivo e administrável, desenvolvido a partir do layout aprovado. A prévia ao lado pode ser ampliada com um clique.</p>
+          <div class="page-grid" aria-label="Páginas previstas para o Parque Oschin">
+            <span>Home</span><span>Atrações</span><span>Página individual de atração</span><span>Gastronomia</span><span>Infraestrutura</span><span>O Parque</span><span>Como chegar</span><span>Horários</span><span>Regras do parque</span><span>Perguntas frequentes</span><span>Trabalhe conosco</span><span>Contato</span><span>Notícias e eventos</span><span>Botões para ingressos Mymento</span>
+          </div>
+        </div>
+      </div>
+      <div class="slide-no">02 / 09</div>
+    </section>
+
+    <section class="slide">
+      <div class="brand">{{LOGO}}</div>
+      <div class="split">
+        <button class="site-preview" type="button" data-image="assets/layout-villaleta.png" data-alt="Layout proposto para o site do VillaLeta" aria-label="Clique para ampliar o layout do VillaLeta"><img src="assets/layout-villaleta.png" alt="Layout proposto para o site do VillaLeta"></button>
+        <div>
+          <div class="eyebrow">Site profissional · VillaLeta</div>
+          <h2>Uma presença digital que faz o visitante entrar na <em>lenda.</em></h2>
+          <p class="sub">Site responsivo e administrável, construído a partir do conceito viking apresentado. A prévia ao lado pode ser ampliada com um clique.</p>
+          <div class="page-grid" aria-label="Páginas previstas para o VillaLeta">
+            <span>Home</span><span>Atrações</span><span>Página individual de atração</span><span>Gastronomia</span><span>Eventos</span><span>Mapa do parque</span><span>Experiências vikings</span><span>Como chegar</span><span>Horários</span><span>Regras do parque</span><span>Perguntas frequentes</span><span>Trabalhe conosco</span><span>Contato</span><span>Botões para ingressos Mymento</span>
+          </div>
+        </div>
+      </div>
+      <div class="slide-no">03 / 09</div>
+    </section>
+
+    <section class="slide">
+      <div class="brand">{{LOGO}}</div>
+      <div class="split">
+        <button class="site-preview admin-preview" type="button" data-image="assets/painel-admin.png" data-alt="Prévia do painel administrativo central dos parques" aria-label="Clique para ampliar a prévia do painel administrativo"><img src="assets/painel-admin.png" alt="Prévia do painel administrativo central dos parques"></button>
+        <div>
+          <div class="eyebrow">Admin central · Oschin + VillaLeta</div>
+          <h2>Um único painel para manter os dois parques vivos e organizados.</h2>
+          <p class="sub">A equipe escolhe o parque que deseja gerenciar e atualiza conteúdo, campanhas e configurações sem depender de programação.</p>
+          <div class="feature-line"><i>▥</i><div><b>Visão unificada</b><span>Dashboard com indicadores de visitas gerais e por parque, após conexão com o Google Analytics 4.</span></div></div>
+          <div class="feature-line"><i>✎</i><div><b>Conteúdo completo</b><span>Páginas, textos, atrações, imagens, notícias, eventos, banners e links de compra.</span></div></div>
+          <div class="feature-line"><i>◎</i><div><b>Marketing configurável</b><span>SEO/GEO, Google Analytics, Tag Manager e Meta Pixel centralizados por site.</span></div></div>
+          <div class="feature-line"><i>◌</i><div><b>Acessos seguros</b><span>Usuários, permissões e perfis separados entre Super Admin e Gerente.</span></div></div>
+          <div class="feature-line"><i>✉</i><div><b>Central de atendimento</b><span>Os formulários de Contato e Trabalhe conosco dos dois sites registram as solicitações diretamente no admin, sem envio por e-mail. A equipe consulta cada mensagem e acompanha seu atendimento por parque e tipo de solicitação.</span></div></div>
+        </div>
+      </div>
+      <div class="slide-no">04 / 09</div>
+    </section>
+
+    <section class="slide">
+      <div class="brand">{{LOGO}}</div>
+      <div class="eyebrow">Módulos do admin</div>
+      <h2>Tudo o que a operação precisa para administrar os dois sites.</h2>
+      <p class="sub">Cada registro é associado ao Parque Oschin ou ao VillaLeta, mantendo conteúdo, campanhas e indicadores organizados sem duplicar o trabalho da equipe.</p>
+      <div class="module-grid">
+        <div class="module"><b>Páginas e textos</b><p>Home, institucionais, horários, regras, FAQ, contato e demais páginas do site.</p></div>
+        <div class="module"><b>Atrações e galeria</b><p>Cadastro, edição, imagens, detalhes e botão de compra de cada experiência.</p></div>
+        <div class="module"><b>Notícias e banners</b><p>Novidades, campanhas e destaques atualizáveis para a home de cada parque.</p></div>
+        <div class="module"><b>Eventos</b><p>Título, data, descrição, imagem, página individual, listagem e banner na home.</p></div>
+        <div class="module"><b>Links da Mymento</b><p>Destino configurável para cada botão, atração, evento ou campanha, sem alterar a venda atual.</p></div>
+        <div class="module"><b>SEO, GEO e pixels</b><p>Metadados, URLs, dados estruturados, GA4, GTM e Meta Pixel por parque.</p></div>
+        <div class="module"><b>Dashboard de visitas</b><p>Visitas e páginas mais acessadas, mediante configuração e acesso à propriedade GA4.</p></div>
+        <div class="module"><b>Usuários e permissões</b><p>Convite de usuários, gestão de acessos e definição de perfil conforme a função.</p></div>
+        <div class="module"><b>Segurança operacional</b><p>Autenticação, permissões por perfil, validação, logs e rotina de backups.</p></div>
+        <div class="module"><b>Atendimento e candidaturas</b><p>Caixa de entrada dos formulários de Contato e Trabalhe conosco: identificação do parque, dados enviados, data, visualização da mensagem e status de atendimento. Acesso conforme as permissões do usuário; sem disparo de e-mail pelos formulários.</p></div>
+      </div>
+      <div class="role-grid">
+        <div class="role-card super"><h3>Super Admin</h3><p>Controle total dos dois parques: usuários, permissões, conteúdo, SEO/GEO, integrações e rastreamento.</p></div>
+        <div class="role-card manager"><h3>Gerente</h3><p>Gestão operacional dos conteúdos autorizados: páginas, atrações, notícias, eventos, galerias e banners.</p></div>
+      </div>
+      <div class="slide-no">05 / 09</div>
+    </section>
+
+    <section class="slide">
+      <div class="brand">{{LOGO}}</div>
+      <div class="eyebrow">SEO / GEO · Preparado para a era da inteligência artificial</div>
+      <h2>Um sistema atual, preparado para <span style="color:#6750a4">buscadores com IA.</span></h2>
+      <p class="sub">Os dois sites serão desenvolvidos com uma estrutura atual: visual profissional, gestão de conteúdo e preparação para buscas tradicionais e experiências de pesquisa com inteligência artificial. Vamos organizar as informações de cada parque para facilitar sua leitura por pessoas e mecanismos de busca.</p>
+      <div style="margin:24px 0;padding:24px;border:1px solid #12c2e955;border-left:4px solid #12C2E9;border-radius:8px;background:linear-gradient(120deg,#12c2e90d,#c471ed12)">
+        <h3 style="margin:0 0 10px;color:#13161D">Buscadores com IA em destaque desde a construção.</h3>
+        <p style="margin:0;line-height:1.75">Não se trata apenas de renovar a aparência dos sites. <strong>A preparação para buscas com inteligência artificial faz parte do projeto desde o início.</strong> SEO organiza a base para os buscadores; GEO orienta a clareza e a estrutura do conteúdo para mecanismos de respostas geradas por IA, sem acrescentar um chatbot ou uma IA própria ao sistema.</p>
+      </div>
+      <div class="full-col">
+        <div class="card"><h3>Estrutura para ser encontrado</h3><p>Páginas com títulos e descrições próprios, URLs organizadas e hierarquia clara de conteúdo. Cada parque terá suas informações identificadas, com configuração de SEO pelo admin.</p></div>
+        <div class="card"><h3>Informações claras para pessoas e IA</h3><p>Conteúdo organizado sobre atrações, localização, horários, regras e perguntas frequentes. Dados estruturados compatíveis com o conteúdo publicado, para descrever as informações de forma padronizada.</p></div>
+        <div class="card"><h3>Conteúdo que a equipe mantém atualizado</h3><p>O painel permitirá revisar textos, metadados, notícias e eventos de cada parque, mantendo as informações úteis e coerentes ao longo do tempo.</p></div>
+        <div class="card"><h3>Preparação inicial incluída no projeto</h3><p>A entrega inclui a estrutura e a configuração inicial previstas no escopo. Produção contínua de conteúdo, campanhas e acompanhamento recorrente de posicionamento não fazem parte deste investimento.</p></div>
+      </div>
+      <p class="sub" style="margin-top:24px;font-size:13px">Essa preparação não garante indexação, posições nos resultados, aumento de visitas ou citações em respostas de IA. A seleção e a exibição dos sites dependem dos critérios de cada plataforma.</p>
+      <div class="slide-no">06 / 09</div>
+    </section>
+
+    <section class="slide">
+      <div class="brand">{{LOGO}}</div>
+      <div class="two-col">
+        <div>
+          <div class="eyebrow">Eventos, conteúdo e campanhas</div>
+          <h2>O site acompanha o ritmo de cada parque.</h2>
+          <p class="sub">A operação cadastra um evento uma vez e o admin organiza tudo para o visitante encontrar a programação certa.</p>
+          <ul class="list"><li>Título, data, descrição, imagem e chamada de ação.</li><li>Página exclusiva para cada evento e listagem pública.</li><li>Banner de destaque configurável na home.</li><li>Botão direcionado ao ingresso correspondente na Mymento.</li><li>Notícias e campanhas sazonais para manter as duas marcas ativas.</li></ul>
+        </div>
+        <div>
+          <div class="eyebrow">Visibilidade e marketing</div>
+          <h2>Pronto para ser encontrado e mensurado.</h2>
+          <div class="feature-line"><i>⌕</i><div><b>SEO e GEO</b><span>Títulos, descrições, URLs, dados estruturados e conteúdo preparado para buscadores e experiências de busca com IA.</span></div></div>
+          <div class="feature-line"><i>◎</i><div><b>Rastreamento</b><span>Campos próprios para Google Analytics, Tag Manager e Meta Pixel, sem precisar alterar código a cada campanha.</span></div></div>
+          <div class="feature-line"><i>▥</i><div><b>Indicadores essenciais</b><span>Dashboard com visitas e páginas mais acessadas, condicionado à configuração e acesso da propriedade GA4.</span></div></div>
+          <div class="feature-line"><i>◌</i><div><b>Segurança operacional</b><span>Autenticação, permissões por perfil, HTTPS, validação de formulários, logs e rotina de backups.</span></div></div>
+        </div>
+      </div>
+      <div class="slide-no">07 / 09</div>
+    </section>
+
+    <section class="slide investment">
+      <div class="brand">{{LOGO}}</div>
+      <div class="eyebrow">Investimento</div>
+      <h2>Dois sites profissionais, uma presença digital à altura dos parques.</h2>
+      <p class="sub">Composição do projeto completo: dois sites com identidade própria, gestão centralizada e preparação técnica para publicação. As entregas abaixo compõem um único pacote, sem cobranças adicionais entre os módulos.</p>
+      <div class="price-grid">
+        <div class="price-card"><div class="label">Site · Unidade 01</div><h3>Parque Oschin</h3><div class="value">R$ 3.500</div><small>Design personalizado, páginas responsivas e conteúdo integrado ao admin compartilhado.</small></div>
+        <div class="price-card"><div class="label">Site · Unidade 02</div><h3>VillaLeta</h3><div class="value">R$ 3.500</div><small>Identidade própria, páginas responsivas e conteúdo integrado ao mesmo painel de gestão.</small></div>
+        <div class="price-card"><div class="label">Gestão dos dois parques</div><h3>Admin único</h3><div class="value">R$ 4.000</div><small>Conteúdo, atrações, notícias, eventos, atendimento, indicadores e usuários com permissões, conforme escopo.</small></div>
+        <div class="price-card"><div class="label">Preparação e publicação</div><h3>SEO/GEO e configuração inicial</h3><div class="value">R$ 1.000</div><small>Configuração inicial de SEO/GEO, métricas e links Mymento, testes e publicação. Métricas condicionadas aos acessos necessários.</small></div>
+        <div class="price-card total"><div class="label">Projeto completo · Pagamento por etapas</div><h3>Dois sites + admin + preparação técnica</h3><div class="value">R$ 12.000</div><small>Investimento total da opção 1. Alternativa com entrada e cartão detalhada nas condições de pagamento abaixo.</small></div>
+      </div>
+      <div class="conditions">
+        <h3>Novos sites e admin centralizado. A operação atual continua.</h3>
+        <p><strong>O que vamos desenvolver:</strong> os sites profissionais do Parque Oschin e da VillaLeta, com um único painel administrativo para gerenciar o conteúdo dos dois parques.</p>
+        <p><strong>O que permanece como está:</strong> a venda de ingressos, o checkout, os pagamentos e o envio de ingressos e confirmações por e-mail continuam no fluxo atual da Mymento. As contas de e-mail da empresa também permanecem no serviço já contratado. Os novos sites direcionam a compra para essa estrutura existente.</p>
+        <p><strong>Serviços contratados diretamente pela empresa:</strong> hospedagem, e-mail, domínio e Mymento seguem conforme os contratos vigentes. Esses custos não estão incluídos no valor de desenvolvimento apresentado.</p>
+        <p class="commercial-note">Os formulários de Contato e Trabalhe conosco serão novos e terão recebimento direto na central de atendimento do admin. Isso não altera o serviço de e-mail da empresa nem os envios de ingressos da Mymento.</p>
+      </div>
+      <div class="slide-no" style="color:#DDEBC7">08 / 09</div>
+    </section>
+
+    <section class="slide end">
+      <div class="brand">{{LOGO}}</div>
+      <div class="eyebrow">Condições e entrega</div>
+      <h2>Escolha a forma de pagamento. Entrega completa em dois meses.</h2>
+      <p class="sub">Prazo de dois meses para os dois sites e o admin único, contado do início do projeto, após aprovação da proposta, confirmação do primeiro pagamento e recebimento dos materiais e acessos necessários.</p>
+      <div class="full-col">
+        <div class="card"><h3>Opção 1 · Pagamento por etapas</h3><p><strong>R$ 6.000 de entrada</strong> para iniciar o projeto.<br><strong>R$ 3.000 em 30 dias</strong> após o início.<br><strong>R$ 3.000 na entrega completa</strong>, mesmo que ela ocorra antes ou depois dos dois meses. A última parcela está vinculada à entrega, e não ao vencimento do prazo.</p></div>
+        <div class="card card-installments"><h3>Opção 2 · Entrada + cartão em até 6x</h3><p><strong>R$ 5.000 de entrada</strong> para iniciar o projeto.<br><strong>R$ 7.500 de saldo</strong> em até 6x no cartão. O valor base desta opção é <strong>R$ 12.500</strong>. A taxa do cartão incide somente sobre o saldo parcelado e será acrescentada à cobrança; o Asaas mostrará ao cliente o total e as parcelas antes da confirmação. Total estimado com a taxa: <strong>aproximadamente R$ 12.772</strong>, sujeito à simulação da plataforma. O prazo de entrega permanece o mesmo.</p></div>
+      </div>
+      <div class="role-grid">
+        <div class="role-card super"><h3>Suporte opcional · R$ 200/mês</h3><p>Valor total para os dois sites e o admin, após a entrega. <strong>A contratação é opcional: sem contratar, não há mensalidade de suporte nem acompanhamento técnico contínuo pela Creative Flow.</strong> Se precisar de atendimento avulso, o serviço será orçado à parte e realizado após aprovação.</p><p>O plano inclui manutenção técnica preventiva, atualizações compatíveis, acompanhamento das rotinas de backup, suporte de uso e até duas horas mensais de pequenos ajustes, não acumulativas. Atendimento em horário comercial, sem plantão 24 horas. Novos recursos, reformulações, gestão de tráfego e serviços de terceiros são orçados separadamente. O suporte opcional não substitui as condições de correção de defeitos da entrega, a serem definidas no contrato.</p></div>
+        <div class="role-card manager"><h3>Imagens e apresentação visual</h3><p>Os sites serão construídos seguindo os layouts apresentados e utilizarão as imagens ilustrativas fornecidas. Elas serão identificadas como ilustrativas nas páginas. Textos e informações do parque serão validados antes da publicação; números, QR Codes e dados de exemplo das prévias não representam dados reais nem ampliam o escopo contratado.</p></div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-no">01</div><b>Início do projeto</b><span>Aprovar a proposta e realizar o pagamento da entrada.</span></div>
+        <div class="step"><div class="step-no">02</div><b>Materiais e acessos</b><span>Receber logos, fotos, textos, Locaweb, Mymento e ferramentas de marketing.</span></div>
+        <div class="step"><div class="step-no">03</div><b>Construção</b><span>Desenvolver os dois sites, o admin único e os formulários em ambiente de homologação.</span></div>
+        <div class="step"><div class="step-no">04</div><b>Publicação</b><span>Testar, publicar e manter o motor de ingressos em operação.</span></div>
+      </div>
+      <p class="footer-note"><span>Creative Flow Tecnologia Ltda · CNPJ 65.986.666/0001-06</span><a href="https://creativeflow.com.br/" target="_blank" rel="noopener noreferrer">creativeflow.com.br ↗</a></p>
+      <div class="slide-no">09 / 09</div>
+    </section>
+  </main>
+
+  <dialog class="image-dialog" id="image-dialog" aria-label="Imagem ampliada">
+    <button type="button" aria-label="Fechar imagem ampliada">×</button>
+    <img src="" alt="">
+  </dialog>
+
+  <template id="cf-logo">
+    <div class="brand"><svg viewBox="0 0 120 120" aria-hidden="true"><g fill="#8DB843"><circle cx="45" cy="30" r="13"/><circle cx="45" cy="70" r="13"/><line x1="45" y1="30" x2="45" y2="70" stroke="#8DB843" stroke-width="8" stroke-linecap="round"/><circle cx="18" cy="50" r="8.5"/><circle cx="45" cy="96" r="8.5"/><circle cx="45" cy="113" r="3.5"/><circle cx="75" cy="50" r="13"/><circle cx="75" cy="90" r="13"/><line x1="75" y1="50" x2="75" y2="90" stroke="#8DB843" stroke-width="8" stroke-linecap="round"/><circle cx="102" cy="70" r="8.5"/><circle cx="75" cy="24" r="8.5"/><circle cx="75" cy="7" r="3.5"/></g></svg><div><div class="brand-name">Creative<span>Flow</span></div><div class="brand-kicker">Intelligence Agency</div></div></div>
+  </template>
+  <script>
+    const logo = document.getElementById('cf-logo').innerHTML;
+    document.querySelectorAll('.brand').forEach(el => { if (el.innerHTML.trim() === '{{LOGO}}') el.outerHTML = logo; });
+
+    const imageDialog = document.getElementById('image-dialog');
+    const expandedImage = imageDialog.querySelector('img');
+    document.querySelectorAll('.site-preview').forEach(preview => {
+      preview.addEventListener('click', () => {
+        expandedImage.src = preview.dataset.image;
+        expandedImage.alt = preview.dataset.alt;
+        imageDialog.showModal();
+      });
+    });
+    imageDialog.querySelector('button').addEventListener('click', () => imageDialog.close());
+    imageDialog.addEventListener('click', event => { if (event.target === imageDialog) imageDialog.close(); });
+  </script>
+</body>
+</html>
